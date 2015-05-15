@@ -1,0 +1,4 @@
+#! /bin/sh
+
+#emacs -Q --no-splash --name FG42 --title FG42 -q -l /home/lxsameer/src/FG42/FG42/fg42-config.el "$@"
+emacs  -l /home/lxsameer/src/FG42/FG42/fg42-config.el "$@"

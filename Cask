@@ -1,10 +1,18 @@
 (source gnu)
 (source melpa)
-(source "kuso" "http://repo.kuso.lxsameer.com/packages")
 
 ; TODO: Check these packages
 ;       and move them to related kuso
 ;       plugin
+(package "FG42" "1.0.0" "Ultimate Emacs based IDE for true believers.")
+
+; TODO: Use packages in Medusa as soon as it get ready
+(depends-on "FG42-Core" :git "https://github.com/FG42/FG42-Core.git" :branch "master")
+(depends-on "cask")
+
+(development
+ (depends-on "FG42-Core" )
+)
 ;(depends-on "bind-key")
 ;(depends-on "cask")
 ;(depends-on "dash")
