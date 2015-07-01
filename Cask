@@ -7,11 +7,12 @@
 (package "FG42" "1.0.0" "Ultimate Emacs based IDE for true believers.")
 
 ; TODO: Use packages in Medusa as soon as it get ready
-(depends-on "FG42-Core" :git "https://github.com/FG42/FG42-Core.git" :branch "master")
+(depends-on "fg42-core")
+; :git "https://github.com/FG42/FG42-Core.git" :branch "master")
 (depends-on "cask")
 
 (development
- (depends-on "FG42-Core" )
+ (depends-on "fg42-core")
 )
 ;(depends-on "bind-key")
 ;(depends-on "cask")
