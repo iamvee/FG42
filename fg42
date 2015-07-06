@@ -1,4 +1,4 @@
 #! /bin/sh
 
 #cask exec emacs -Q --no-splash --name FG42 --title FG42 -q -l /home/lxsameer/src/FG42/FG42/fg42-config.el "$@"
-cask exec emacs -l --name FG42 /home/lxsameer/src/FG42/FG42/fg42-config.el "$@"
+emacs -l --name FG42 /home/lxsameer/src/FG42/FG42/fg42-config.el "$@"
