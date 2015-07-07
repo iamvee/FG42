@@ -2,5 +2,6 @@
 (toggle-debug-on-error)
 (require 'fg42)
 
-(enable-extensions 'editor)
+(activate-extensions 'editor)
 
+(fg42-initialize)

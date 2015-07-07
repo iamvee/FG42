@@ -27,4 +27,10 @@
 (require 'fpkg)
 (require 'fg42/base)
 
+(defun fg42-initialize ()
+  "Initialize FG42 editor."
+  (fpkg-initialize)
+  (initialize-extensions))
+
 (provide 'fg42)
+

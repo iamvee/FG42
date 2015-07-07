@@ -25,6 +25,8 @@
 
 ;;; Code:
 (require 'cl-lib)
+(require 'subr-x)
+(require 'fpkg/installers)
 
 (message "Initializing FPKG")
 
@@ -33,20 +35,58 @@
   "Package structure for FG42."
   name
   (version "0")
-  (github nil)
-  (path nil))
+  (path nil)
+  (source 'elpa))
 
 (defvar required-packages (make-hash-table)
   "A hash of `fg42-package structure representing required packages.")
 
 ;; Functions ----------------------------------
+(defun all-dependencies-installed? ()
+  "Return t if all the dependencies installed."
+  (let ((result t))
+    (dolist (pkg (hash-table-values required-packages))
+      (when (not (package-installed-p pkg)) (setq result nil)))
+    result))
+    
+(defun install--package (pkg)
+  "Intall a package via its propreate source."
+  (let* ((source (fpkg-dependency-source pkg))
+	 (func-name (concat "install-package-via-" (symbol-name source)))
+	 (install-func
+	  (symbol-function
+	   (intern func-name))))
+    (funcall install-func pkg)))
+
 (defun fpkg-initialize ()
   "Initilize the package.el and related stuff to be used in FG42"
-  (require 'package)
-  (require 'melpa)
-  (add-to-list 'package-archives
-	       '("melpa" . "http://melpa.milkbox.net/packages/") t)
-  (package-initialize))
+  (let ((packages (hash-table-values required-packages)))
+
+    (require 'package)
+    
+    (add-to-list 'package-archives
+		 '("melpa" . "http://melpa.milkbox.net/packages/") t)
+    (when (< emacs-major-version 24)
+      ;; For important compatibility libraries like cl-lib
+      (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+
+    ;; Initialize package.el
+    (package-initialize)
+    
+    (setq url-http-attempt-keepalives nil)
+
+    (unless (all-dependencies-installed?)
+      ;; check for new packages (package versions)
+      (message "%s" "Refreshing package database...")
+      (package-refresh-contents)
+      (message "%s" " done.")
+
+      ;; install the missing packages
+      (dolist (pkg packages)
+	(when (not (package-installed-p (fpkg-dependency-name pkg)))
+	  (install--package pkg))))))
+
+  
 
 (defun depends-on (pkgname &rest args)
   "Global function to specify a single dependency"

@@ -1,0 +1,106 @@
+;;;###autoload
+(defun extension/editor-initialize ()
+  "Base plugin initialization."
+  (message "Initializing 'editor' extension.")
+
+  ;; Remove splash screen
+  (setq inhibit-splash-screen t)
+
+  ;; scratch should be scratch
+  (setq initial-scratch-message nil)
+
+
+  ;; Tramp configuration ---------------------------------------------
+  (setq tramp-default-method "ssh")
+
+  ;; replace strings
+  (global-set-key (kbd "C-c M-s") 'replace-string)
+
+  ;; Basic Key bindings
+  (global-set-key (kbd "\C-c m") 'menu-bar-mode)
+
+  ;; Indentation ----------------------------------------------
+  ;; Don't allow tab as indent
+  (setq-default indent-tabs-mode nil)
+
+  ;; Default indent width
+  (setq tab-width 2)
+  (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+  ;; Enhancements ---------------------------------------------
+
+  ;; Global configurations
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  (setq x-select-enable-clipboard t)
+  (column-number-mode t)
+
+  ;; linum mode
+  (global-linum-mode)
+  (setq linum-format " %3d ")
+
+  (menu-bar-mode -1)
+  (show-paren-mode t)
+  (cua-selection-mode t)
+
+
+
+  ;; expand-region -------------------------------------------
+  (global-set-key (kbd "C-=") 'er/expand-region)
+
+  ;; Multiple cursor -----------------------------------------
+  ;; multiple cursor configurations
+  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-SPC ") 'mc/mark-all-like-this)
+
+  ;; Key Chord ------------------------------------------------
+  ;; (require 'key-chord)
+  ;; (key-chord-mode 1)
+
+  ;; (key-chord-define-global "hj"     'undo)
+  ;; (key-chord-define-global "kl"     'right-word)
+  ;; (key-chord-define-global "sd"     'left-word)
+  ;; (key-chord-define-global "m,"     'forward-paragraph)
+  ;; (key-chord-define-global "p["     'backward-paragraph)
+
+  ;; HideShow -------------------------------------------------------
+  (global-set-key (kbd "C-\-") 'hs-toggle-hiding)
+  (hs-minor-mode)
+
+  ;; IDO configurations ---------------------------------------------
+  (require 'flx-ido)
+  (require 'ido-vertical-mode)
+  (ido-mode t)
+  (ido-everywhere t)
+  (flx-ido-mode 1)
+  (setq ido-use-faces nil)
+					; If don't want to use the flx's highlights you can turn them off like this
+					; (setq flx-ido-use-faces nil)
+
+  (setq ido-enable-flex-matching t)
+  (ido-vertical-mode 1)
+
+
+  ;; Backup files ---------------------------------------------
+  ;; Put them in one nice place if possible
+  (if (file-directory-p "~/.backup")
+      (setq backup-directory-alist '(("." . "~/.backup")))
+    (make-directory "~/.backup"))
+
+  (setq backup-by-copying t    ; Don't delink hardlinks
+	delete-old-versions t  ; Clean up the backups
+	version-control t      ; Use version numbers on backups,
+	kept-new-versions 3    ; keep some new versions
+	kept-old-versions 2)   ; and some old ones, too
+
+  ;; get rid of yes-or-no questions - y or n is enough
+  (defalias 'yes-or-no-p 'y-or-n-p)
+
+  (setq my-path (file-name-directory load-file-name))
+  ;; Load about submenu
+  (require 'extensions/editor/version)
+  (require 'extensions/editor/about)
+  (require 'extensions/editor/custom))
+
+(provide 'extensions/editor/init)
