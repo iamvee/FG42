@@ -1,16 +1,15 @@
-Kuso IDE
-========
-If you love **GNU/Emacs**, If you love to program in an editor instead of big slow IDE but still enjoy to have a handy code editor then Kuso IDE is the right choice for you.
+Future Gadgets 42
+=================
+If you love **GNU/Emacs**, If you love to program in an editor instead of big slow IDE but still enjoy to
+have a handy code editor then **FG42** is the right choice for you.
 
 
 Dependencies
 ============
-Kuso IDE required these softwares:
+FG42 required these softwares:
 
-* GNU Emacs >= 24.3
-* texinfo
-* git (If you want to install or update packages via `el-get`)
-* bzr (If you want to install or update packages via `el-get`)
+* GNU Emacs >= 25
+
 
 Python dependencies (kuso-python plugin)
 ----------------------------------------
@@ -40,25 +39,24 @@ CSS dependencies
 
 Installation
 ============
-Just run `install.sh` script in its directory like this:
+Just clone the repository and run the `fg42` script.
 
-```bash
-$ ./install.sh
-```
+Enjoy using **FG42** ;)
 
-and answer to questions which installer will ask you. That's it.
-
-Enjoy using **Kuso IDE** ;)
+what's with the name?
+=====================
+I'm a huge fan of [Steins Gate](https://en.wikipedia.org/wiki/Steins;Gate) anime and I follow its
+naming convensions on **Future Gadgets 42**.
 
 
 License
 =======
-  Kuso IDE is free software; you can redistribute it and/or modify
+  FG42 is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or
 any later version.
 
-  Kuso IDE is distributed in the hope that it will be useful,
+  FG42 is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
@@ -67,7 +65,7 @@ GNU General Public License for more details.
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-  All the documents of Kuso IDE that locate in 'doc' directories release
+  All the documents of FG42 that locate in 'doc' directories release
 under the term of GNU FDL.
 
-Copyright (C) 2010-2014  Sameer Rahmani <lxsameer@gnu.org>
+Copyright (C) 2010-2015  Sameer Rahmani <lxsameer@gnu.org>
