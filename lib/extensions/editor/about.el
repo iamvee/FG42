@@ -1,4 +1,4 @@
-
+;; Vars -------------------------------
 (defvar about_fg42_msg "
 FG42 %%VERSION%% Copyright © 2010-2015 Sameer Rahmani <lxsameer@gnu.org>
 FG42 release under the term of GPLv2.
@@ -15,7 +15,7 @@ Credits:
   "About FG42")
 
 
-
+;; Functions ---------------------------
 (defun about/get_string ()
   "Get the about message string"
   (let (msg)
@@ -33,10 +33,8 @@ Credits:
     (view-buffer buf)))
 
 (define-key-after global-map
-                  [menu-bar help-menu about-kuso]
+                  [menu-bar help-menu about-fg42]
 		  '("About FG42" . about-fg42-f)
 		  'about-emacs)
-;(define-key-after global-map [menu-bar help-menu kuso-update-everything] '("Update FG42 (everything)" . el-get-update-all) 'getting-new-versions)
-;(define-key-after global-map [menu-bar help-menu kuso-update] '("Update FG42" . el-get-update) 'fg42-update-everything)
 
 (provide 'extensions/editor/about)

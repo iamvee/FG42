@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2015  lxsameer
 
-;; Author: Nic Ferrier <lxsameer@gnu.org>
+;; Author: Sameer Rahmani <lxsameer@gnu.org>
 ;; Keywords: lisp fg42 IDE package manager
 ;; Version: 1.0.0
 
@@ -48,7 +48,7 @@
     (dolist (pkg (hash-table-values required-packages))
       (when (not (package-installed-p pkg)) (setq result nil)))
     result))
-    
+
 (defun install--package (pkg)
   "Intall a package via its propreate source."
   (let* ((source (fpkg-dependency-source pkg))
@@ -63,7 +63,7 @@
   (let ((packages (hash-table-values required-packages)))
 
     (require 'package)
-    
+
     (add-to-list 'package-archives
 		 '("melpa" . "http://melpa.milkbox.net/packages/") t)
     (when (< emacs-major-version 24)
@@ -72,21 +72,20 @@
 
     ;; Initialize package.el
     (package-initialize)
-    
+
     (setq url-http-attempt-keepalives nil)
 
     (unless (all-dependencies-installed?)
       ;; check for new packages (package versions)
       (message "%s" "Refreshing package database...")
       (package-refresh-contents)
-      (message "%s" " done.")
 
       ;; install the missing packages
       (dolist (pkg packages)
 	(when (not (package-installed-p (fpkg-dependency-name pkg)))
 	  (install--package pkg))))))
 
-  
+
 
 (defun depends-on (pkgname &rest args)
   "Global function to specify a single dependency"

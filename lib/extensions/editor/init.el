@@ -1,3 +1,10 @@
+;; Functions -------------------------------------------------
+
+(defun fg42-reload ()
+  "Reload the entire FG42."
+  (interactive)
+  (load-file (concat (getenv "FG42_HOME") "/fg42-config.el")))
+
 ;;;###autoload
 (defun extension/editor-initialize ()
   "Base plugin initialization."
@@ -10,7 +17,7 @@
   (setq initial-scratch-message nil)
 
 
-  ;; Tramp configuration ---------------------------------------------
+  ;; Tramp configuration -------------------------------------
   (setq tramp-default-method "ssh")
 
   ;; replace strings
@@ -53,6 +60,9 @@
   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C-c C-SPC ") 'mc/mark-all-like-this)
+
+  ;; Reload FG42
+  (define-key global-map (kbd "<f5>") 'fg42-reload)
 
   ;; Key Chord ------------------------------------------------
   ;; (require 'key-chord)

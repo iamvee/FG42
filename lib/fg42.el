@@ -2,9 +2,9 @@
 
 ;; Copyright (C) 2015  lxsameer
 
-;; Author: Nic Ferrier <lxsameer@gnu.org>
+;; Author: Sameer Rahmani <lxsameer@gnu.org>
 ;; Keywords: lisp fg42 IDE package manager
-;; Version: 2.67.0
+;; Version: 2.31
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -33,4 +33,3 @@
   (initialize-extensions))
 
 (provide 'fg42)
-
