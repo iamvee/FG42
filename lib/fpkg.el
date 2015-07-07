@@ -42,12 +42,16 @@
 ;; Functions ----------------------------------
 (defun fpkg-initialize ()
   "Initilize the package.el and related stuff to be used in FG42"
-
-  )
+  (require 'package)
+  (require 'melpa)
+  (add-to-list 'package-archives
+	       '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  (package-initialize))
 
 (defun depends-on (pkgname &rest args)
   "Global function to specify a single dependency"
   (let ((pkg (apply 'make-fpkg-dependency :name pkgname args)))
     (puthash pkgname pkg  required-packages)))
- 
+
+
 (provide 'fpkg)
