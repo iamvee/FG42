@@ -111,6 +111,6 @@
   ;; Load about submenu
   (require 'extensions/editor/version)
   (require 'extensions/editor/about)
-  (require 'extensions/editor/custom))
-
+  (require 'extensions/editor/custom)
+  (require 'extensions/editor/session-management))
 (provide 'extensions/editor/init)
