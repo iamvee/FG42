@@ -31,11 +31,10 @@
 to them.
 
 *body* is a block of code which will run as the ability initializer code."
-  `(progn
-     (message "00000 %s" (active-ability? (intern ,(symbol-name name))))
-     (if (active-ability? (intern ,(symbol-name name)))
+  (declare (doc-string 2) (indent 1))
+  `(if (active-ability? (intern ,(symbol-name name)))
        (if (null (delq t (mapcar 'active-ability? ,deps)))
-           ,@body))))
+           ,@body)))
 
 (defmacro extension (name &rest args)
   "A simple DSL to define new fg42 extension."

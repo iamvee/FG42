@@ -18,13 +18,16 @@
   (message "Initializing 'development' extension.")
 
   (ability code-completion ()
+           "Use company mode to provides a complete auto completion framwork."
            (global-company-mode t)
            (define-key company-active-map "\t" 'company-yasnippet-or-completion))
 
   (ability yas ()
+           "Snippet configuration."
            (yas-global-mode 1))
 
   (ability project-management ()
+           "Ability to manage projects and project navigation."
            (projectile-global-mode)
            (setq projectile-enable-caching t))
 
