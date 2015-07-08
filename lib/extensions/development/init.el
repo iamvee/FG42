@@ -47,6 +47,7 @@
 
   (ability auto-pair
            "Auto pair stuffs like brackets begin/ends etc."
+           ;; TODO: use autopair mode if electric pair was not as good as autopair
            (electric-pair-mode))
 
   (ability indent-guide
