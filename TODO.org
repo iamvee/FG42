@@ -7,4 +7,5 @@
 *** TODO add support to main todo repository and collect todo form projects repositories
 ** TODO add startup custom buffer for kuso
 ** TODO add per project configuration support
+** TODO configure `package-archive-priorities` so package.el install all packages from elpa first
 * Release
