@@ -45,8 +45,10 @@
 (defun all-dependencies-installed? ()
   "Return t if all the dependencies installed."
   (let ((result t))
-    (dolist (pkg (hash-table-values required-packages))
-      (when (not (package-installed-p pkg)) (setq result nil)))
+    (dolist (pkg (hash-table-keys required-packages))
+      (when (not (package-installed-p pkg))
+        (message "'%s' package is not installed" pkg)
+        (setq result nil)))
     result))
 
 (defun install--package (pkg)
