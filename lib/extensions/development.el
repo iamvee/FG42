@@ -5,12 +5,15 @@
 ;; Dependencies ----------------------------------
 (depends-on 'flycheck)
 (depends-on 'company)
+(depends-on 'company-statistics)
 (depends-on 'projectile)
 (depends-on 'flyspell)
 (depends-on 'diff-hl)
 (depends-on 'magit)
 (depends-on 'indent-guide)
 (depends-on 'yasnippet)
+;; TODO: Add flycheck-color-modebar
+;; TODO  Add flycheck-tip
 
 ;; Extension -------------------------------------
 (extension development

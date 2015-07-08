@@ -19,7 +19,25 @@
 
   (ability code-completion ()
            "Use company mode to provides a complete auto completion framwork."
+           (require 'company)
            (global-company-mode t)
+
+           ;; Bigger popup window
+           (setq company-tooltip-limit 20)
+
+           ;; Align annotations to the right tooltip border
+           (setq company-tooltip-align-annotations 't)
+
+           ;; Decrease delay before autocompletion popup shows
+           (setq company-idle-delay 0.3)
+
+           ;; Start autocompletion only after typing
+           (setq company-begin-commands '(self-insert-command))
+
+           ;; Force complete file names on "C-c /" key
+           (global-set-key (kbd "C-c /") 'company-files)
+
+           (add-hook 'after-init-hook 'company-statistics-mode)
            (define-key company-active-map "\t" 'company-yasnippet-or-completion))
 
   (ability yas ()

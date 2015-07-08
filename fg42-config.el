@@ -3,6 +3,7 @@
 (require 'fg42)
 
 (activate-extensions 'editor
-                     'development)
+                     'development
+                     'web)
 
 (fg42-initialize)
