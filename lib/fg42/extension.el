@@ -38,6 +38,7 @@ to them.
 
 (defmacro extension (name &rest args)
   "A simple DSL to define new fg42 extension."
+  ;(declare (doc-string 1) (indent 1))
   `(setq ,name (apply 'make-fg42-extension :name ,(symbol-name name) (quote ,args))))
 
 (provide 'fg42/extension)

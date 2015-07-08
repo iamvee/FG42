@@ -31,7 +31,27 @@
            (projectile-global-mode)
            (setq projectile-enable-caching t))
 
+  (ability flycheck ()
+           "Check syntax on the fly using flycheck."
+           (add-hook 'after-init-hook 'global-flycheck-mode))
 
+  (ability spell ()
+           "Check spell of any word using ispell."
+           (require 'flyspell)
+           (setq flyspell-issue-message-flg nil))
 
-)
+  (ability diff-highlight
+           "Highlight the diffs based on VCS."
+           (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
+           (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
+
+  (ability auto-pair
+           "Auto pair stuffs like brackets begin/ends etc."
+           (electric-pair-mode))
+
+  (ability indent-guide
+           "Show indent guides."
+           (indent-guide-global-mode)
+           (set-face-foreground 'indent-guide-face "#bbb")))
+
 (provide 'extensions/development/init)

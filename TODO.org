@@ -8,4 +8,5 @@
 ** TODO add startup custom buffer for kuso
 ** TODO add per project configuration support
 ** TODO configure `package-archive-priorities` so package.el install all packages from elpa first
+** TODO add company mode support for flyspell
 * Release

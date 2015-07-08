@@ -17,4 +17,3 @@
 	   :on-initialize extension/editor-initialize)
 
 (provide 'extensions/editor)
-
