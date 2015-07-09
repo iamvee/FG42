@@ -89,6 +89,13 @@
            "Provides fast search ability via silver search"
            (setq ag-reuse-window 't)
            (setq ag-highlight-search t))
+
+  (ability smart-mode-line ()
+           "Smarter modeline for FG42"
+           (setq sml/no-confirm-load-theme t)
+           (setq sml/theme 'respectful)
+           (sml/setup))
+
   (ability indent-guide
            "Show indent guides."
            (indent-guide-global-mode)
