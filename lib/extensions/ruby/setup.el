@@ -17,7 +17,7 @@
   (define-key ruby-mode-map (kbd "\C-c b c") 'bundle-console))
 
 ;;;###autoload
-(defun setup-inf-ruby ()
+(defun setup-inf-ruby()
   "Setup inf-ruby and Robe"
 
   ;; Inf Ruby configuration

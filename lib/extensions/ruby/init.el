@@ -6,7 +6,7 @@
 (defun ruby-mode-callback ()
 
   (setup-general-ruby-editor)
-  (setup-inf-and-robe)
+  (setup-inf-ruby)
   (setup-bundler)
 
   (with-ability rbenv
