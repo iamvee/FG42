@@ -29,7 +29,8 @@
            (setq company-tooltip-align-annotations 't)
 
            ;; Decrease delay before autocompletion popup shows
-           (setq company-idle-delay 0.3)
+           (setq company-idle-delay 0.1)
+           (setq company-minimum-prefix-length 2)
 
            ;; Start autocompletion only after typing
            (setq company-begin-commands '(self-insert-command))

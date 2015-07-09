@@ -32,7 +32,7 @@
 to them.
 
 *body* is a block of code which will run as the ability initializer code."
-  (declare (doc-string 2) (indent 1))
+  (declare (doc-string 2) (indent 0))
   `(if (active-ability? (intern ,(symbol-name name)))
        (when (null (delq t (mapcar 'active-ability? (quote ,deps))))
          ,@body)))

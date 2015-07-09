@@ -14,8 +14,6 @@
 (depends-on 'js2-mode)
 (depends-on 'js2-refactor)
 (depends-on 'rainbow-mode)
-;(depends-on 'slim-mode)
-;(depends-on 'haml-mode)
 (depends-on 'mustache-mode)
 
 ;; Extension -------------------------------------

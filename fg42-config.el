@@ -4,6 +4,7 @@
 
 (activate-extensions 'editor
                      'development
-                     'web)
+                     'web
+                     'ruby)
 
 (fg42-initialize)
