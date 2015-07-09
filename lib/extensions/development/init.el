@@ -43,8 +43,12 @@
 
   (ability yas ()
            "Snippet configuration."
-           (let ((snippet_home (concat fg42-home "/lib/snippets")))
-             (setq yas-snippet-dirs (list snippet_home)))
+
+           (let ((snippet_home (concat (file-name-directory
+                                (locate-library "yasnippet")) "snippets"))
+                 (my_snippet (concat fg42-home "/lib/snippets")))
+             (setq yas-snippet-dirs (list my_snippet snippet_home)))
+
            (yas-global-mode 1))
 
   (ability project-management ()
