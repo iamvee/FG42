@@ -11,6 +11,9 @@
 ;; Disable abilities which we do not want to load
 (disable 'rbenv)
 
+;; Load the default theme
+(theme themes/color-theme-monokai)
+
 ;; Load user config file in ~/.fg42
 (load-user-config "~/.fg42")
 

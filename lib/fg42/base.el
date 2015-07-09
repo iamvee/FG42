@@ -1,6 +1,16 @@
 (require 'cl-lib)
 (require 'fg42/extension)
 
+;; Macros ---------------------------------
+(defmacro theme (name)
+  "Load the given theme name"
+  `(progn
+     (require ',(intern (symbol-name name)))
+     (eval-after-load "color-theme"
+     '(progn
+        (color-theme-initialize)
+        (,name)))))
+
 ;; Functions ------------------------------
 (defun load--extension (extension)
   "Load a single extension and call its :on-initialize function"
@@ -25,5 +35,6 @@
   "Load the given path as user config file"
   (if (file-exists-p file)
       (load-file file)))
+
 
 (provide 'fg42/base)

@@ -26,6 +26,9 @@ Ruby dependencies (kuso-ruby plugin)
   * Rake
   * Bundle
   * rbenv
+  * pry
+  * pry-doc
+  * meta_source
 
 HTML dependencies
 -----------------

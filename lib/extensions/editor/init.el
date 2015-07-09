@@ -10,6 +10,8 @@
   "Base plugin initialization."
   (message "Initializing 'editor' extension.")
 
+  (require 'color-theme)
+
   ;; Remove splash screen
   (setq inhibit-splash-screen t)
 
