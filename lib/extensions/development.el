@@ -12,6 +12,8 @@
 (depends-on 'magit)
 (depends-on 'indent-guide)
 (depends-on 'yasnippet)
+(depends-on 'direx)
+(depends-on 'popwin)
 ;; TODO: Add flycheck-color-modebar
 ;; TODO  Add flycheck-tip
 

@@ -65,15 +65,24 @@
            (require 'flyspell)
            (setq flyspell-issue-message-flg nil))
 
-  (ability diff-highlight
+  (ability diff-highlight ()
            "Highlight the diffs based on VCS."
            (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
            (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
 
-  (ability auto-pair
+  (ability auto-pair ()
            "Auto pair stuffs like brackets begin/ends etc."
            ;; TODO: use autopair mode if electric pair was not as good as autopair
            (electric-pair-mode))
+
+  (ability code-browser ()
+           "Adds the code browser to FG42."
+           (autoload 'direx "direx" "Simple code browser.")
+           (require 'popwin)
+           (popwin-mode t)
+           (push '(direx:direx-mode :position left :width 30 :dedicated t)
+                 popwin:special-display-config)
+           (global-set-key (kbd "C-c q") 'direx-project:jump-to-project-root-other-window))
 
   (ability indent-guide
            "Show indent guides."
