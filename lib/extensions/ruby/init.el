@@ -9,7 +9,7 @@
   (setup-inf-and-robe)
   (setup-bundler)
 
-  (with-ability 'rbenv
+  (with-ability rbenv
                 (require 'rbenv)
                 (global-rbenv-mode))
 
@@ -22,7 +22,7 @@
   "Web development plugin initialization."
   (message "Initializing 'ruby' extension.")
 
-  (with-ability 'global-rbenv
+  (with-ability global-rbenv
                 (require 'rbenv)
                 (global-rbenv-mode))
 

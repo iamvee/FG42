@@ -31,7 +31,7 @@
   (setq irbpath (rbenv--expand-path "shims" "irb"))
   (setq irb (concat irbpath irbparams))
   (add-to-list 'inf-ruby-implementations (cons "ruby" irb))
-  (inf-ruby-minor-mode t)
+  (inf-ruby-minor-mode t))
 
 
 ;;;###autoload
@@ -59,8 +59,5 @@
   (hs-minor-mode t)
   ;; Hack autocomplete so it treat :symbole and symbole the same way
   (modify-syntax-entry ?: "."))
-
-
-
 
 (provide 'extensions/ruby/setup)

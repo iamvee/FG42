@@ -7,4 +7,6 @@
                      'web
                      'ruby)
 
+(disable 'rbenv)
+(describe-variable disabled-abilities)
 (fg42-initialize)

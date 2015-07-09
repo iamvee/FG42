@@ -24,6 +24,11 @@
   "Return t if ability was not in disabled-abilities."
   (if (gethash name disabled-abilities) nil t))
 
+(defun disable (&rest abilities)
+  "Add the given abilities to disabled-abilities hash"
+  (dolist (abl abilities)
+    (puthash abl t disabled-abilities)))
+
 ;; Macros ---------------------------------
 (defmacro ability (name deps &rest body)
   "Define an ability with the given name.
