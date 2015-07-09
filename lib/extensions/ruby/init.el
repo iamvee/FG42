@@ -1,62 +1,30 @@
+(require 'extensions/ruby/setup)
+
 ;; Functions -------------------------------------------------
 
 ;;;###autoload
 (defun ruby-mode-callback ()
-  (require 'bundler)
-  (robe-mode t)
 
-  (local-set-key [f1] 'yari)
-  (global-rbenv-mode)
-  (global-set-key (kbd "C-c r r") 'inf-ruby)
+  (setup-general-ruby-editor)
+  (setup-inf-and-robe)
+  (setup-bundler)
 
-  (define-key ruby-mode-map (kbd "\C-c b i") 'bundle-install)
-  (define-key ruby-mode-map (kbd "\C-c b u") 'bundle-update)
-  (define-key ruby-mode-map (kbd "\C-c b e") 'bundle-exec)
-  (define-key ruby-mode-map (kbd "\C-c b o") 'bundle-open)
-  (define-key ruby-mode-map (kbd "\C-c b c") 'bundle-console)
-
-  (push 'company-robe company-backends)
-  (eval-after-load 'rspec-mode
-    '(rspec-install-snippets))
-
-  (setq irbparams " --inf-ruby-mode -r irb/completion")
-  (setq irbpath (rbenv--expand-path "shims" "irb"))
-  (setq irb (concat irbpath irbparams))
-  (add-to-list 'inf-ruby-implementations (cons "ruby" irb))
-  (inf-ruby-minor-mode t)
-
-  (eval-after-load 'company
-    '(add-to-list 'company-backends 'company-inf-ruby))
+  (with-ability 'rbenv
+                (require 'rbenv)
+                (global-rbenv-mode))
 
   (with-ability auto-pair
-                ;; Disable autopaire
-                ;;(autopair-global-mode -1))
-                )
+                (ruby-electric-mode t)))
 
-  (ruby-tools-mode t)
-  (ruby-electric-mode t)
-(define-key ruby-mode-map (kbd "C-.") 'insert-arrow)
-(global-set-key (kbd "C-c r r") 'inf-ruby)
-
-  ;; Enable flycheck
-  ;;(flycheck-mode t)
-
-  ;; hs mode
-  ;;(hs-minor-mode t)
-  ;; Hack autocomplete so it treat :symbole and symbole the same way
-  (modify-syntax-entry ?: "."))
-
-
-;;;###autoload
-(defun insert-arrow ()
-  (interactive)
-  (delete-horizontal-space t)
-  (insert " => "))
 
 ;;;###autoload
 (defun extensions/ruby-initialize ()
   "Web development plugin initialization."
   (message "Initializing 'ruby' extension.")
+
+  (with-ability 'global-rbenv
+                (require 'rbenv)
+                (global-rbenv-mode))
 
   (ability ruby-editor ('flycheck)
            "Gives FG42 the ability to edit ruby files."
@@ -72,10 +40,8 @@
                      '(lambda ()
                         (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
-           ;; Inf Ruby configuration
-           (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
+
            (add-hook 'ruby-mode-hook 'ruby-mode-callback)
-           (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
            ;; configure hs-minor-mode
            (add-to-list 'hs-special-modes-alist
@@ -85,6 +51,9 @@
 
            (add-hook 'ruby-mode-hook 'projectile-mode))
 
+  (ability ruby-code-completion ('code-completion)
+           "Auto complete ruby code on demand."
+           (add-to-list 'ruby-mode-hook 'ruby-code-completion))
 
   (ability slim-mode ()
            "Gives FG42 the ability to edit slim templates."
