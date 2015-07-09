@@ -3,7 +3,6 @@
 (require 'extensions/editor/init)
 
 ;; Dependencies ----------------------------------
-(depends-on 'color-theme)
 (depends-on 'ido)
 (depends-on 'ido-vertical-mode)
 (depends-on 'multiple-cursors)
@@ -13,7 +12,7 @@
 
 ;; Extension -------------------------------------
 (extension editor
-	   :version "2.67"
-	   :on-initialize extension/editor-initialize)
+	   :version "2.31"
+	   :on-initialize extensions/editor-initialize)
 
 (provide 'extensions/editor)

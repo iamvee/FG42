@@ -17,7 +17,7 @@
 
 ;; Extension -------------------------------------
 (extension development
-	   :version "2.67"
+	   :version "2.31"
 	   :on-initialize extension/development-initialize)
 
 (provide 'extensions/development)

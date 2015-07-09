@@ -21,7 +21,7 @@
 
 ;; Extension -------------------------------------
 (extension ruby
-	   :version "2.67"
+	   :version "2.31"
 	   :on-initialize extensions/ruby-initialize)
 
 (provide 'extensions/ruby)

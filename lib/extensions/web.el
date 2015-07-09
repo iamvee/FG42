@@ -18,7 +18,7 @@
 
 ;; Extension -------------------------------------
 (extension web
-	   :version "2.67"
+	   :version "2.31"
 	   :on-initialize extensions/web-initialize)
 
 (provide 'extensions/web)

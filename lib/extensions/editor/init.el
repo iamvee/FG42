@@ -6,7 +6,7 @@
   (load-file (concat (getenv "FG42_HOME") "/fg42-config.el")))
 
 ;;;###autoload
-(defun extension/editor-initialize ()
+(defun extensions/editor-initialize ()
   "Base plugin initialization."
   (message "Initializing 'editor' extension.")
 

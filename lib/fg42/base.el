@@ -1,17 +1,29 @@
 (require 'cl-lib)
 (require 'fg42/extension)
 
+;; Vars -----------------------------------
+(defvar default-theme nil "Default FG42 theme.")
+
 ;; Macros ---------------------------------
-(defmacro theme (name)
-  "Load the given theme name"
+(defmacro theme (name &optional local)
+  "Mark the given theme name as default them.
+local should be 't' if theme is on FG42 it self"
   `(progn
-     (require ',(intern (symbol-name name)))
-     (eval-after-load "color-theme"
-     '(progn
-        (color-theme-initialize)
-        (,name)))))
+     (setq default-theme ',(intern (symbol-name name)))
+     (when (not (null ,local))
+       (depends-on default-theme))))
 
 ;; Functions ------------------------------
+(defun load-default-theme ()
+  "Load the given theme name"
+
+  (require default-theme)
+  (eval-after-load "color-theme"
+    '(progn
+       (color-theme-initialize)
+       (funcall (symbol-function default-theme))))
+  (require 'color-theme))
+
 (defun load--extension (extension)
   "Load a single extension and call its :on-initialize function"
   (let ((lib (concat "extensions/" (symbol-name extension))))
