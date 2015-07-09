@@ -14,6 +14,7 @@
 (depends-on 'yasnippet)
 (depends-on 'direx)
 (depends-on 'popwin)
+(depends-on 'ag)
 ;; TODO: Add flycheck-color-modebar
 ;; TODO  Add flycheck-tip
 

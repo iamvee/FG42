@@ -80,10 +80,15 @@
            (autoload 'direx "direx" "Simple code browser.")
            (require 'popwin)
            (popwin-mode t)
+
            (push '(direx:direx-mode :position left :width 30 :dedicated t)
                  popwin:special-display-config)
            (global-set-key (kbd "C-c q") 'direx-project:jump-to-project-root-other-window))
 
+  (ability fast-search ()
+           "Provides fast search ability via silver search"
+           (setq ag-reuse-window 't)
+           (setq ag-highlight-search t))
   (ability indent-guide
            "Show indent guides."
            (indent-guide-global-mode)
