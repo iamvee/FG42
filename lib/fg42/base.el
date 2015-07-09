@@ -1,6 +1,7 @@
 (require 'cl-lib)
 (require 'fg42/extension)
 
+;; Functions ------------------------------
 (defun load--extension (extension)
   "Load a single extension and call its :on-initialize function"
   (let ((lib (concat "extensions/" (symbol-name extension))))
@@ -13,11 +14,16 @@
 
 (defun initialize-extensions ()
   "Call the :on-initialize function on all extensions."
-  (mapcar 'initialize--extension activated-extensions))   
+  (mapcar 'initialize--extension activated-extensions))
 
 (defun activate-extensions (&rest extensions)
   "Mark given plugins to load on FG42"
   (setq activated-extensions extensions)
   (mapcar 'load--extension extensions))
+
+(defun load-user-config (file)
+  "Load the given path as user config file"
+  (if (file-exists-p file)
+      (load-file file)))
 
 (provide 'fg42/base)

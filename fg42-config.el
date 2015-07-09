@@ -2,11 +2,16 @@
 (toggle-debug-on-error)
 (require 'fg42)
 
+;; Activate these extensions
 (activate-extensions 'editor
                      'development
                      'web
                      'ruby)
 
+;; Disable abilities which we do not want to load
 (disable 'rbenv)
-(describe-variable disabled-abilities)
+
+;; Load user config file in ~/.fg42
+(load-user-config "~/.fg42")
+
 (fg42-initialize)
