@@ -7,10 +7,12 @@ Home page:
 \thttp://fg42.lxsameer.com
 
 Credits:
-\tSameer Rahmani (lxsameer)
+\tSameer Rahmani (@lxsameer)
+\tDanial Parsi (@intuxticated)
+\tAmir Houghangi
 \tNima Nazari (niman)
-\tDanial Parsi (intuxticated)
 \tKeyvan Hedayati (k1-hedayati)
+\tBehnam Khan Beigi (@yottanami)
 "
   "About FG42")
 

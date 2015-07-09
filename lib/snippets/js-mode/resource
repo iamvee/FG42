@@ -1,0 +1,14 @@
+# name: resource
+# key: resource
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil)
+# condition: (featurep 'flymake-json)
+# contributor: Sameer Rahmani <lxsameer@gnu.org>
+# --
+{
+    "name": "$1",
+    "fields": [
+        $0
+    ],
+    "no_filter": ${2:$$(yas-choose-value '("true" "false"))},
+    "title-field": "$3"
+}

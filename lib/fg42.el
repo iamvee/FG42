@@ -27,6 +27,9 @@
 (require 'fpkg)
 (require 'fg42/base)
 
+(defvar fg42-home (getenv "FG42_HOME")
+  "The pass to fg42-home")
+
 (defun fg42-initialize ()
   "Initialize FG42 editor."
   (fpkg-initialize)

@@ -1,0 +1,12 @@
+# name: field
+# key: ff
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil)
+# condition: (featurep 'flymake-json)
+# contributor: Sameer Rahmani <lxsameer@gnu.org>
+# --
+{
+    "name": "$1",
+    "type": "${2:$$(yas-choose-value '("string" "integer" "datetime" "float" "image" "in" "belongs_to" "has_many"))}",
+    "bulk": ${3:$$(yas-choose-value '("true" "false"))}
+},
+        $0
