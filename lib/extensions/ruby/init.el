@@ -28,6 +28,8 @@
 
   (ability ruby-editor ('flycheck)
            "Gives FG42 the ability to edit ruby files."
+
+           ;; Autostart ruby mode on these file types
            (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
            (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
            (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
@@ -35,12 +37,13 @@
            (add-to-list 'auto-mode-alist '("config.ru$" . ruby-mode))
            (add-to-list 'auto-mode-alist '("json.jbuilder$" . ruby-mode))
 
+           ;; Autostart yaml-mode
            (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
            (add-hook 'yaml-mode-hook
                      '(lambda ()
                         (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
-
+           ;; Add our callback to ruby-mode-hook
            (add-hook 'ruby-mode-hook 'ruby-mode-callback)
 
            ;; configure hs-minor-mode

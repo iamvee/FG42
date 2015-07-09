@@ -51,6 +51,7 @@
   "Setup basic utilities to write Ruby code"
   (local-set-key [f1] 'yari)
 
+  ;; Install rspec snippets after it loaded
   (eval-after-load 'rspec-mode
     '(rspec-install-snippets))
 
