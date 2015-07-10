@@ -9,10 +9,7 @@
 (depends-on 'sass-mode)
 (depends-on 'scss-mode)
 (depends-on 'less-css-mode)
-(depends-on 'coffee-mode)
 (depends-on 'handlebars-mode)
-(depends-on 'js2-mode)
-(depends-on 'js2-refactor)
 (depends-on 'rainbow-mode)
 (depends-on 'mustache-mode)
 
