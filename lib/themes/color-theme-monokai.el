@@ -19,7 +19,7 @@
 
 ;; Edited by lsameer <lxsameer@gnu.org>
 
-;(require 'color-theme)
+(require 'color)
 
 (defun themes/color-theme-monokai ()
   "Monokai color theme for Emacs by Operator.
@@ -89,7 +89,18 @@ Based on the TextMate theme Monokai"
      (font-latex-string-face ((t (:foreground "#77507b")))) ; plum
      (font-latex-warning-face ((t (:foreground "#cc0000")))) ; dark scarlet red
      (font-latex-slide-title-face ((t (:foreground "#c4a000")))) ; dark butter
-     )))
+     ))
+
+  (let ((bg (face-attribute 'default :background)))
+    (custom-set-faces
+     `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 5)))))
+     `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
+     `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
+     `(company-tooltip-selection ((t (:inherit font-lock-function-name-face :background ,(color-lighten-name bg 10)))))
+     `(company-tooltip-common ((t (:inherit font-lock-constant-face)))))))
+
+
+
 
 
 (set-face-attribute 'fringe nil :background "#272822")

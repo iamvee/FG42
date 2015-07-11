@@ -10,6 +10,8 @@
                      'development
                      'web
                      'editor-theme
+                     'javascript
+                     'php
                      'ruby)
 
 ;; Disable abilities which we do not want to load

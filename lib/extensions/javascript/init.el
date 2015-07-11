@@ -9,12 +9,14 @@
            "Gives FG42 the ability to edit javascript."
 
            (autoload 'js2-mode "js2-mode" "Javascript mode")
+           (autoload 'tern-mode "tern.el" nil t)
 
            (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
            (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-mode))
            (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
 
            (add-hook 'js-mode-hook 'js2-minor-mode)
+           (add-hook 'js-mode-hook (lambda () (tern-mode t)))
 
            (add-to-list 'company-backends 'company-tern)
            (setq js2-highlight-level 3)
@@ -24,4 +26,4 @@
 
 
 
-(provide 'extensions/web/init)
+(provide 'extensions/javascript/init)

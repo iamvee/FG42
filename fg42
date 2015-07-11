@@ -1,7 +1,7 @@
 #! /bin/sh
 
 #export FG42_HOME=--PATH--
-export FG42_HOME=`pwd`
+export FG42_HOME=$HOME/src/FG42/FG42
 
 #emacs -Q --no-splash --name FG42 --title FG42 -q -l --PATH--/fg42-config.el "$@"
 emacs --name FG42 -Q -q --no-splash --title FG42 -l $FG42_HOME/fg42-config.el "$@"
