@@ -8,6 +8,8 @@
 (depends-on 'js2-refactor)
 (depends-on 'tern)
 (depends-on 'company-tern)
+(depends-on 'jquery-doc)
+
 ;; Extension -------------------------------------
 (extension javascript
 	   :version "2.31"

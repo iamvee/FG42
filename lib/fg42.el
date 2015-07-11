@@ -32,6 +32,7 @@
 
 (defun fg42-initialize ()
   "Initialize FG42 editor."
+  (setq package-user-dir (concat fg42-home "/packages"))
   (fpkg-initialize)
   (initialize-extensions))
 
