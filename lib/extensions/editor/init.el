@@ -28,9 +28,22 @@
   ;; Basic Key bindings
   (global-set-key (kbd "\C-c m") 'menu-bar-mode)
 
-  ;; Indentation ----------------------------------------------
   ;; Don't allow tab as indent
   (setq-default indent-tabs-mode nil)
+
+  (ability indent-guides ()
+           "Show guides for indentations in code."
+
+           (indent-guide-global-mode)
+
+           (ability recursive-indent-guides ()
+                    "Show recursive indents guides."
+                    (setq indent-guide-recursive t))
+
+           (ability delayed-indent-guides ()
+                    "Show indent guides with a delay."
+                    (setq indent-guide-delay 0.3)))
+
 
   ;; Default indent width
   (setq tab-width 2)
