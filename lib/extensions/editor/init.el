@@ -100,12 +100,11 @@
   (ido-everywhere t)
   (flx-ido-mode 1)
   (setq ido-use-faces nil)
-					; If don't want to use the flx's highlights you can turn them off like this
-					; (setq flx-ido-use-faces nil)
 
   (setq ido-enable-flex-matching t)
   (ido-vertical-mode 1)
 
+  (desktop-save-mode 1)
 
   ;; Backup files ---------------------------------------------
   ;; Put them in one nice place if possible
