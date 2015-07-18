@@ -1,9 +1,9 @@
 Future Gadgets 42
 =================
-
-[![Join the chat at https://gitter.im/FG42/FG42](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/FG42/FG42?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 If you love **GNU/Emacs**, If you love to program in an editor instead of big slow IDE but still enjoy to
 have a handy code editor then **FG42** is the right choice for you.
+
+If you need help, try our gitter( [![Join the chat at https://gitter.im/FG42/FG42](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/FG42/FG42?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) ) chat room or our channel on freenode: **#5hit**
 
 
 Dependencies
