@@ -26,6 +26,10 @@
            (add-hook 'js2-mode-hook 'javascript-callback)
 
            (add-to-list 'company-backends 'company-tern)
-           (setq js2-highlight-level 3)))
+           (setq js2-highlight-level 3))
+
+  (ability coffee-editor ()
+           "Gives FG42 ability to edit coffee script files."
+           (custom-set-variables '(coffee-tab-width 2))))
 
 (provide 'extensions/javascript/init)

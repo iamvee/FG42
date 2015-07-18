@@ -8,6 +8,7 @@
   (setup-general-ruby-editor)
   (setup-inf-ruby)
   (setup-bundler)
+  (setq ruby-deep-indent-paren t)
 
   (with-ability rbenv
                 (require 'rbenv)

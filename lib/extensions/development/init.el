@@ -58,6 +58,7 @@
 
   (ability flycheck ()
            "Check syntax on the fly using flycheck."
+           (add-hook 'prog-mode-hook 'global-flycheck-mode)
            (add-hook 'after-init-hook 'global-flycheck-mode))
 
   (ability spell ()

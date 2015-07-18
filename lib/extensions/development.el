@@ -16,6 +16,7 @@
 (depends-on 'popwin)
 (depends-on 'ag)
 (depends-on 'smart-mode-line)
+
 ;; TODO: Add flycheck-color-modebar
 ;; TODO  Add flycheck-tip
 

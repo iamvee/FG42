@@ -2,7 +2,7 @@
 ;; Variables
 ;; ---------------------------------------------------------------------
 (defvar my-desktop-session-dir
-  (concat (getenv "HOME") "/tmp1/")
+  (concat (getenv "HOME") "/.tmp/")
   "*Directory to save desktop sessions in")
 
 (defvar my-desktop-session-name-hist nil
