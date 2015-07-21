@@ -4,6 +4,10 @@
   (require 'jquery-doc)
 
   (js2-minor-mode t)
+  ;; FIXME: don't hard code the indent size
+  (setq js2-basic-offset 2)
+
+  (setq js2-bounce-indent-p t)
   (tern-mode t)
   (jquery-doc-setup))
 

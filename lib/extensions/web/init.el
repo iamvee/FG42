@@ -8,12 +8,16 @@
                       'company-backends) '(company-web-html))
 
                 (define-key web-mode-map (kbd "C-'") 'company-web-html))
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
 
   (setq web-mode-markup-indent-offset 2))
 
 ;;;###autoload
 (defun extensions/web-activate-modes ()
   "Activate necessary modes"
+  (setq css-indent-offset 2)
+  
   (with-ability rainbow
                 (rainbow-mode t))
 
