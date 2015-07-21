@@ -1,7 +1,16 @@
 ;; Functions -------------------------------------------------
+(defun setup-keybindings ()
+  "Setup default key bindings for python mode"
+
+  ;; FIXME: Replace the global key map with python-mode-map
+  (global-set-key (kbd "C-c C-b") 'python-add-breakpoint)
+  (global-set-key (kbd "C-c C-n") 'python-interactive))
+
+
 (defun python--encoding-comment-required-p ()
   (re-search-forward "[^\0-\177]" nil t))
 
+;;;###autoload
 (defun python--detect-encoding ()
   (let ((coding-system
          (or save-buffer-coding-system
@@ -12,10 +21,12 @@
              (coding-system-change-eol-conversion coding-system nil)))
       "ascii-8bit")))
 
+;;;###autoload
 (defun python--insert-coding-comment (encoding)
   (let ((newlines (if (looking-at "^\\s *$") "\n" "\n\n")))
     (insert (format "# coding: %s" encoding) newlines)))
 
+;;;###autoload
 (defun python-mode-set-encoding ()
   "Insert a magic comment header with the proper encoding if necessary."
   (save-excursion
@@ -37,15 +48,15 @@
           (when (buffer-modified-p)
             (basic-save-buffer-1)))))))
 
-;; http://wenshanren.org/?p=351
+;;;###autoload
 (defun python-add-breakpoint ()
   "Add a break point"
   (interactive)
   (newline-and-indent)
   (insert "import ipdb; ipdb.set_trace()")
   (highlight-lines-matching-regexp "^[ ]*import ipdb; ipdb.set_trace()"))
-(global-set-key (kbd "C-c C-b") 'python-add-breakpoint)
 
+;;;###autoload
 (defun python-interactive ()
   "Enter the interactive Python environment"
   (interactive)
@@ -53,43 +64,65 @@
     (newline-and-indent)
     (insert "from IPython import embed; embed()")
     (move-end-of-line 1)))
-(global-set-key (kbd "C-c C-n") 'python-interactive)
 
+
+;;;###autoload
 (defun python-mode-defaults ()
   "Defaults for Python programming."
+
+                                        ;(require 'anaconda-mode)
+                                        ;(require 'eldoc-mode)
+
   (subword-mode +1)
   (anaconda-mode 1)
   (eldoc-mode 1)
-  (setq-local electric-layout-rules
-              '((?: . (lambda ()
-                        (and (zerop (first (syntax-ppss)))
-                             (python-info-statement-starts-block-p)
-                             'after)))))
+
+  (setup-keybindings)
+  (with-ability auto-pair
+                (setq-local electric-layout-rules
+                            '((?: . (lambda ()
+                                      (and (zerop (first (syntax-ppss)))
+                                           (python-info-statement-starts-block-p)
+                                           'after))))))
+
+  ;; FIXME: we don't use imenu either remove this or
+  ;;        setup imenu too
   (when (fboundp #'python-imenu-create-flat-index)
     (setq-local imenu-create-index-function
                 #'python-imenu-create-flat-index))
   (add-hook 'post-self-insert-hook
             #'electric-layout-post-self-insert-function nil 'local)
-  (add-hook 'after-save-hook 'prelude-python-mode-set-encoding nil 'local))
+  (add-hook 'after-save-hook 'python-mode-set-encoding nil 'local))
 
 ;;;###autoload
 (defun extensions/python-initialize ()
   (message "Initializing 'python' extension.")
 
-  (when (boundp 'company-backends)
-    (add-to-list 'company-backends 'company-anaconda))
+  (ability python-editor ()
+           "Gives FG42 the ability to edit pytho codes."
 
-  (add-to-list 'auto-mode-alist '("\\.kv\\'" . kivy-mode))
-  (add-to-list 'auto-mode-alist '("\\.pyd\\'" . cython-mode))
-  (add-to-list 'auto-mode-alist '("\\.pyi\\'" . cython-mode))
-  (add-to-list 'auto-mode-alist '("\\.pyx\\'" . cython-mode))
+           (add-hook 'python-mode-hook 'python-mode-defaults)
+
+           (when (fboundp 'exec-path-from-shell-copy-env)
+             (exec-path-from-shell-copy-env "PYTHONPATH"))
+
+           (with-ability kivy-editor
+                         (add-to-list 'auto-mode-alist
+                                      '("\\.kv\\'" . kivy-mode)))
+
+           (with-ability cython-editor
+                         (add-to-list 'auto-mode-alist
+                                      '("\\.pyd\\'" . cython-mode))
+                         (add-to-list 'auto-mode-alist
+                                      '("\\.pyi\\'" . cython-mode))
+                         (add-to-list 'auto-mode-alist
+                                      '("\\.pyx\\'" . cython-mode))))
 
 
-  (when (fboundp 'exec-path-from-shell-copy-env)
-    (exec-path-from-shell-copy-env "PYTHONPATH"))
+  (ability python-code-completion ('code-completion)
+           "Gives FG42 the ability to complete python codes."
 
-  (add-hook 'python-mode-hook (lambda ()
-                                (run-hooks 'python-mode-defaults))))
-
+           (when (boundp 'company-backends)
+             (add-to-list 'company-backends 'company-anaconda))))
 
 (provide 'extensions/python/init)
