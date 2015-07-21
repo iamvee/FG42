@@ -3,12 +3,18 @@
 (require 'extensions/editor/init)
 
 ;; Dependencies ----------------------------------
-(depends-on 'ido)
-(depends-on 'ido-vertical-mode)
 (depends-on 'multiple-cursors)
 (depends-on 'expand-region)
-(depends-on 'flx-ido)
 (depends-on 'dired+)
+(depends-on 'ov)
+
+(with-ability ido
+              (depends-on 'ido)
+              (depends-on 'ido-vertical-mode)
+              (depends-on 'flx-ido))
+
+(with-ability helm
+              (depends-on 'helm))
 
 ;; Extension -------------------------------------
 (extension editor
