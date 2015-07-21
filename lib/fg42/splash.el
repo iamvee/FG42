@@ -1,3 +1,9 @@
+(defconst fg42-about-text
+  `("FG42")
+  "A list of texts to show in the middle part of the About screen.
+Each element in the list should be a list of strings or pairs
+`:face FACE', like `fancy-splash-insert' accepts them.")
+
 ;; Vars ------------------------------
 (defvar fg42-logo-image (concat (getenv "FG42_HOME") "/assets/images/logo.png")
   "Default fg42 logo")
@@ -15,9 +21,10 @@
 	(erase-buffer)
 	(if pure-space-overflow
 	    (insert pure-space-overflow-message))
-	(fg42-splash-head)
-	(dolist (text fancy-about-text)
-	  (apply #'fancy-splash-insert text)
+	;(fg42-splash-head)
+	(dolist (text fg42-about-text)
+                                        ;(apply #'fancy-splash-insert text)
+          (insert (propertize text 'display `(space :align-to (+ center 5))))
 	  (insert "\n"))
 	(set-buffer-modified-p nil)
 	(goto-char (point-min))
