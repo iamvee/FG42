@@ -26,6 +26,7 @@
 ;;; Code:
 (require 'fpkg)
 (require 'fg42/base)
+(require 'fg42/splash)
 
 (defvar fg42-home (getenv "FG42_HOME")
   "The pass to fg42-home")
