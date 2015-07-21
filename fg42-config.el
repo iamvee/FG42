@@ -12,6 +12,7 @@
                      'editor-theme
                      'javascript
                      'php
+                     'python
                      'ruby)
 
 ;; Disable abilities which we do not want to load
