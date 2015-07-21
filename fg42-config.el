@@ -15,6 +15,7 @@
                      'editor-theme
                      'javascript
                      'php
+                     'python
                      'ruby)
 
 ;; Load user config file in ~/.fg42
