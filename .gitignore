@@ -5,3 +5,5 @@ kuso.d/*
 build.log
 .cask/*
 packages/
+lib/magic-buffer.el
+assets/

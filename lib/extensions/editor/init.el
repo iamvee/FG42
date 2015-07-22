@@ -112,6 +112,7 @@
                 (setq ido-enable-flex-matching t)
                 (ido-vertical-mode 1))
 
+
   ;; Helm -----------------------------------------------------
   (with-ability helm
 
@@ -134,6 +135,16 @@
                       helm-ff-file-name-history-use-recentf t)
 
                 (helm-mode 1))
+
+  ;; Swiper ---------------------------------------------------
+  (ability swiper ()
+           "Replace default isearch with swiper"
+           (ivy-mode 1)
+           (setq ivy-use-virtual-buffers t)
+           (global-set-key "\C-s" 'swiper)
+           (global-set-key "\C-r" 'swiper)
+           (global-set-key (kbd "C-c C-r") 'ivy-resume)
+           (global-set-key [f6] 'ivy-resume))
 
   ;; Session Management ---------------------------------------
   (desktop-save-mode 1)

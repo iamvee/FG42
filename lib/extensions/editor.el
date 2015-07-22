@@ -18,6 +18,8 @@
 (with-ability helm
               (depends-on 'helm))
 
+(with-ability swiper
+              (depends-on 'swiper))
 
 ;; Extension -------------------------------------
 (extension editor
