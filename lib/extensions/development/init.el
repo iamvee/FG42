@@ -63,7 +63,7 @@
 
   (ability spell ()
            "Check spell of any word using ispell."
-           (require 'flyspell)
+           (global-set-key (kbd "<f2>") 'ispell-word)
            (setq flyspell-issue-message-flg nil))
 
   (ability diff-highlight ()

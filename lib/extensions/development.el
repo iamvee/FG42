@@ -7,7 +7,6 @@
 (depends-on 'company)
 (depends-on 'company-statistics)
 (depends-on 'projectile)
-(depends-on 'flyspell)
 (depends-on 'diff-hl)
 (depends-on 'magit)
 (depends-on 'indent-guide)
@@ -17,6 +16,8 @@
 (depends-on 'ag)
 (depends-on 'smart-mode-line)
 
+(with-ability spell
+              (depends-on 'flyspell))
 ;; TODO: Add flycheck-color-modebar
 ;; TODO  Add flycheck-tip
 

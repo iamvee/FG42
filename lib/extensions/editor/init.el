@@ -10,7 +10,7 @@
   "Base plugin initialization."
   (message "Initializing 'editor' extension.")
 
-  (require 'color-theme)
+  (require 'extensions/editor/utils)
 
   ;; Remove splash screen
   (setq inhibit-splash-screen t)
@@ -116,22 +116,23 @@
   ;; Helm -----------------------------------------------------
   (with-ability helm
 
-                (require 'helm)
-
                 (global-set-key (kbd "C-c h") 'helm-command-prefix)
                 (global-unset-key (kbd "C-x c"))
 
-                (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
-                (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
-                (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+                (define-key helm-map (kbd "<tab>")
+                  'helm-execute-persistent-action)
+                (define-key helm-map (kbd "C-i")
+                  'helm-execute-persistent-action)
+                (define-key helm-map (kbd "C-z")
+                  'helm-select-action)
 
                 (when (executable-find "curl")
                   (setq helm-google-suggest-use-curl-p t))
 
-                (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
-                      helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
-                      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
-                      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+                (setq helm-split-window-in-side-p t
+                      helm-move-to-line-cycle-in-source t
+                      helm-ff-search-library-in-sexp t
+                      helm-scroll-amount 8
                       helm-ff-file-name-history-use-recentf t)
 
                 (helm-mode 1))
@@ -140,11 +141,14 @@
   (ability swiper ()
            "Replace default isearch with swiper"
            (ivy-mode 1)
+
            (setq ivy-use-virtual-buffers t)
            (global-set-key "\C-s" 'swiper)
            (global-set-key "\C-r" 'swiper)
            (global-set-key (kbd "C-c C-r") 'ivy-resume)
-           (global-set-key [f6] 'ivy-resume))
+           (global-set-key [f6] 'ivy-resume)
+           (with-ability ido
+                         (global-set-key (kbd "C-x b") 'ido-switch-buffer)))
 
   ;; Session Management ---------------------------------------
   (desktop-save-mode 1)
@@ -164,10 +168,13 @@
   ;; get rid of yes-or-no questions - y or n is enough
   (defalias 'yes-or-no-p 'y-or-n-p)
 
+  (setup-utils)
+
   (setq my-path (file-name-directory load-file-name))
   ;; Load about submenu
   (require 'extensions/editor/version)
   (require 'extensions/editor/about)
   (require 'extensions/editor/custom)
   (require 'extensions/editor/session-management))
+
 (provide 'extensions/editor/init)
