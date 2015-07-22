@@ -10,11 +10,14 @@
 
 (with-ability ido
               (depends-on 'ido)
+              (depends-on 'ido-ubiquitous)
+              (depends-on 'smex)
               (depends-on 'ido-vertical-mode)
               (depends-on 'flx-ido))
 
 (with-ability helm
               (depends-on 'helm))
+
 
 ;; Extension -------------------------------------
 (extension editor

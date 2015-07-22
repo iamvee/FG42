@@ -100,10 +100,15 @@
 
                 (ido-mode t)
                 (ido-everywhere t)
+                (ido-ubiquitous-mode 1)
+
+                (smex-initialize)
+                (global-set-key (kbd "M-x") 'smex)
+
                 (flx-ido-mode 1)
                 (setq ido-use-faces nil)
 		(setq ido-use-filename-at-point 'guess)
-		
+
                 (setq ido-enable-flex-matching t)
                 (ido-vertical-mode 1))
 
