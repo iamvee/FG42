@@ -1,12 +1,2 @@
 * Tasks
-** Create different hash tables for packages with different source like github
-** Workgroups
-*** TODO Add a directory scanning mode. load each workgroup by name only.
-** TODO Provide a variable (defcustom) which allow user to easily change them from customize menu
-** TODO add org-mode support
-*** TODO add support to main todo repository and collect todo form projects repositories
-** TODO add startup custom buffer for kuso
-** TODO add per project configuration support
-** TODO configure `package-archive-priorities` so package.el install all packages from elpa first
-** TODO add company mode support for flyspell
-* Release
+** TODO adds support for markdown.
