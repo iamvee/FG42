@@ -1,5 +1,5 @@
 (add-to-list 'load-path (concat (getenv "FG42_HOME") "/lib"))
-;(toggle-debug-on-error)
+(toggle-debug-on-error)
 (require 'fg42)
 
 ;; Load the default theme
@@ -15,6 +15,7 @@
                      'editor-theme
                      'javascript
                      'php
+                     'clojure
                      'python
                      'ruby)
 
