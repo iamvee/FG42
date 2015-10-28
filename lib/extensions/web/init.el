@@ -17,7 +17,7 @@
 (defun extensions/web-activate-modes ()
   "Activate necessary modes"
   (setq css-indent-offset 2)
-  
+
   (with-ability rainbow
                 (rainbow-mode t))
 
@@ -27,6 +27,34 @@
   (with-ability flycheck
                 (flycheck-mode t)))
 
+;;;###autoload
+(defun jsx ()
+  "Activate web-mode for editing jsx."
+  (interactive)
+
+  (flycheck-define-checker jsxhint-checker
+    "A JSX syntax and style checker based on JSXHint."
+
+    :command ("jsxhint" source)
+    :error-patterns
+    ((error line-start (1+ nonl) ": line " line ", col " column ", " (message) line-end))
+    :modes (web-mode))
+
+  (add-hook 'web-mode-hook
+          (lambda ()
+            (when (equal web-mode-content-type "jsx")
+              ;; enable flycheck
+              (flycheck-select-checker 'jsxhint-checker)
+              (flycheck-mode))))
+
+  (defadvice web-mode-highlight-part (around tweak-jsx activate)
+    (if (equal web-mode-content-type "jsx")
+        (let ((web-mode-enable-part-face nil))
+          ad-do-it)
+      ad-do-it))
+  (setq web-mode-content-types-alist
+        '(("jsx" . "\\.js[x]?\\'")))
+  (web-mode))
 
 ;;;###autoload
 (defun extensions/web-initialize ()
@@ -77,7 +105,10 @@
            "Gives FG42 the ability to edit Javascript."
            (add-hook 'js2-mode-hook 'extensions/web-activate-modes)
            (add-to-list 'auto-mode-alist '("\\.js.erb$" . js2-mode))
-           (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))))
+           (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode)))
+  (ability jsx-editor
+           "Gives FG42 the ability to edit JSX."
+            (add-to-list 'auto-mode-alist '("\\.jsx$" . jsx))))
 
 
 
