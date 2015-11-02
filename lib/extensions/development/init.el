@@ -29,6 +29,11 @@
   "Development plugin initialization."
   (message "Initializing 'development' extension.")
 
+  (ability hl ()
+           "Highligh the current block of code"
+           (require 'hl-sexp)
+           (add-hook 'prog-mode-hook #'hl-sexp-mode))
+
   (ability code-completion ()
            "Use company mode to provides a complete auto completion framwork."
            (require 'company)

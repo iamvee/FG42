@@ -14,6 +14,7 @@
 (depends-on 'direx)
 (depends-on 'popwin)
 (depends-on 'ag)
+(depends-on 'hl-sexp)
 (depends-on 'smart-mode-line)
 
 (with-ability spell

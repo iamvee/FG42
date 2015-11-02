@@ -31,6 +31,10 @@
            (require 'paredit)
            (add-hook 'clojure-mode-hook #'paredit-mode)
            (add-hook 'cider-repl-mode-hook #'paredit-mode)
+           ;(define-key clojure-mode-map (kbd "M-<right>") 'paredit-forward-slurp-sexp)
+           ;(define-key clojure-mode-map (kbd "M-<left>") 'paredit-backward-slurp-sexp)
+           ;(define-key clojure-mode-map (kbd "C-<right>") 'right-word)
+           ;(define-key clojure-mode-map (kbd "C-<left>") 'left-word)
 
            (add-hook 'clojure-mode-hook #'hl-sexp-mode))
 
