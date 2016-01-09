@@ -4,7 +4,7 @@
 
 ;; Dependencies ----------------------------------
 (depends-on 'company-inf-ruby)
-(depends-on 'ruby-mode)
+(depends-on 'enh-ruby-mode)
 (depends-on 'rbenv)
 (depends-on 'slim-mode)
 (depends-on 'haml-mode)

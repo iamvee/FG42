@@ -10,11 +10,11 @@
 (defun setup-bundler ()
   "Setup bundler and its keybindings"
   (require 'bundler)
-  (define-key ruby-mode-map (kbd "\C-c b i") 'bundle-install)
-  (define-key ruby-mode-map (kbd "\C-c b u") 'bundle-update)
-  (define-key ruby-mode-map (kbd "\C-c b e") 'bundle-exec)
-  (define-key ruby-mode-map (kbd "\C-c b o") 'bundle-open)
-  (define-key ruby-mode-map (kbd "\C-c b c") 'bundle-console))
+  (define-key enh-ruby-mode-map (kbd "\C-c b i") 'bundle-install)
+  (define-key enh-ruby-mode-map (kbd "\C-c b u") 'bundle-update)
+  (define-key enh-ruby-mode-map (kbd "\C-c b e") 'bundle-exec)
+  (define-key enh-ruby-mode-map (kbd "\C-c b o") 'bundle-open)
+  (define-key enh-ruby-mode-map (kbd "\C-c b c") 'bundle-console))
 
 ;;;###autoload
 (defun setup-inf-ruby()
@@ -27,7 +27,7 @@
   (global-set-key (kbd "C-c r r") 'inf-ruby)
 
   ;; TODO: We don't need this if pry setup is present in ~/.irbrc
-  (setq irbparams " --inf-ruby-mode -r irb/completion")
+  (setq irbparams " --inf-enh-ruby-mode -r irb/completion")
   (setq irbpath (rbenv--expand-path "shims" "irb"))
   (setq irb (concat irbpath irbparams))
   (add-to-list 'inf-ruby-implementations (cons "ruby" irb))
@@ -56,7 +56,7 @@
     '(rspec-install-snippets))
 
   (ruby-tools-mode t)
-  (define-key ruby-mode-map (kbd "C-.") 'insert-arrow)
+  (define-key enh-ruby-mode-map (kbd "C-.") 'insert-arrow)
   (hs-minor-mode t)
   ;; Hack autocomplete so it treat :symbole and symbole the same way
   (modify-syntax-entry ?: "."))
