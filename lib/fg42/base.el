@@ -48,5 +48,10 @@ local should be 't' if theme is on FG42 it self"
   (if (file-exists-p file)
       (load-file file)))
 
+(defun what-face (pos)
+  (interactive "d")
+  (let ((face (or (get-char-property (point) 'read-face-name)
+                  (get-char-property (point) 'face))))
+    (if face (message "Face: %s" face) (message "No face at %d" pos))))
 
 (provide 'fg42/base)

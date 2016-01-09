@@ -3,12 +3,10 @@
 ;; Functions -------------------------------------------------
 
 ;;;###autoload
-(defun ruby-mode-callback ()
-
+(defun enh-ruby-mode-callback ()
   (setup-general-ruby-editor)
   (setup-inf-ruby)
   (setup-bundler)
-  (setq ruby-deep-indent-paren t)
 
   (with-ability rbenv
                 (require 'rbenv)
@@ -17,11 +15,13 @@
   (with-ability auto-pair
                 (ruby-electric-mode t)))
 
-
 ;;;###autoload
 (defun extensions/ruby-initialize ()
   "Web development plugin initialization."
   (message "Initializing 'ruby' extension.")
+
+  (require 'enh-ruby-mode)
+  (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
 
   (with-ability global-rbenv
                 (require 'rbenv)
@@ -30,13 +30,20 @@
   (ability ruby-editor ('flycheck)
            "Gives FG42 the ability to edit ruby files."
 
-           ;; Autostart ruby mode on these file types
-           (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
-           (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
-           (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
-           (add-to-list 'auto-mode-alist '("gemspec$" . ruby-mode))
-           (add-to-list 'auto-mode-alist '("config.ru$" . ruby-mode))
-           (add-to-list 'auto-mode-alist '("json.jbuilder$" . ruby-mode))
+           (dolist (spec '(("\\.rb$" . enh-ruby-mode)
+                           ("[vV]agrantfile$" . enh-ruby-mode)
+                           ("[gG]emfile$" . enh-ruby-mode)
+                           ("[pP]uppetfile$" . enh-ruby-mode)
+                           ("\\.rake$" . enh-ruby-mode)
+                           ("\\.rabl$" . enh-ruby-mode)
+                           ("[cC]apfile$" . enh-ruby-mode)
+                           ("\\.gemspec$" . enh-ruby-mode)
+                           ("\\.builder$" . enh-ruby-mode)))
+             (add-to-list 'auto-mode-alist spec))
+
+           (setq enh-ruby-use-encoding-map nil
+                 ;; don't deep indent arrays and hashes
+                 enh-ruby-deep-indent-paren nil)
 
            ;; Autostart yaml-mode
            (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
@@ -44,20 +51,20 @@
                      '(lambda ()
                         (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
-           ;; Add our callback to ruby-mode-hook
-           (add-hook 'ruby-mode-hook 'ruby-mode-callback)
+           ;; Add our callback to enh-ruby-mode-hook
+           (add-hook 'enh-ruby-mode-hook 'enh-ruby-mode-callback)
 
            ;; configure hs-minor-mode
            (add-to-list 'hs-special-modes-alist
-                        '(ruby-mode
+                        '(enh-ruby-mode
                           "\\(class\\|def\\|do\\|if\\)" "\\(end\\)" "#"
                           (lambda (arg) (ruby-end-of-block)) nil))
 
-           (add-hook 'ruby-mode-hook 'projectile-mode))
+           (add-hook 'enh-ruby-mode-hook 'projectile-mode))
 
   (ability ruby-code-completion ('code-completion)
            "Auto complete ruby code on demand."
-           (add-to-list 'ruby-mode-hook 'ruby-code-completion))
+           (add-to-list 'enh-ruby-mode-hook 'ruby-code-completion))
 
   (ability slim-mode ()
            "Gives FG42 the ability to edit slim templates."

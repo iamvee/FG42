@@ -49,6 +49,8 @@ Based on the TextMate theme Monokai"
      (font-lock-preprocessor-face ((t (:foreground "#66D9EF")))) ; aluminum
      (font-lock-constant-face ((t (:foreground "#4e9a06")))) ; dark chameleon
      (font-lock-type-face ((t (:foreground "#66D9EF")))) ; light plum
+     (enh-ruby-op-face ((t (:foreground "#dfdfda" :background nil))))
+
      (font-lock-warning-face ((t (:bold t :foreground "#cc0000")))) ; scarlet red
      (hl-line ((t (:background "#393b2f"))))
 
