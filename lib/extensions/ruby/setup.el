@@ -61,4 +61,30 @@
   ;; Hack autocomplete so it treat :symbole and symbole the same way
   (modify-syntax-entry ?: "."))
 
+
+;;;###autoload
+(defun visit-project-tags ()
+  (interactive)
+  (let ((tags-file (concat (projectile-project-root) "TAGS")))
+    (visit-tags-table tags-file)
+    (message (concat "Loaded " tags-file))))
+
+;;;###autoload
+(defun build-ctag-file ()
+  "Create the ctag of the ruby project"
+  (interactive)
+  (message "building project tags")
+  (let ((root (projectile-project-root)))
+    (shell-command (concat "ctags -e -R . $(bundle list --paths) --extra=+fq --exclude=db --exclude=test --exclude=.git --exclude=public -f " root "TAGS " root)))
+  (visit-project-tags)
+  (message "tags built successfully"))
+
+;;;###autoload
+(defun my-find-tag ()
+  (interactive)
+  (if (file-exists-p (concat (projectile-project-root) "TAGS"))
+      (visit-project-tags)
+    (build-ctags))
+  (etags-select-find-tag-at-point))
+
 (provide 'extensions/ruby/setup)
