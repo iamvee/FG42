@@ -13,6 +13,7 @@
                      'development
                      'web
                      'editor-theme
+                     'arduino
                      'javascript
                      ;'php
                      ;'clojure
