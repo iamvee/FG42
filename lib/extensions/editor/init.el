@@ -140,6 +140,7 @@
   ;; Swiper ---------------------------------------------------
   (ability swiper ()
            "Replace default isearch with swiper"
+           (require 'ivy)
            (ivy-mode 1)
 
            (setq ivy-use-virtual-buffers t)
