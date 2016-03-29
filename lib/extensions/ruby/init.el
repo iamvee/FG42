@@ -8,6 +8,8 @@
   (setup-inf-ruby)
   (setup-bundler)
 
+  (global-set-key (kbd "M-.") 'my-find-tag)
+
   (with-ability rbenv
                 (require 'rbenv)
                 (global-rbenv-mode))
