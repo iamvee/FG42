@@ -54,4 +54,13 @@ local should be 't' if theme is on FG42 it self"
                   (get-char-property (point) 'face))))
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
 
+;;;###autoload
+(defun env (&rest args)
+  "setup environment variables given as params"
+  (require 'seq)
+  (let ((pairs (seq-partition args 2)))
+    (dolist (pair pairs)
+      (progn (setenv (substring (symbol-name (car pair)) 1) (car (cdr pair)))))))
+
+
 (provide 'fg42/base)
