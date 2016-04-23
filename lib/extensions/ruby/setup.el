@@ -70,9 +70,8 @@
   "Configure Robe and inf-ruby for code completion."
   (with-ability ruby-code-completion
                 (robe-mode t)
-                (push 'company-robe company-backends))
-
-  (with-ability ruby-code-completion
+                (define-key enh-ruby-mode-map (kbd "\C-c M-j") 'robe-start)
+                (push 'company-robe company-backends)
                 (eval-after-load 'company
                   '(add-to-list 'company-backends 'company-inf-ruby))))
 
