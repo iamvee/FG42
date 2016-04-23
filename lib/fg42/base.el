@@ -56,7 +56,7 @@ local should be 't' if theme is on FG42 it self"
 
 ;;;###autoload
 (defun env (&rest args)
-  "setup environment variables given as params"
+  "setup environment variables given as params."
   (require 'seq)
   (let ((pairs (seq-partition args 2)))
     (dolist (pair pairs)

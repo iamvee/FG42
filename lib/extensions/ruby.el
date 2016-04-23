@@ -18,6 +18,8 @@
 (depends-on 'projectile-rails)
 (depends-on 'robe)
 (depends-on 'yari)
+(depends-on 'ggtags)
+(depends-on 'rake)
 
 ;; Extension -------------------------------------
 (extension ruby

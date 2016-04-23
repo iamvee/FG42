@@ -1,3 +1,4 @@
+;;; Code:
 ;; Functions -------------------------------------------------
 
 ;;;###autoload
@@ -15,6 +16,36 @@
   (define-key enh-ruby-mode-map (kbd "\C-c b e") 'bundle-exec)
   (define-key enh-ruby-mode-map (kbd "\C-c b o") 'bundle-open)
   (define-key enh-ruby-mode-map (kbd "\C-c b c") 'bundle-console))
+
+;;;###autoload
+(defun rake-test ()
+  (interactive)
+  (let* ((root (or (rake--root) (user-error "Rakefile not found"))))
+         (rake--with-root root (compile "rake test" 'rake-compilation-mode))))
+
+;;;###autoload
+(defun rake-migrate ()
+  (interactive)
+  (let* ((root (or (rake--root) (user-error "Rakefile not found"))))
+         (rake--with-root root (compile "rake db:migrate" 'rake-compilation-mode))))
+
+(defun rake-seed ()
+  (interactive)
+  (let* ((root (or (rake--root) (user-error "Rakefile not found"))))
+         (rake--with-root root (compile "rake db:seed" 'rake-compilation-mode))))
+
+;;;###autoload
+(defun setup-rake ()
+  "Setup bundler and its keybindings"
+  (require 'rake)
+
+  (eval-after-load 'projectile
+    '(setq rake-completion-system projectile-completion-system))
+
+  (define-key enh-ruby-mode-map (kbd "\C-c c r") 'rake)
+  (define-key enh-ruby-mode-map (kbd "\C-c c t") 'rake-test)
+  (define-key enh-ruby-mode-map (kbd "\C-c c m") 'rake-migrate)
+  (define-key enh-ruby-mode-map (kbd "\C-c c s") 'rake-seed))
 
 ;;;###autoload
 (defun setup-inf-ruby()
@@ -65,7 +96,7 @@
 ;;;###autoload
 (defun visit-project-tags ()
   (interactive)
-  (let ((tags-file (concat (projectile-project-root) "TAGS")))
+  (let ((tags-file (concat (projectile-project-root) "tags")))
     (visit-tags-table tags-file)
     (message (concat "Loaded " tags-file))))
 
@@ -75,7 +106,7 @@
   (interactive)
   (message "building project tags")
   (let ((root (projectile-project-root)))
-    (shell-command (concat "ctags -e -R . $(bundle list --paths) --extra=+fq --exclude=db --exclude=test --exclude=.git --exclude=public -f " root "TAGS " root)))
+    (shell-command (concat "ctags -e -R . $(bundle list --paths) --extra=+fq --exclude=db --exclude=test --exclude=.git --exclude=public -f " root "tags " root)))
   (visit-project-tags)
   (message "tags built successfully"))
 
@@ -84,7 +115,7 @@
   (interactive)
   (if (file-exists-p (concat (projectile-project-root) "TAGS"))
       (visit-project-tags)
-    (build-ctags))
+    (build-ctag-file))
   (etags-select-find-tag-at-point))
 
 (provide 'extensions/ruby/setup)

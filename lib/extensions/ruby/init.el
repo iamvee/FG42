@@ -7,6 +7,7 @@
   (setup-general-ruby-editor)
   (setup-inf-ruby)
   (setup-bundler)
+  (setup-rake)
 
   (global-set-key (kbd "M-.") 'my-find-tag)
 
