@@ -6,6 +6,7 @@
 (depends-on 'multiple-cursors)
 (depends-on 'expand-region)
 (depends-on 'dired+)
+(depends-on 'seq)
 (depends-on 'ov)
 
 (with-ability ido
