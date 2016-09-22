@@ -12,6 +12,9 @@
 (depends-on 'clj-refactor)
 (depends-on 'let-alist)
 (depends-on 'flycheck-clojure)
+(depends-on 'clojure-mode-extra-font-locking)
+;(depends-on 'core-async-mode)
+(depends-on 'yesql-ghosts)
 
 ;; Extension -------------------------------------
 (extension clojure

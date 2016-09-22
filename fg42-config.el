@@ -13,12 +13,13 @@
                      'development
                      'web
                      'editor-theme
-                     'arduino
+                     ;'arduino
                      'javascript
                      ;'php
-                     ;'clojure
+                     'clojure
                      ;'python
-                     'ruby)
+					;'ruby
+		     )
 
 ;; Load user config file in ~/.fg42
 (load-user-config "~/.fg42")
