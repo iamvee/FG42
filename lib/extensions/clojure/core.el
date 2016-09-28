@@ -126,7 +126,7 @@
   (setq cljr-expectations-test-declaration "[expectations :refer :all]")
 
   ;; insert keybinding setup here
-  (cljr-add-keybindings-with-prefix "C-c RET")
+  (cljr-add-keybindings-with-prefix "C-c v")
   (setq cljr-favor-prefix-notation nil)
   (setq cljr-favor-private-functions nil)
 
@@ -150,7 +150,6 @@
   (define-key clojure-mode-map (kbd "C-<") 'cljr-unwind)
   (define-key clj-refactor-map
     (cljr--key-pairs-with-modifier "C-s-" "xf") 'my-toggle-expect-focused)
-
   (define-key clj-refactor-map
     (cljr--key-pairs-with-modifier "C-s-" "xr") 'my-remove-all-focused)
 
@@ -170,9 +169,7 @@
 (defun clojure-mode-init ()
   (interactive)
 
-  (require 'clojure-mode-extra-font-locking)
   (require 'cider)
-  (require 'yesql-ghosts)
   (require 'hl-sexp)
   (require 'paredit)
 
@@ -224,7 +221,7 @@
 
   (setq cider-pprint-fn 'pprint)
 
-  (setq cider-repl-history-file tmp-directory)
+  (setq cider-repl-history-file (concat tmp-directory "/cider-repl-history"))
 
   ;; nice pretty printing
   (setq cider-repl-use-pretty-printing t)
@@ -258,7 +255,7 @@
   (setq cider-repl-popup-stacktraces t)
 
   ;; Specify history file
-  (setq cider-history-file "~/.tmp/nrepl-history")
+  (setq cider-history-file (concat (getenv "HOME") "/.tmp/nrepl-history"))
 
   ;; auto-select the error buffer when it's displayed
   (setq cider-auto-select-error-buffer t)
@@ -303,6 +300,8 @@
   (define-key clojure-mode-map (kbd "M-<left>") 'paredit-backward-slurp-sexp)
   (define-key clojure-mode-map (kbd "C-<right>") 'right-word)
   (define-key clojure-mode-map (kbd "C-<left>") 'left-word)
+  (global-set-key (kbd "C-<right>") 'right-word)
+  (global-set-key (kbd "C-<left>") 'left-word)
 
 
   (message "Clojure mode hook ran and initialized clojure-editor ability."))
