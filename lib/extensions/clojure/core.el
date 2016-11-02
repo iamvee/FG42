@@ -1,3 +1,12 @@
+(defun setup-keys ()
+  (define-key clojure-mode-map (kbd "M-<right>") 'paredit-forward-slurp-sexp)
+  (define-key clojure-mode-map (kbd "M-<left>") 'paredit-backward-slurp-sexp)
+
+  (define-key clojure-mode-map (kbd "C-<right>") 'right-word)
+  (define-key clojure-mode-map (kbd "C-<left>") 'left-word)
+  (global-set-key (kbd "C-<right>") 'right-word)
+  (global-set-key (kbd "C-<left>") 'left-word))
+
 ;; Add requires to blank devcards files
 (defun cljr--find-source-ns-of-devcard-ns (test-ns test-file)
   (let* ((ns-chunks (split-string test-ns "[.]" t))
@@ -148,6 +157,7 @@
   (define-key clojure-mode-map [remap paredit-backward] 'clojure-backward-logical-sexp)
   (define-key clojure-mode-map (kbd "C->") 'cljr-thread)
   (define-key clojure-mode-map (kbd "C-<") 'cljr-unwind)
+
   (define-key clj-refactor-map
     (cljr--key-pairs-with-modifier "C-s-" "xf") 'my-toggle-expect-focused)
   (define-key clj-refactor-map
@@ -274,6 +284,7 @@
   (add-hook 'clojure-mode-hook #'paredit-mode)
   (add-hook 'cider-repl-mode-hook #'paredit-mode)
   (add-hook 'clojure-mode-hook #'hl-sexp-mode)
+  (add-hook 'paredit-mode-hook 'setup-keys)
 
   (define-key clojure-mode-map (kbd "C-`") 'live-cycle-clj-coll)
   (define-key cider-repl-mode-map (kbd "<home>") nil)
@@ -296,8 +307,10 @@
   (define-key clojure-mode-map (kbd "C-c C-k") 'nrepl-warn-when-not-connected)
   (define-key clojure-mode-map (kbd "C-c C-n") 'nrepl-warn-when-not-connected)
   (define-key clojure-mode-map (kbd "C-c C-q") 'nrepl-warn-when-not-connected)
+
   (define-key clojure-mode-map (kbd "M-<right>") 'paredit-forward-slurp-sexp)
   (define-key clojure-mode-map (kbd "M-<left>") 'paredit-backward-slurp-sexp)
+
   (define-key clojure-mode-map (kbd "C-<right>") 'right-word)
   (define-key clojure-mode-map (kbd "C-<left>") 'left-word)
   (global-set-key (kbd "C-<right>") 'right-word)

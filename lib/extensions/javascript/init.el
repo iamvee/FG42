@@ -7,7 +7,7 @@
   ;; FIXME: don't hard code the indent size
   (setq js2-basic-offset 2)
 
-  (tern-mode t)
+  ;(tern-mode t)
   (jquery-doc-setup))
 
 ;;;###autoload
@@ -19,7 +19,7 @@
            "Gives FG42 the ability to edit javascript."
 
            (autoload 'js2-mode "js2-mode" "Javascript mode")
-           (autoload 'tern-mode "tern.el" nil t)
+           ;(autoload 'tern-mode "tern.el" nil t)
 
 
            (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
