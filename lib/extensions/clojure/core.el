@@ -183,6 +183,7 @@
   (require 'hl-sexp)
   (require 'paredit)
 
+
   ;; indent [quiescent.dom :as d] specially
   (define-clojure-indent
     (d/a 1)
@@ -285,6 +286,7 @@
   (add-hook 'cider-repl-mode-hook #'paredit-mode)
   (add-hook 'clojure-mode-hook #'hl-sexp-mode)
   (add-hook 'paredit-mode-hook 'setup-keys)
+  (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
   (define-key clojure-mode-map (kbd "C-`") 'live-cycle-clj-coll)
   (define-key cider-repl-mode-map (kbd "<home>") nil)

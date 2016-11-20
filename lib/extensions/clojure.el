@@ -15,10 +15,11 @@
 (depends-on 'clojure-mode-extra-font-locking)
 ;(depends-on 'core-async-mode)
 (depends-on 'yesql-ghosts)
+(depends-on 'rainbow-delimiters)
 
 ;; Extension -------------------------------------
 (extension clojure
-	   :version "2.31"
+	   :version "2.32"
 	   :on-initialize extensions/clojure-initialize)
 
 (provide 'extensions/clojure)

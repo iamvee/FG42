@@ -74,7 +74,7 @@
                                         ;(require 'eldoc-mode)
 
   (subword-mode +1)
-  (anaconda-mode 1)
+  ;(anaconda-mode 1)
   (eldoc-mode 1)
 
   (setup-keybindings)
@@ -92,8 +92,8 @@
                 #'python-imenu-create-flat-index))
   (add-hook 'post-self-insert-hook
             #'electric-layout-post-self-insert-function nil 'local)
-  (add-hook 'after-save-hook 'python-mode-set-encoding nil 'local))
-
+  ;(add-hook 'after-save-hook 'python-mode-set-encoding nil 'local))
+)
 ;;;###autoload
 (defun extensions/python-initialize ()
   (message "Initializing 'python' extension.")
@@ -122,7 +122,8 @@
   (ability python-code-completion ('code-completion)
            "Gives FG42 the ability to complete python codes."
 
-           (when (boundp 'company-backends)
-             (add-to-list 'company-backends 'company-anaconda))))
+           ;(when (boundp 'company-backends)
+                                        ;  (add-to-list 'company-backends 'company-anaconda))))
+           ))
 
 (provide 'extensions/python/init)
