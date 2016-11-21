@@ -56,7 +56,15 @@
            (global-set-key (kbd "M-[") 'bm-previous)
 
            (setq bm-in-lifo-order t)
-           (setq bm-cycle-all-buffers t))
+           (setq bm-cycle-all-buffers t)
+
+           ;(setq bm-highlight-style 'bm-highlight-line-and-fringe)
+           (setq-default bm-buffer-persistence t)
+           (setq bm-repository-file (locate-user-emacs-file "bm-repository"))
+           (add-hook 'prog-mode-hook 'bm-load-and-restore)
+           (add-hook 'kill-emacs-hook '(lambda nil
+                                         (bm-buffer-save-all)
+                                         (bm-repository-save))))
 
   (ability hl ()
            "Highligh the current block of code"
