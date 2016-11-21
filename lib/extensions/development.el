@@ -28,6 +28,9 @@
 (with-ability spell
               (depends-on 'flyspell))
 
+(with-ability file-browser
+              (depends-on 'ranger))
+
 (with-ability shell
               (depends-on 'eshell-prompt-extras)
               (depends-on 'shell-pop))

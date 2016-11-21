@@ -182,6 +182,15 @@
                            :description "Search for a regexp in a project.")
            (add-hook 'projectile-mode-hook 'enable-pt-search))
 
+  (ability file-browser ()
+           "A ranger like file browser for FG42"
+           (cheatsheet-add :group '--Development--
+                           :key   "f7"
+                           :description "A ranger like file browser for FG42")
+           (setq ranger-cleanup-eagerly t)
+           (setq ranger-show-dotfiles nil)
+           (global-set-key [f7] 'ranger))
+
   (ability smart-mode-line ()
            "Smarter modeline for FG42"
            (setq sml/no-confirm-load-theme t)
@@ -190,7 +199,7 @@
 
   (ability indent-guide
            "Show indent guides."
-           (indent-guide-global-mode)
+           (add-hook 'prog-mode-hook 'indent-guide-mode)
            (set-face-foreground 'indent-guide-face "#bbb")))
 
 (provide 'extensions/development/init)
