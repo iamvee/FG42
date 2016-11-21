@@ -104,6 +104,11 @@
            (require 'neotree)
            (global-set-key [f8] 'neotree-toggle))
 
+  (ability focus ()
+           "Provides means for focusing on code review."
+           (cheatsheet-add :group '--Development--
+                           :key   "M-x focus-mode"
+                           :description "Highlights only the paragraph of code which you are reading for better focus."))
   (ability pt ()
            "Provides fast search ability via platinium search"
            (require 'pt)

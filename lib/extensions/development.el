@@ -7,12 +7,17 @@
 (depends-on 'company)
 (depends-on 'company-statistics)
 (depends-on 'projectile)
-(depends-on 'diff-hl)
-(depends-on 'magit)
 (depends-on 'indent-guide)
 (depends-on 'yasnippet)
 (depends-on 'hl-sexp)
 (depends-on 'smart-mode-line)
+
+(with-ability git
+              (depends-on 'diff-hl)
+              (depends-on 'magit))
+
+(with-ability focus
+              (depends-on 'focus))
 
 (with-ability code-browser
               (depends-on 'neotree))
