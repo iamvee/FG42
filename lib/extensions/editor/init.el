@@ -144,19 +144,27 @@
 
                 (helm-mode 1))
 
-  ;; Swiper ---------------------------------------------------
-  (ability swiper ()
-           "Replace default isearch with swiper"
+  (ability ivy ()
+           "Completion using ivy."
            (require 'ivy)
            (ivy-mode 1)
 
            (setq ivy-use-virtual-buffers t)
-           (global-set-key "\C-s" 'swiper)
-           (global-set-key "\C-r" 'swiper)
            (global-set-key (kbd "C-c C-r") 'ivy-resume)
-           (global-set-key [f6] 'ivy-resume)
-           (with-ability ido
-                         (global-set-key (kbd "C-x b") 'ido-switch-buffer)))
+           (global-set-key (kbd "M-x") 'counsel-M-x)
+           (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+           (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+           (global-set-key (kbd "<f1> l") 'counsel-load-library)
+           (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+           (global-set-key (kbd "<f2> u") 'counsel-unicode-char))
+
+  ;; Swiper ---------------------------------------------------
+  (ability swiper (ivy)
+           "Replace default isearch with swiper"
+           (global-set-key "\C-s" 'swiper)
+           (global-set-key "\C-r" 'swiper))
+           ;; (with-ability ido
+           ;;               (global-set-key (kbd "C-x b") 'ido-switch-buffer)))
 
   ;; Session Management ---------------------------------------
   (desktop-save-mode 1)

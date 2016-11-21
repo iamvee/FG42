@@ -10,6 +10,10 @@
 (depends-on 'ov)
 (depends-on 'cheatsheet)
 
+(with-ability ivy
+              (depends-on 'ivy)
+              (depends-on 'counsel))
+
 (with-ability ido
               (depends-on 'ido)
               (depends-on 'ido-ubiquitous)
