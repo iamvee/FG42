@@ -27,6 +27,11 @@
 
 (with-ability spell
               (depends-on 'flyspell))
+
+(with-ability shell
+              (depends-on 'eshell-prompt-extras)
+              (depends-on 'shell-pop))
+
 ;; TODO: Add flycheck-color-modebar
 ;; TODO  Add flycheck-tip
 

@@ -30,6 +30,7 @@
   (define-key projectile-mode-map (kbd "C-c p s s") 'projectile-pt)
   (define-key projectile-mode-map (kbd "C-c p s r") 'pt-regexp))
 
+
 ;;;###autoload
 (defun extension/development-initialize ()
   "Development plugin initialization."
@@ -135,6 +136,34 @@
                            :description "Chande root directory.")
 
            (global-set-key [f8] 'neotree-toggle))
+
+  (ability shell ()
+           "Eshell enhancements."
+
+           (cheatsheet-add :group '--Development--
+                           :key   "M-`'"
+                           :description "Brings up the eshell")
+
+           (custom-set-variables
+            ;; custom-set-variables was added by Custom.
+            ;; If you edit it by hand, you could mess it up, so be careful.
+            ;; Your init file should contain only one such instance.
+            ;; If there is more than one, they won't work right.
+            '(shell-pop-default-directory "$HOME")
+            ;;'(shell-pop-shell-type (quote ("ansi-term" "*ansi-term*" (lambda nil (ansi-term shell-pop-term-shell)))))
+            '(shell-pop-shell-type (quote ("eshell" "*shell*" (lambda nil (eshell shell-pop-term-shell)))))
+            ;;'(shell-pop-term-shell "/bin/zsh")
+            '(shell-pop-term-shell "eshell")
+            '(shell-pop-universal-key "M-`")
+            '(shell-pop-window-size 30)
+            '(shell-pop-full-span t)
+            '(shell-pop-window-position "full"))
+
+           (require 'eshell-prompt-extras)
+           (with-eval-after-load "esh-opt"
+             (autoload 'epe-theme-lambda "eshell-prompt-extras")
+             (setq eshell-highlight-prompt nil
+                   eshell-prompt-function 'epe-theme-lambda)))
 
   (ability focus ()
            "Provides means for focusing on code review."
