@@ -36,6 +36,28 @@
   "Development plugin initialization."
   (message "Initializing 'development' extension.")
 
+  (ability bookmarks ()
+           (require 'bm)
+
+           (cheatsheet-add :group '--Development--
+                           :key   "M-p"
+                           :description "Toggle bookmarks")
+
+           (cheatsheet-add :group '--Development--
+                           :key   "M-]"
+                           :description "Jump to next bookmark")
+
+           (cheatsheet-add :group '--Development--
+                           :key   "M-["
+                           :description "Jump to previous bookmark")
+
+           (global-set-key (kbd "M-p") 'bm-toggle)
+           (global-set-key (kbd "M-]")   'bm-next)
+           (global-set-key (kbd "M-[") 'bm-previous)
+
+           (setq bm-in-lifo-order t)
+           (setq bm-cycle-all-buffers t))
+
   (ability hl ()
            "Highligh the current block of code"
            (require 'hl-sexp)

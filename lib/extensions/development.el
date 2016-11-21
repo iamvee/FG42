@@ -11,6 +11,8 @@
 (depends-on 'yasnippet)
 (depends-on 'hl-sexp)
 (depends-on 'smart-mode-line)
+(with-ability bookmarks
+              (depends-on 'bm))
 
 (with-ability git
               (depends-on 'diff-hl)
