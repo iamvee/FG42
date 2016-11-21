@@ -25,6 +25,12 @@
 
 
 ;;;###autoload
+(defun enable-pt-search ()
+  (interactive)
+  (define-key projectile-mode-map (kbd "C-c p s s") 'projectile-pt)
+  (define-key projectile-mode-map (kbd "C-c p s r") 'pt-regexp))
+
+;;;###autoload
 (defun extension/development-initialize ()
   "Development plugin initialization."
   (message "Initializing 'development' extension.")
@@ -95,18 +101,20 @@
 
   (ability code-browser ()
            "Adds the code browser to FG42."
-           (autoload 'direx "direx" "Simple code browser.")
-           (require 'popwin)
-           (popwin-mode t)
+           (require 'neotree)
+           (global-set-key [f8] 'neotree-toggle))
 
-           (push '(direx:direx-mode :position left :width 30 :dedicated t)
-                 popwin:special-display-config)
-           (global-set-key (kbd "C-c q") 'direx-project:jump-to-project-root-other-window))
+  (ability pt ()
+           "Provides fast search ability via platinium search"
+           (require 'pt)
+           (cheatsheet-add :group 'Development
+                           :key   "C-c p s s"
+                           :description "Search within a project using pt. It's fast.")
 
-  (ability fast-search ()
-           "Provides fast search ability via silver search"
-           (setq ag-reuse-window 't)
-           (setq ag-highlight-search t))
+           (cheatsheet-add :group 'Development
+                           :key   "C-c p s r"
+                           :description "Search for a regexp in a project.")
+           (add-hook 'projectile-mode-hook 'enable-pt-search))
 
   (ability smart-mode-line ()
            "Smarter modeline for FG42"

@@ -11,11 +11,14 @@
 (depends-on 'magit)
 (depends-on 'indent-guide)
 (depends-on 'yasnippet)
-(depends-on 'direx)
-(depends-on 'popwin)
-(depends-on 'ag)
 (depends-on 'hl-sexp)
 (depends-on 'smart-mode-line)
+
+(with-ability code-browser
+              (depends-on 'neotree))
+
+(with-ability pt
+              (depends-on 'pt))
 
 (with-ability spell
               (depends-on 'flyspell))

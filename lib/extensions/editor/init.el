@@ -10,6 +10,7 @@
   "Base plugin initialization."
   (message "Initializing 'editor' extension.")
 
+  (require 'cheatsheet)
   (require 'extensions/editor/utils)
 
   ;; Remove splash screen

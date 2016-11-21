@@ -8,6 +8,7 @@
 (depends-on 'dired+)
 (depends-on 'seq)
 (depends-on 'ov)
+(depends-on 'cheatsheet)
 
 (with-ability ido
               (depends-on 'ido)
