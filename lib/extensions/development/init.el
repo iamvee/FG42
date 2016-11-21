@@ -102,6 +102,38 @@
   (ability code-browser ()
            "Adds the code browser to FG42."
            (require 'neotree)
+           (cheatsheet-add :group '--Development--
+                           :key   "f8"
+                           :description "Toggle project browser sidebar. See ProjectBrowser")
+
+           (cheatsheet-add :group '--ProjectBrowser--
+                           :key   "n"
+                           :description "Next line")
+           (cheatsheet-add :group '--ProjectBrowser--
+                           :key   "p"
+                           :description "Previous line")
+           (cheatsheet-add :group '--ProjectBrowser--
+                           :key   "g"
+                           :description "Refresh the tree")
+           (cheatsheet-add :group '--ProjectBrowser--
+                           :key   "A"
+                           :description "Maximize/Minimize the project browser")
+           (cheatsheet-add :group '--ProjectBrowser--
+                           :key   "H"
+                           :description "Toggle display hidden files")
+           (cheatsheet-add :group '--ProjectBrowser--
+                           :key   "C-c C-n"
+                           :description "Create a file or create a directory if filename ends with a '/'")
+           (cheatsheet-add :group '--ProjectBrowser--
+                           :key   "C-c C-d"
+                           :description "Delete a file or a directory.")
+           (cheatsheet-add :group '--ProjectBrowser--
+                           :key   "C-c C-r"
+                           :description "Rename a file or a directory.")
+           (cheatsheet-add :group '--ProjectBrowser--
+                           :key   "C-c C-c"
+                           :description "Chande root directory.")
+
            (global-set-key [f8] 'neotree-toggle))
 
   (ability focus ()
