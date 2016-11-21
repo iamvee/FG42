@@ -1,2 +1,0 @@
-* Tasks
-** TODO adds support for markdown.
