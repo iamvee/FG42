@@ -23,7 +23,6 @@
     (error (message "Invalid expression")
            (insert (current-kill 0)))))
 
-
 ;;;###autoload
 (defun enable-pt-search ()
   (interactive)
@@ -52,7 +51,7 @@
                            :description "Jump to previous bookmark")
 
            (global-set-key (kbd "M-p") 'bm-toggle)
-           (global-set-key (kbd "M-]")   'bm-next)
+           (global-set-key (kbd "M-]") 'bm-next)
            (global-set-key (kbd "M-[") 'bm-previous)
 
            (setq bm-in-lifo-order t)
@@ -66,6 +65,13 @@
                                          (bm-buffer-save-all)
                                          (bm-repository-save))))
 
+  (ability git ()
+           "A wonderful git interface for FG42"
+           (cheatsheet-add :group '--Development--
+                           :key   "C-x g"
+                           :description "Rise up MAGIT. Git interface for FG42")
+           (global-set-key (kbd "C-x g") 'magit-status))
+1
   (ability hl ()
            "Highligh the current block of code"
            (require 'hl-sexp)
@@ -210,6 +216,7 @@
            (cheatsheet-add :group '--Development--
                            :key   "C-c p s r"
                            :description "Search for a regexp in a project.")
+           (advice-add 'projectile-ag :around #'projectile-pt)
            (add-hook 'projectile-mode-hook 'enable-pt-search))
 
   (ability file-browser ()

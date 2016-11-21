@@ -11,8 +11,7 @@
 (depends-on 'cheatsheet)
 
 (with-ability ivy
-              (depends-on 'ivy)
-              (depends-on 'counsel))
+              (depends-on 'ivy))
 
 (with-ability ido
               (depends-on 'ido)
