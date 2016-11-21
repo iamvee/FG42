@@ -107,11 +107,11 @@
   (ability pt ()
            "Provides fast search ability via platinium search"
            (require 'pt)
-           (cheatsheet-add :group 'Development
+           (cheatsheet-add :group '--Development--
                            :key   "C-c p s s"
                            :description "Search within a project using pt. It's fast.")
 
-           (cheatsheet-add :group 'Development
+           (cheatsheet-add :group '--Development--
                            :key   "C-c p s r"
                            :description "Search for a regexp in a project.")
            (add-hook 'projectile-mode-hook 'enable-pt-search))

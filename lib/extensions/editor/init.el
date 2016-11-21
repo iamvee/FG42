@@ -13,6 +13,12 @@
   (require 'cheatsheet)
   (require 'extensions/editor/utils)
 
+  (cheatsheet-add :group '--HELP--
+                  :key   "C-?"
+                  :description "Show this cheatsheet")
+  (global-set-key (kbd "C-?") 'cheatsheet-show)
+
+
   ;; Remove splash screen
   (setq inhibit-splash-screen t)
 
