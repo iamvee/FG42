@@ -32,6 +32,7 @@
 ;; Setting your TODO file path:
 ;;   (setq fg42-todo-file "~/.TODO.org")
 ;; or you can open a remote TODO file
+;;   (add-hook 'fg42-before-open-todo-hook 'disable-projectile)
 ;;   (setq fg42-todo-file "/ssh:user@host:/home/USER/.TODO.org")
 ;;
 ;; Set some environment variables for your fg42 to use

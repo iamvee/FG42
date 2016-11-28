@@ -46,6 +46,9 @@
   ;; Tramp configuration -------------------------------------
   (ability tramp ()
            (setq tramp-default-method "ssh")
+           (cheatsheet-add :group '--EDITOR--
+                           :key   "f9"
+                           :description "Open up your todo file. checkout `fg42-todo-file` var and `fg42-open-todo` function.")
            (global-set-key [f9] 'fg42-open-todo))
 
   ;; replace strings
