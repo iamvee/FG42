@@ -1,9 +1,25 @@
-;; Functions -------------------------------------------------
+;; Customizations --------------------------------------------
+(defcustom fg42-todo-file "~/.TODO.org"
+  "Path to your TODO file. You can use a tramp address here as well."
+  :type 'string
+  :group 'fg42)
 
+;; Hooks -----------------------------------------------------
+(defvar fg42-before-open-todo-hook nil)
+(defvar fg42-after-open-todo-hook nil)
+
+;; Functions -------------------------------------------------
 (defun fg42-reload ()
   "Reload the entire FG42."
   (interactive)
   (load-file (concat (getenv "FG42_HOME") "/fg42-config.el")))
+
+;;;###autoload
+(defun fg42-open-todo ()
+  (interactive)
+  (run-hooks 'fg42-before-open-todo-hook)
+  (find-file fg42-todo-file)
+  (run-hooks 'fg42-after-open-todo-hook))
 
 ;;;###autoload
 (defun extensions/editor-initialize ()
@@ -26,8 +42,11 @@
   (setq initial-scratch-message nil)
 
 
+
   ;; Tramp configuration -------------------------------------
-  (setq tramp-default-method "ssh")
+  (ability tramp ()
+           (setq tramp-default-method "ssh")
+           (global-set-key [f9] 'fg42-open-todo))
 
   ;; replace strings
   (global-set-key (kbd "C-c M-s") 'replace-string)

@@ -1,4 +1,8 @@
 ;; Functions -------------------------------------------------
+;;;###autoload
+(defun disable-projectile ()
+  (interactive)
+  (projectile-global-mode nil))
 
 ;; Quick fix for company-mode and yasnippet clashing
 (defun company-yasnippet-or-completion ()

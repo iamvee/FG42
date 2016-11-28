@@ -9,6 +9,8 @@
 (depends-on 'seq)
 (depends-on 'ov)
 (depends-on 'cheatsheet)
+(with-ability tramp
+              (depends-on 'tramp))
 
 (with-ability ivy
               (depends-on 'ivy))

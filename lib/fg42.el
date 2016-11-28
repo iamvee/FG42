@@ -31,10 +31,18 @@
 (defvar fg42-home (getenv "FG42_HOME")
   "The pass to fg42-home")
 
+(defvar fg42-before-initialize-hook nil
+  "This hook will be called before FG42 initilization process.")
+
+(defvar fg42-after-initialize-hook nil
+  "This hook will be called after FG42 initilization process.")
+
 (defun fg42-initialize ()
   "Initialize FG42 editor."
+  (run-hooks 'fg42-before-initialize-hook)
   (setq package-user-dir (concat fg42-home "/packages"))
   (fpkg-initialize)
-  (initialize-extensions))
+  (initialize-extensions)
+  (run-hooks 'fg42-after-initialize-hook))
 
 (provide 'fg42)
