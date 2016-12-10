@@ -56,8 +56,6 @@
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
 
-  (setq web-mode-content-types-alist
-        '(("jsx"  . "\\.js[x]?\\'")))
 
   (web-mode))
 
@@ -79,7 +77,8 @@
            (add-to-list 'auto-mode-alist '("\\.handlebars\\'" . web-mode))
            (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
            (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
-           (add-to-list 'auto-mode-alist '("\\.jsx$" . jsx))
+           (add-to-list 'auto-mode-alist '("\\.jsx$" . js2-jsx-mode))
+           (add-to-list 'auto-mode-alist '("\\.esx$" . js2-jsx-mode))
 
            (add-hook 'web-mode-hook 'web-mode-hook-func)
            (add-hook 'web-mode-hook 'emmet-mode)
@@ -110,10 +109,13 @@
            "Gives FG42 the ability to edit Javascript."
            (add-hook 'js2-mode-hook 'extensions/web-activate-modes)
            (add-to-list 'auto-mode-alist '("\\.js.erb$" . js2-mode))
+           (add-to-list 'auto-mode-alist '("\\.es$" . js2-mode))
+           (add-to-list 'auto-mode-alist '("\\.es6$" . js2-mode))
+
            (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode)))
   (ability jsx-editor
            "Gives FG42 the ability to edit JSX."
-            (add-to-list 'auto-mode-alist '("\\.jsx$" . jsx))))
+            (add-to-list 'auto-mode-alist '("\\.jsx$" . js2-jsx-mode))))
 
 
 
