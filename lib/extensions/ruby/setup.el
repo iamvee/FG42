@@ -117,4 +117,13 @@
     (build-ctag-file))
   (etags-select-find-tag-at-point))
 
+(setq erb-regex (concat "\\([^\\\"']+\\.\\)\\(" (rx (or "jpg" "png" "gif" "svg")) "\\)"))
+
+;;;###autoload
+(defun erbify-image-paths ()
+  (interactive)
+  (message erb-regex)
+  (replace-regexp erb-regex "<%= image_path '\\1\\2' %>"))
+
+
 (provide 'extensions/ruby/setup)
