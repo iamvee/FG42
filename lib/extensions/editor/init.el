@@ -32,7 +32,24 @@
   (cheatsheet-add :group '--HELP--
                   :key   "C-?"
                   :description "Show this cheatsheet")
+  (cheatsheet-add :group '--Navigation--
+                  :key   "C-."
+                  :description "Move a word to right")
+  (cheatsheet-add :group '--Navigation--
+                  :key   "C-,"
+                  :description "Move a word to left")
+  (cheatsheet-add :group '--Navigation--
+                  :key   "s-p"
+                  :description "Move back a paragraph")
+  (cheatsheet-add :group '--Navigation--
+                  :key   "s-n"
+                  :description "Move forward by a paragraph")
+
   (global-set-key (kbd "C-?") 'cheatsheet-show)
+  (global-set-key (kbd "C-.") 'right-word)
+  (global-set-key (kbd "C-,") 'left-word)
+  (global-set-key (kbd "s-n") 'forward-paragraph)
+  (global-set-key (kbd "s-p") 'backward-paragraph)
 
 
   ;; Remove splash screen

@@ -299,7 +299,7 @@
   (add-to-list 'cljr-project-clean-functions 'cleanup-buffer)
 
   (define-key clojure-mode-map (kbd "s-j") 'clj-jump-to-other-file)
-  (define-key clojure-mode-map (kbd "C-.") 'clj-hippie-expand-no-case-fold)
+  ;;(define-key clojure-mode-map (kbd "C-.") 'clj-hippie-expand-no-case-fold)
   (define-key clojure-mode-map (kbd "C-M-x")   'nrepl-warn-when-not-connected)
   (define-key clojure-mode-map (kbd "C-x C-e") 'nrepl-warn-when-not-connected)
   (define-key clojure-mode-map (kbd "C-c C-e") 'nrepl-warn-when-not-connected)
