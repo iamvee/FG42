@@ -9,6 +9,10 @@
 (depends-on 'seq)
 (depends-on 'ov)
 (depends-on 'cheatsheet)
+
+(with-ability guru
+              (depends-on 'guru-mode))
+
 (with-ability tramp
               (depends-on 'tramp))
 

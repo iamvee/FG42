@@ -33,23 +33,19 @@
                   :key   "C-?"
                   :description "Show this cheatsheet")
   (cheatsheet-add :group '--Navigation--
-                  :key   "s-."
+                  :key   "M-f"
                   :description "Move a word to right")
   (cheatsheet-add :group '--Navigation--
-                  :key   "s-,"
+                  :key   "M-b"
                   :description "Move a word to left")
   (cheatsheet-add :group '--Navigation--
-                  :key   "s-p"
+                  :key   "M-{"
                   :description "Move back a paragraph")
   (cheatsheet-add :group '--Navigation--
-                  :key   "s-n"
+                  :key   "M-}"
                   :description "Move forward by a paragraph")
 
   (global-set-key (kbd "C-?") 'cheatsheet-show)
-  (global-set-key (kbd "s-.") 'right-word)
-  (global-set-key (kbd "s-,") 'left-word)
-  (global-set-key (kbd "s-n") 'forward-paragraph)
-  (global-set-key (kbd "s-p") 'backward-paragraph)
 
 
   ;; Remove splash screen
@@ -138,6 +134,11 @@
   ;; HideShow -------------------------------------------------------
   (global-set-key (kbd "C-\-") 'hs-toggle-hiding)
   (hs-minor-mode)
+
+  ;; Guru Configuration
+  (with-ability guru
+                (require 'guru-mode)
+                (guru-global-mode +1))
 
   ;; IDO configurations ---------------------------------------------
   (with-ability ido
