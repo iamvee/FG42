@@ -11,6 +11,10 @@
 (depends-on 'yasnippet)
 (depends-on 'hl-sexp)
 (depends-on 'smart-mode-line)
+
+(with-ability dumb-jump
+              (depends-on 'dumb-jump))
+
 (with-ability bookmarks
               (depends-on 'bm))
 
