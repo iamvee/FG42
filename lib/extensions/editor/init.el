@@ -104,8 +104,10 @@
   (column-number-mode t)
 
   ;; linum mode
-  (global-linum-mode)
-  (setq linum-format " %3d ")
+  (ability linum ()
+           "Line numbering ability"
+           (global-linum-mode)
+           (setq linum-format " %3d "))
 
   (menu-bar-mode -1)
   (show-paren-mode t)

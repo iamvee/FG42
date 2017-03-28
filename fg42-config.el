@@ -6,7 +6,7 @@
 (theme themes/color-theme-monokai)
 
 ;; Disable abilities which we do not want to load
-(disable 'rbenv 'helm)
+(disable 'rbenv 'helm 'spell 'linum)
 
 ;; Activate these extensions
 (activate-extensions 'editor
