@@ -69,6 +69,27 @@
                                          (bm-buffer-save-all)
                                          (bm-repository-save))))
 
+  (ability dumb-jump ()
+           "Easily jump to defination for most langs using ag"
+           (cheatsheet-add :group '--Development--
+                           :key   "M-g o"
+                           :description "Jump to definition in another window")
+           (cheatsheet-add :group '--Development--
+                           :key   "M-g j"
+                           :description "Jump to definition in current buffer")
+           (cheatsheet-add :group '--Development--
+                           :key   "M-g x"
+                           :description "Jump to definition using an external tool")
+           (cheatsheet-add :group '--Development--
+                           :key   "M-g z"
+                           :description "Jump to definition in another window using an external tool")
+
+           (require 'dumb-jump)
+           (define-key dumb-jump-map (kbd "M-g o") 'dumb-jump-go-other-window)
+           (define-key dumb-jump-map (kbd "M-g j") 'dumb-jump-go)
+           (define-key dumb-jump-map (kbd "M-g x") 'dumb-jump-go-prefer-external)
+           (define-key dumb-jump-map (kbd "M-g z") 'dumb-jump-go-prefer-external-other-window))
+
   (ability git ()
            "A wonderful git interface for FG42"
            (cheatsheet-add :group '--Development--
