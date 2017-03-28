@@ -15,13 +15,18 @@
   ;; FIXME: don't hard code the indent size
   (setq js2-basic-offset 2)
 
-  ;(tern-mode t)
+  (define-key js2-mode-map (kbd "C-c C-d") 'js2-jump-to-definition)
+
+  (require 'company-web-jade)
+  (define-key js2-mode-map (kbd "C-'") 'company-web-jade)
+
   (jquery-doc-setup))
 
 ;;;###autoload
 (defun extensions/javascript-initialize ()
   "Javascript development plugin initialization."
   (message "Initializing 'javascript' extension.")
+
 
   (ability jade ()
            (defun init-jade ()
@@ -36,15 +41,20 @@
            (autoload 'js2-mode "js2-mode" "Javascript mode")
            ;(autoload 'tern-mode "tern.el" nil t)
 
-
            (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
            ;(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-mode))
            (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
 
            (add-hook 'js2-mode-hook 'javascript-callback)
 
-           (add-to-list 'company-backends 'company-tern)
-           (setq js2-highlight-level 3))
+           ;; (add-to-list 'company-backends 'company-tern)
+           (setq js2-highlight-level 3)
+
+           (require 'smart-forward)
+           (global-set-key (kbd "M-<up>") 'smart-up)
+           (global-set-key (kbd "M-<down>") 'smart-down)
+           (global-set-key (kbd "M-<left>") 'smart-backward)
+           (global-set-key (kbd "M-<right>") 'smart-forward))
 
   (ability coffee-editor ()
            "Gives FG42 ability to edit coffee script files."

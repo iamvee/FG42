@@ -6,9 +6,13 @@
 (depends-on 'coffee-mode)
 (depends-on 'js2-mode)
 (depends-on 'js2-refactor)
+(depends-on 'smart-forward)
 ;;(depends-on 'tern)
-(depends-on 'jade)
-(depends-on 'company-tern)
+(with-ability jade
+              (depends-on 'jade))
+
+
+(depends-on 'company-web)
 (depends-on 'jquery-doc)
 
 ;; Extension -------------------------------------
