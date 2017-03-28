@@ -1,4 +1,12 @@
 ;; Functions -------------------------------------------------
+
+;;;###autoload
+(defun js2-careless-semicolon ()
+  "Don't give a shit about semicolons. According to javascript's bullshit standard."
+  (interactive)
+  (setq js2-strict-missing-semi-warning nil)
+  (js2-mode))
+
 ;;;###autoload
 (defun javascript-callback ()
   (require 'jquery-doc)
@@ -14,6 +22,13 @@
 (defun extensions/javascript-initialize ()
   "Javascript development plugin initialization."
   (message "Initializing 'javascript' extension.")
+
+  (ability jade ()
+           (defun init-jade ()
+             (interactive)
+             (require 'jade))
+           (add-hook 'js2-mode-hook #'init-jade)
+           (add-hook 'js2-mode-hook #'jade-interaction-mode))
 
   (ability javascript-editor ('flycheck)
            "Gives FG42 the ability to edit javascript."

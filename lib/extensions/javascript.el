@@ -6,7 +6,8 @@
 (depends-on 'coffee-mode)
 (depends-on 'js2-mode)
 (depends-on 'js2-refactor)
-(depends-on 'tern)
+;;(depends-on 'tern)
+(depends-on 'jade)
 (depends-on 'company-tern)
 (depends-on 'jquery-doc)
 
