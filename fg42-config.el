@@ -1,14 +1,28 @@
 (add-to-list 'load-path (concat (getenv "FG42_HOME") "/lib"))
-;(toggle-debug-on-error)
+
+;; DEBUG
+;; =====
+;; Uncomment the below code to trigger stacktraces in case of any errors
+;; (toggle-debug-on-error)
+
 (require 'fg42)
 
+;; THEME
+;; =====
 ;; Load the default theme
-(theme themes/color-theme-monokai)
+;; Other options are:
+;; (theme themes/color-theme-spacemacs-monokai)
+;; (theme themes/color-theme-spacemacs-light)
+(theme themes/color-theme-spacemacs-dark)
 
-;; Disable abilities which we do not want to load
+;; ABILITIES
+;; =========
+;; Disable abilities which you don't want.
 (disable 'rbenv 'helm 'spell 'linum)
 
-;; Activate these extensions
+;; EXTENSIONS
+;; ==========
+;; Uncomment extensions that you may need.
 (activate-extensions 'editor
                      'development
                      'web
@@ -21,6 +35,8 @@
                      'ruby
 		     )
 
+;; USER CONFIGS
+;; ============
 ;; Load user config file in ~/.fg42.el
 (load-user-config "~/.fg42.el")
 ;; NOTE: It's important to use ~/.fg42.el instead of this file

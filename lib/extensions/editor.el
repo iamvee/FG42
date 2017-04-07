@@ -9,6 +9,10 @@
 (depends-on 'seq)
 (depends-on 'ov)
 (depends-on 'cheatsheet)
+(depends-on 'spacemacs-theme)
+
+(with-ability spaceline
+              (depends-on 'spaceline))
 
 (with-ability guru
               (depends-on 'guru-mode))

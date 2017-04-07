@@ -56,6 +56,11 @@
 
 
 
+  (ability spaceline ()
+           "A really cool mode line alternative which borrowed from awesome spacemacs"
+           (require 'spaceline-config)
+           (spaceline-spacemacs-theme))
+
   ;; Tramp configuration -------------------------------------
   (ability tramp ()
            (setq tramp-default-method "ssh")
