@@ -7,6 +7,8 @@
 (depends-on 'js2-mode)
 (depends-on 'js2-refactor)
 (depends-on 'smart-forward)
+(depends-on 'ac-js2)
+
 ;;(depends-on 'tern)
 (with-ability jade
               (depends-on 'jade))

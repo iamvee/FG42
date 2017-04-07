@@ -35,6 +35,10 @@
            (add-hook 'js2-mode-hook #'init-jade)
            (add-hook 'js2-mode-hook #'jade-interaction-mode))
 
+  (ability js-complition ()
+           (require 'ac-js2)
+           (add-to-list 'company-backends 'ac-js2-company))
+
   (ability javascript-editor ('flycheck)
            "Gives FG42 the ability to edit javascript."
 
@@ -47,7 +51,6 @@
 
            (add-hook 'js2-mode-hook 'javascript-callback)
 
-           ;; (add-to-list 'company-backends 'company-tern)
            (setq js2-highlight-level 3)
 
            (require 'smart-forward)

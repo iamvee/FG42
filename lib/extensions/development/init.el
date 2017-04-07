@@ -85,6 +85,7 @@
                            :description "Jump to definition in another window using an external tool")
 
            (require 'dumb-jump)
+	   (dumb-jump-mode t)
            (define-key dumb-jump-mode-map (kbd "M-g o") 'dumb-jump-go-other-window)
            (define-key dumb-jump-mode-map (kbd "M-g j") 'dumb-jump-go)
            (define-key dumb-jump-mode-map (kbd "M-g x") 'dumb-jump-go-prefer-external)
@@ -98,7 +99,7 @@
            (global-set-key (kbd "C-x g") 'magit-status))
 
   (ability hl ()
-           "Highligh the current block of code"
+           "Highligh the current block of code. This ability may slows you down."
            (require 'hl-sexp)
            (add-hook 'prog-mode-hook #'hl-sexp-mode))
 
@@ -117,14 +118,19 @@
            (setq company-idle-delay 0.1)
            (setq company-minimum-prefix-length 2)
 
-           ;; Start autocompletion only after typing
+           ;; Start autpocompletion only after typing
            (setq company-begin-commands '(self-insert-command))
 
            ;; Force complete file names on "C-c /" key
            (global-set-key (kbd "C-c /") 'company-files)
 
            (add-hook 'after-init-hook 'company-statistics-mode)
-           (define-key company-active-map "\t" 'company-yasnippet-or-completion))
+           (define-key company-active-map "\t" 'company-yasnippet-or-completion)
+
+	   (setq dabbrev-case-fold-search t)
+	   
+           (add-to-list 'company-backends 'company-dabbrev)
+           (add-to-list 'company-backends 'company-dabbrev-code))
 
   (ability yas ()
            "Snippet configuration."
@@ -147,7 +153,7 @@
            (add-hook 'after-init-hook 'global-flycheck-mode))
 
   (ability spell ()
-           "Check spell of any word using ispell."
+           "Check spell of any word using ispell. This ability may slows you down"
            (global-set-key (kbd "<f2>") 'ispell-word)
            (setq flyspell-issue-message-flg nil))
 
