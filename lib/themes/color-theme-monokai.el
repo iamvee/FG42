@@ -39,7 +39,7 @@ Based on the TextMate theme Monokai"
      (default ((t (nil))))
      (font-lock-comment-face ((t (:foreground "#75715E")))) ; dark aluminum
      (font-lock-comment-delimiter-face ((t (:foreground "#75715E")))) ; dark aluminum
-     (font-lock-doc-face ((t (:foreground "#75715E")))) ; plum
+     (font-lock-doc-face ((t (:foreground "#6c71c4")))) ; plum
      (font-lock-doc-string-face ((t (:foreground "#75715E")))) ; plum
      (font-lock-string-face ((t (:foreground "#E6DB74")))) ; plum
      (font-lock-keyword-face ((t (:foreground "#F92672")))) ; light sky blue
