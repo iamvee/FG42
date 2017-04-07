@@ -1,4 +1,4 @@
-;; Customizations --------------------------------------------
+; Customizations --------------------------------------------
 (defcustom fg42-todo-file "~/.TODO.org"
   "Path to your TODO file. You can use a tramp address here as well."
   :type 'string
@@ -147,9 +147,9 @@
                 (require 'flx-ido)
                 (require 'ido-vertical-mode)
 
-                (ido-mode t)
                 (ido-everywhere t)
                 (ido-ubiquitous-mode 1)
+                (ido-mode t)
 
                 (smex-initialize)
                 (global-set-key (kbd "M-x") 'smex)
@@ -203,7 +203,9 @@
            ;;               (global-set-key (kbd "C-x b") 'ido-switch-buffer)))
 
   ;; Session Management ---------------------------------------
-  (desktop-save-mode 1)
+  (ability desktop-mode ()
+	   "Save your current working buffers and restore later"
+	   (desktop-save-mode 1))
 
   ;; Backup files ---------------------------------------------
   ;; Put them in one nice place if possible
