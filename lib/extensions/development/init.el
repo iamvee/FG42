@@ -128,7 +128,7 @@
            (define-key company-active-map "\t" 'company-yasnippet-or-completion)
 
 	   (setq dabbrev-case-fold-search t)
-	   
+
            (add-to-list 'company-backends 'company-dabbrev)
            (add-to-list 'company-backends 'company-dabbrev-code))
 
@@ -170,6 +170,7 @@
   (ability code-browser ()
            "Adds the code browser to FG42."
            (require 'neotree)
+           (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
            (cheatsheet-add :group '--Development--
                            :key   "f8"
                            :description "Toggle project browser sidebar. See ProjectBrowser")
@@ -267,7 +268,8 @@
 
   (ability indent-guide
            "Show indent guides."
-           (add-hook 'prog-mode-hook 'indent-guide-mode)
+           (add-hook 'ruby-mode-hook 'indent-guide-mode)
+           (add-hook 'web-mode-hook 'indent-guide-mode)
            (set-face-foreground 'indent-guide-face "#bbb")))
 
 (provide 'extensions/development/init)

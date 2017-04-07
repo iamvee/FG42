@@ -13,12 +13,14 @@
 ;; Other options are:
 ;; (theme themes/color-theme-spacemacs-monokai)
 ;; (theme themes/color-theme-spacemacs-light)
+;; (theme themes/color-theme-doom-one)
+;; (theme themes/color-theme-doom-molokai)
 (theme themes/color-theme-spacemacs-dark)
 
 ;; ABILITIES
 ;; =========
 ;; Disable abilities which you don't want.
-(disable 'rbenv 'helm 'spell 'linum)
+(disable 'rbenv 'helm 'spell 'linum 'smart-mode-line)
 
 ;; EXTENSIONS
 ;; ==========

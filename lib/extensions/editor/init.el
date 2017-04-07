@@ -26,6 +26,7 @@
   "Base plugin initialization."
   (message "Initializing 'editor' extension.")
 
+  (require 'all-the-icons)
   (require 'cheatsheet)
   (require 'extensions/editor/utils)
 
@@ -59,7 +60,9 @@
   (ability spaceline ()
            "A really cool mode line alternative which borrowed from awesome spacemacs"
            (require 'spaceline-config)
-           (spaceline-spacemacs-theme))
+           (require 'extensions/editor/spaceline-alt)
+           (setq-default mode-line-format '("%e" (:eval (spaceline-ml-ati)))))
+           ;;(spaceline-emacs-theme))
 
   ;; Tramp configuration -------------------------------------
   (ability tramp ()
@@ -91,6 +94,11 @@
                     "Show indent guides with a delay."
                     (setq indent-guide-delay 0.3)))
 
+
+  (ability nlinum ()
+           "Faster alternative to linum-mode"
+           (require 'nlinum)
+           (nlinum-mode t))
 
   ;; Default indent width
   (setq tab-width 2)

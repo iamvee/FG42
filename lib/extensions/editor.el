@@ -9,7 +9,14 @@
 (depends-on 'seq)
 (depends-on 'ov)
 (depends-on 'cheatsheet)
+(depends-on 'all-the-icons)
+
+;; Themes
 (depends-on 'spacemacs-theme)
+(depends-on 'doom-themes)
+
+(with-ability nlinum
+              (depends-on 'nlinum))
 
 (with-ability spaceline
               (depends-on 'spaceline))
