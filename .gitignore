@@ -7,5 +7,5 @@ build.log
 packages/
 lib/magic-buffer.el
 assets/
-fg42
+./fg42
 fonts/
