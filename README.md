@@ -1,61 +1,58 @@
-Future Gadgets 42
-=================
+# Future Gadgets 42
+
 If you love **GNU/Emacs**, If you love to program in an editor instead of big slow IDE but still enjoy to
 have a handy code editor then **FG42** is the right choice for you.
 
-If you need help, try our gitter( [![Join the chat at https://gitter.im/FG42/FG42](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/FG42/FG42?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) ) chat room or our channel on freenode: **#5hit**
+If you need help, or even want to just say hello, try our **IRC** channel on freenode: **#5hit**.
 
+## Dependencies
 
-Dependencies
-============
-FG42 required these softwares:
+In order to run **FG42** you need **GNU Emacs >= 25**. FG42 uses several extensions internally
+which each of the has different external dependencies. To gain more information about external
+dependencies ( If we failed to tell you inside the **FG42** ) just run the `describe-extension`
+command.
 
-* GNU Emacs >= 25
+## Installation
 
+In order to install **FG42**, issue the following commands:
 
-Python dependencies (kuso-python plugin)
-----------------------------------------
-  * pep8
-  * pyflakes
-  * pychecker
-  * pylint
-  * jedi
-  * epc
-
-Ruby dependencies (kuso-ruby plugin)
-------------------------------------
-  * rb-readline
-  * Rake
-  * Bundle
-  * rbenv
-  * pry
-  * pry-doc
-  * meta_source
-
-HTML dependencies
------------------
-  * tidy
-  * xmlstarlet
-
-CSS dependencies
-----------------
-  * python-cssutils (pip install cssutils)
-  * csslint
-
-Installation
-============
-Just clone the repository and run the `fg42` script.
+```bash
+# clonse the FG42 repository in ~/.fg42 directory
+$ git clone git://github.com/FG42/FG42.git ~/.fg42/
+# You can clone it where ever your want
+$ cd ~/.fg42/
+$ make install
+```
+Since the installer script uses `sudo`, during the installation process,
+you'll have to enter your password. Make sure that you're user account has
+a `sudo` access.
 
 Enjoy using **FG42** ;)
 
-what's with the name?
-=====================
+## Configuration
+
+After installation there would be a file at `~/.fg42.el` which is the user specific
+configuration of **FG42**. You can configure your copy of **FG42** using this file.
+Also you can generally use this file to configure Emacs as well.
+
+## Documentation
+
+If you're familiar with **GNU/Emacs** you're not going to have a problem with getting
+help. But just to clrearify here is a list of keybindings that may guide you during
+your experience:
+
+| Key bindings | Description      |
+|---------------------------------|
+| C-?          | Quick cheatsheet |
+
+## what's with the name?
+
 I'm a huge fan of [Steins Gate](https://en.wikipedia.org/wiki/Steins;Gate) anime and I follow its
 naming convensions on **Future Gadgets 42**.
 
 
-License
-=======
+# License
+
   FG42 is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or
