@@ -7,7 +7,8 @@ install:
 	@echo "Creating the link..."
 	@echo "#! /bin/sh" > ./fg42
 	@echo "export FG42_HOME=${HOME}/src/FG42" >> ./fg42
-	@echo 'emacs --name FG42 --no-site-file --no-site-lisp --no-splash --title FG42 -l $FG42_HOME/fg42-config.el "$$@"' >> ./fg42
+	@echo 'emacs --name FG42 --no-site-file --no-site-lisp --no-splash --title FG42 -l $$FG42_HOME/fg42-config.el "$$@"' >> ./fg42
+	@chmod +x ./fg42
 	@sudo rm /usr/local/bin/fg42
 	@sudo ln -s `pwd`/fg42 /usr/local/bin/fg42
 	@echo "Copying share files..."
