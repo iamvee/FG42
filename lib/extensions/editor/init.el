@@ -101,7 +101,7 @@
   (ability nlinum ()
            "Faster alternative to linum-mode"
            (require 'nlinum)
-           (nlinum-mode t))
+           (global-nlinum-mode t))
 
   ;; Default indent width
   (setq tab-width 2)
