@@ -264,12 +264,6 @@
            "Smarter modeline for FG42"
            (setq sml/no-confirm-load-theme t)
            (setq sml/theme 'respectful)
-           (sml/setup))
-
-  (ability indent-guide
-           "Show indent guides."
-           (add-hook 'ruby-mode-hook 'indent-guide-mode)
-           (add-hook 'web-mode-hook 'indent-guide-mode)
-           (set-face-foreground 'indent-guide-face "#bbb")))
+           (sml/setup)))
 
 (provide 'extensions/development/init)

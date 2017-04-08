@@ -18,7 +18,7 @@
 (depends-on 'projectile-rails)
 (depends-on 'robe)
 (depends-on 'yari)
-(depends-on 'ggtags)
+(depends-on 'indent-guide)
 (depends-on 'rake)
 
 ;; Extension -------------------------------------

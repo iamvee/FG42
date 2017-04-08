@@ -7,7 +7,6 @@
 (depends-on 'company)
 (depends-on 'company-statistics)
 (depends-on 'projectile)
-(depends-on 'indent-guide)
 (depends-on 'yasnippet)
 (depends-on 'smart-mode-line)
 

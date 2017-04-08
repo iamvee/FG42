@@ -101,6 +101,7 @@
   (ability nlinum ()
            "Faster alternative to linum-mode"
            (require 'nlinum)
+           (setq nlinum-highlight-current-line t)
            (global-nlinum-mode t))
 
   ;; Default indent width
@@ -125,6 +126,11 @@
   (show-paren-mode t)
   (cua-selection-mode t)
 
+  (ability thin-cursor ()
+           (setq-default cursor-type 'bar))
+
+  (ability nonblinker-cursor ()
+           (blink-cursor-mode -1))
 
 
   ;; expand-region -------------------------------------------
