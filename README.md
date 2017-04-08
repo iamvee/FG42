@@ -1,5 +1,4 @@
-# Future Gadgets 42
-
+#  Future Gadgets 42 <img src="https://github.com/FG42/FG42/raw/master/share/icons/hicolor/64x64/apps/fg42.png" alt="FG42" align="right" />
 If you love **GNU/Emacs**, If you love to program in an editor instead of big slow IDE but still enjoy to
 have a handy code editor then **FG42** is the right choice for you.
 
@@ -41,9 +40,12 @@ If you're familiar with **GNU/Emacs** you're not going to have a problem with ge
 help. But just to clrearify here is a list of keybindings that may guide you during
 your experience:
 
+
 | Key bindings | Description      |
-|---------------------------------|
-| C-?          | Quick cheatsheet |
+|:------------:|------------------|
+| `C-?`          | Quick cheatsheet |
+| `C-h m`        | All the information and keybindings of your current modes. e.g open of a `ruby` file and use the this keybinding to take a look at all the keybinding of ruby extension |
+
 
 ## what's with the name?
 
