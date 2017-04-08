@@ -30,6 +30,11 @@
   (require 'cheatsheet)
   (require 'extensions/editor/utils)
 
+  ;; Font Configuration -----------------------------------
+  (add-to-list 'default-frame-alist '(font . "Fira Mono" ))
+  (set-face-attribute 'default t :font "Fira Mono" )
+  ;; ------------------------------------------------------
+
   (cheatsheet-add :group '--HELP--
                   :key   "C-?"
                   :description "Show this cheatsheet")
@@ -54,8 +59,6 @@
 
   ;; scratch should be scratch
   (setq initial-scratch-message nil)
-
-
 
   (ability spaceline ()
            "A really cool mode line alternative which borrowed from awesome spacemacs"

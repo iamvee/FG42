@@ -180,7 +180,6 @@
   (interactive)
 
   (require 'cider)
-  (require 'hl-sexp)
   (require 'paredit)
 
 
@@ -284,7 +283,6 @@
   (add-hook 'cider-mode-hook #'eldoc-mode)
   (add-hook 'clojure-mode-hook #'paredit-mode)
   (add-hook 'cider-repl-mode-hook #'paredit-mode)
-  (add-hook 'clojure-mode-hook #'hl-sexp-mode)
   (add-hook 'paredit-mode-hook 'setup-keys)
   (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 

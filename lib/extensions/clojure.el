@@ -5,7 +5,6 @@
 ;; Dependencies ----------------------------------
 (depends-on 'clojure-mode)
 (depends-on 'cider)
-(depends-on 'hl-sexp)
 (depends-on 'paredit)
 (depends-on 'flycheck)
 (depends-on 'flycheck-clojure)

@@ -98,10 +98,10 @@
                            :description "Rise up MAGIT. Git interface for FG42")
            (global-set-key (kbd "C-x g") 'magit-status))
 
-  (ability hl ()
-           "Highligh the current block of code. This ability may slows you down."
-           (require 'hl-sexp)
-           (add-hook 'prog-mode-hook #'hl-sexp-mode))
+  ;; (ability hl ()
+  ;;          "Highligh the current block of code. This ability may slows you down."
+  ;;          (require 'hl-sexp)
+  ;;          (add-hook 'prog-mode-hook #'hl-sexp-mode))
 
   (ability code-completion ()
            "Use company mode to provides a complete auto completion framwork."
