@@ -4,8 +4,16 @@
 (defun extensions/clojure-initialize ()
   ; Clojure development initialization
   (ability clojure-editor ('flycheck)
-           (add-hook 'clojure-mode-hook 'clojure-mode-init)
+           (require 'clojure-mode)
 
+           (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
+           (add-to-list 'auto-mode-alist '("\\.cljc$" . clojurec-mode))
+           (add-to-list 'auto-mode-alist '("\\.cljs$" . clojurescript-mode))
+
+           (add-hook 'cider-mode-hook #'eldoc-mode)
+           (add-hook 'clojure-mode-hook #'paredit-mode)
+
+           (add-hook 'clojure-mode-hook 'clojure-mode-init)
            (setq tmp-directory (concat (getenv "HOME") "/.tmp")))
 
   (ability clojure-completion ('code-completion)

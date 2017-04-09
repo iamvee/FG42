@@ -179,9 +179,9 @@
 (defun clojure-mode-init ()
   (interactive)
 
+  (require 'clojure-mode-extra-font-locking)
   (require 'cider)
   (require 'paredit)
-
 
   ;; indent [quiescent.dom :as d] specially
   (define-clojure-indent
@@ -280,11 +280,9 @@
   (setq cider-prompt-for-symbol nil)
 
   ;; eldoc for clojure
-  (add-hook 'cider-mode-hook #'eldoc-mode)
-  (add-hook 'clojure-mode-hook #'paredit-mode)
   (add-hook 'cider-repl-mode-hook #'paredit-mode)
-  (add-hook 'paredit-mode-hook 'setup-keys)
-  (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+  (setup-keys)
+  (rainbow-delimiters-mode)
 
   (define-key clojure-mode-map (kbd "C-`") 'live-cycle-clj-coll)
   (define-key cider-repl-mode-map (kbd "<home>") nil)

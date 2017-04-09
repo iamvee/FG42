@@ -30,11 +30,19 @@
                 (require 'rbenv)
                 (global-rbenv-mode))
 
+
+
   (ability indent-guide
            "Show indent guides."
            (add-hook 'ruby-mode-hook 'indent-guide-mode)
            (add-hook 'web-mode-hook 'indent-guide-mode)
-           (set-face-foreground 'indent-guide-face "#bbb"))
+           (ability recursive-indent-guides ()
+                    "Show recursive indents guides."
+                    (setq indent-guide-recursive t))
+
+           (ability delayed-indent-guides ()
+                    "Show indent guides with a delay."
+                    (setq indent-guide-delay 0.3)))
 
   (ability ruby-editor ('flycheck)
            "Gives FG42 the ability to edit ruby files."
