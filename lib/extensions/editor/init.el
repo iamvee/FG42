@@ -79,6 +79,7 @@
   (global-unset-key (kbd "C-o"))
   (global-unset-key (kbd "C-v"))
 
+  (global-set-key (kbd "RET") 'newline)
   ;; replace strings
   (global-set-key (kbd "C-c M-s") 'replace-string)
 
