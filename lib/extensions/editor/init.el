@@ -75,6 +75,10 @@
                            :description "Open up your todo file. checkout `fg42-todo-file` var and `fg42-open-todo` function.")
            (global-set-key [f9] 'fg42-open-todo))
 
+  (global-unset-key (kbd "C-m"))
+  (global-unset-key (kbd "C-o"))
+  (global-unset-key (kbd "C-v"))
+
   ;; replace strings
   (global-set-key (kbd "C-c M-s") 'replace-string)
 
