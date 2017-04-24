@@ -13,6 +13,8 @@
            (add-hook 'cider-mode-hook #'eldoc-mode)
            (add-hook 'clojure-mode-hook #'paredit-mode)
 
+           (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
+
            (add-hook 'clojure-mode-hook 'clojure-mode-init)
            (setq tmp-directory (concat (getenv "HOME") "/.tmp")))
 
