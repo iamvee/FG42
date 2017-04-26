@@ -10,8 +10,8 @@
 (depends-on 'ac-js2)
 
 ;;(depends-on 'tern)
-(with-ability jade
-              (depends-on 'jade))
+(with-ability indium
+              (depends-on 'indium))
 
 
 (depends-on 'company-web)

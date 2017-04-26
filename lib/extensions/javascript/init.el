@@ -28,12 +28,13 @@
   (message "Initializing 'javascript' extension.")
 
 
-  (ability jade ()
-           (defun init-jade ()
+  (ability indium ()
+           (defun init-indium ()
              (interactive)
-             (require 'jade))
-           (add-hook 'js2-mode-hook #'init-jade)
-           (add-hook 'js2-mode-hook #'jade-interaction-mode))
+             (require 'indium))
+           (add-hook 'js2-mode-hook #'init-indium)
+           ;(add-hook 'js2-mode-hook #'jade-interaction-mode)
+	   )
 
   (ability js-complition ()
            (require 'ac-js2)
