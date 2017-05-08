@@ -95,6 +95,9 @@
 
   (ability git ()
            "A wonderful git interface for FG42"
+           (require 'magithub)
+           (magithub-feature-autoinject t)
+
            (cheatsheet-add :group '--Development--
                            :key   "C-x g"
                            :description "Rise up MAGIT. Git interface for FG42")

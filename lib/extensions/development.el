@@ -21,7 +21,8 @@
 
 (with-ability git
               (depends-on 'diff-hl)
-              (depends-on 'magit))
+              (depends-on 'magit)
+              (depends-on 'magithub))
 
 (with-ability focus
               (depends-on 'focus))
