@@ -78,6 +78,17 @@
   (global-unset-key (kbd "C-o"))
   (global-unset-key (kbd "C-v"))
 
+  (cheatsheet-add :group '--EDITOR--
+                  :key   "C-s-n"
+                  :description "Move a paragraph forward")
+
+  (cheatsheet-add :group '--EDITOR--
+                  :key   "C-s-p"
+                  :description "Move a paragraph backward")
+
+  (global-set-key (kbd "C-s-n") 'forward-paragraph)
+  (global-set-key (kbd "C-s-p") 'backward-paragraph)
+
   ;; replace strings
   (global-set-key (kbd "C-c M-s") 'replace-string)
 
