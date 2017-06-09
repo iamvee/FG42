@@ -1,30 +1,29 @@
 (require 'doom-themes)
+(require 'solaire-mode)
 
 (defun themes/color-theme-doom-one ()
   (interactive)
+
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+
   (load-theme 'doom-one t)
 
-  (setq doom-enable-bold t
-        doom-enable-italic t  ; if nil, italics are universally disabledc
-        doom-one-brighter-modeline nil
-        doom-one-brighter-comments nil)
+  ;; brighten buffers (that represent real files)
+  (add-hook 'after-change-major-mode-hook #'turn-on-solaire-mode)
 
-  ;; brighter source buffers (that represent files)
-  (add-hook 'find-file-hook 'doom-buffer-mode-maybe)
+  ;; You can do similar with the minibuffer when it is activated:
+  (add-hook 'minibuffer-setup-hook #'solaire-mode-in-minibuffer)
 
-  ;; if you use auto-revert-mode
-  (add-hook 'after-revert-hook 'doom-buffer-mode-maybe)
+  ;; ...if you use auto-revert-mode:
+  (add-hook 'after-revert-hook #'turn-on-solaire-mode)
 
-  ;; you can brighten other buffers (unconditionally) with:
-  (add-hook 'ediff-prepare-buffer-hook 'doom-buffer-mode)
-
-  ;; brighter minibuffer when active
-  (add-hook 'minibuffer-setup-hook 'doom-brighten-minibuffer)
+  ;; To enable solaire-mode unconditionally for certain modes:
+  (add-hook 'ediff-prepare-buffer-hook #'solaire-mode)
 
   ;; Enable custom neotree theme
-  (require 'doom-neotree)    ; all-the-icons fonts must be installed!
+  (doom-themes-neotree-config))
 
-  ;; Enable nlinum line highlighting
-  (require 'doom-nlinum))
 
 (provide 'themes/color-theme-doom-one)

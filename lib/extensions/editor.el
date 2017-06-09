@@ -10,10 +10,11 @@
 (depends-on 'ov)
 (depends-on 'cheatsheet)
 (depends-on 'all-the-icons)
-
 ;; Themes
 (depends-on 'spacemacs-theme)
 (depends-on 'doom-themes)
+;; TODO: Move this to an ability
+(depends-on 'solaire-mode)
 
 (with-ability nlinum
               (depends-on 'nlinum))
