@@ -18,13 +18,15 @@
            (add-hook 'clojure-mode-hook 'clojure-mode-init)
            (setq tmp-directory (concat (getenv "HOME") "/.tmp")))
 
+  (with-ability parinfer ()
+           (add-hook 'clojure-mode-hook #'parinfer-mode))
+
   (ability clojure-completion ('code-completion)
            ;; company mode for completion
            (add-hook 'cider-repl-mode-hook #'company-mode)
            (add-hook 'cider-mode-hook #'company-mode))
 
   (ability clojure-refactore ()
-
            (add-hook 'clojure-mode-hook 'cljr-init)))
 
   ;; (ability clojure-check ('flycheck)

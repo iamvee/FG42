@@ -10,6 +10,9 @@
 (depends-on 'yasnippet)
 (depends-on 'smart-mode-line)
 
+(with-ability parinfer
+              (depends-on 'parinfer))
+
 ;; (with-ability hl
 ;;               (depends-on 'hl-sexp))
 

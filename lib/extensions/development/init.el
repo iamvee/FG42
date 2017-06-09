@@ -69,6 +69,9 @@
                                          (bm-buffer-save-all)
                                          (bm-repository-save))))
 
+  (ability parinfer ()
+           (add-hook 'emacs-lisp-mode-hook #'parinfer-mode))
+
   (ability dumb-jump ()
            "Easily jump to defination for most langs using ag"
            (cheatsheet-add :group '--Development--
