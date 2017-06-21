@@ -65,7 +65,7 @@
            (require 'spaceline-config)
            (require 'extensions/editor/spaceline-alt)
            (setq-default mode-line-format '("%e" (:eval (spaceline-ml-ati)))))
-           ;;(spaceline-emacs-theme))
+  ;;(spaceline-emacs-theme))
 
   ;; Tramp configuration -------------------------------------
   (ability tramp ()
@@ -95,6 +95,7 @@
   ;; Basic Key bindings
   (global-set-key (kbd "\C-c m") 'menu-bar-mode)
 
+  (global-set-key (kbd "<f2>") 'goto-line)
   ;; Don't allow tab as indent
   (setq-default indent-tabs-mode nil)
 
@@ -221,8 +222,8 @@
            "Replace default isearch with swiper"
            (global-set-key "\C-s" 'swiper)
            (global-set-key "\C-r" 'swiper))
-           ;; (with-ability ido
-           ;;               (global-set-key (kbd "C-x b") 'ido-switch-buffer)))
+  ;; (with-ability ido
+  ;;               (global-set-key (kbd "C-x b") 'ido-switch-buffer)))
 
   ;; Session Management ---------------------------------------
   (ability desktop-mode ()
