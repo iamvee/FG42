@@ -10,6 +10,12 @@
 (depends-on 'ov)
 (depends-on 'cheatsheet)
 (depends-on 'all-the-icons)
+
+;; Resize splitted windows
+(depends-on 'windresize)
+
+(depends-on 'eyebrowse)
+
 ;; Themes
 (depends-on 'spacemacs-theme)
 (depends-on 'doom-themes)
