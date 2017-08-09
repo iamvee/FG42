@@ -48,24 +48,29 @@
     (define-key map (kbd "SPC") 'cua-set-mark)
     (define-key map (kbd "e")   'move-end-of-line)
     (define-key map (kbd "a")   'move-beginning-of-line)
-    (define-key map (kbd "RET")   'newline)
+    (define-key map (kbd "<f2>")   'go-to-line)
+    (define-key map (kbd "'")   'other-window)
 
     ;; Actions
+    (define-key map (kbd "b")   'ivy-switch-buffer)
+    (define-key map (kbd "RET")   'newline)
     (define-key map (kbd "d") 'delete-char)
     (define-key map (kbd "<backspace>") 'delete-backward-char)
     (define-key map (kbd "y")   'cua-paste)
     (define-key map (kbd "C-w")   'kill-region)
     (define-key map (kbd "M-w")   'kill-ring-save)
 
-    (define-key map (kbd "C-k") 'kill-and-join-forward)
-    (define-key map (kbd "f f") 'turn-off-and-ido-find-file)
+    (define-key map (kbd "h")   'kill-and-join-forward)
+    (define-key map (kbd "f") 'turn-off-and-ido-find-file)
+    (define-key map (kbd "g") 'keyboard-quit)
     (define-key map (kbd "s")   'turn-off-and-swiper)
     (define-key map (kbd "z")   'undo)
 
     (define-key map (kbd "M-x")   'turn-off-and-smex)
     (define-key map (kbd "C-x C-s") 'save-buffer)
     (define-key map (kbd "ESC ESC") 'turn-off-lxdrive)
-    (define-key map (kbd "q")     'turn-off-lxdrive)
+    (define-key map (kbd "M-SPC") 'turn-off-lxdrive)
+
     map)
   "Keymap for lxdrive-minor-mode.")
 
@@ -83,5 +88,7 @@
 
 ;;(lxdrive-minor-mode 1)
 (global-set-key (kbd "ESC ESC") 'turn-on-lxdrive)
+(global-set-key (kbd "M-SPC") 'turn-on-lxdrive)
+
 (provide 'extensions/editor/lxdrive-mode)
 ;;; lxdrive-mode  ends here
