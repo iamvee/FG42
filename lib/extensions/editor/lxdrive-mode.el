@@ -48,6 +48,7 @@
     (define-key map (kbd "SPC") 'cua-set-mark)
     (define-key map (kbd "e")   'move-end-of-line)
     (define-key map (kbd "a")   'move-beginning-of-line)
+    (define-key map (kbd "RET")   'newline)
 
     ;; Actions
     (define-key map (kbd "d") 'delete-char)
@@ -64,7 +65,7 @@
     (define-key map (kbd "M-x")   'turn-off-and-smex)
     (define-key map (kbd "C-x C-s") 'save-buffer)
     (define-key map (kbd "ESC ESC") 'turn-off-lxdrive)
-    (define-key map (kbd "RET")     'turn-off-lxdrive)
+    (define-key map (kbd "q")     'turn-off-lxdrive)
     map)
   "Keymap for lxdrive-minor-mode.")
 
