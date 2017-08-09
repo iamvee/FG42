@@ -252,6 +252,8 @@
   (require 'extensions/editor/version)
   (require 'extensions/editor/about)
   (require 'extensions/editor/custom)
-  (require 'extensions/editor/session-management))
+  (require 'extensions/editor/session-management)
+  (require 'extensions/editor/lxdrive-mode))
+
 
 (provide 'extensions/editor/init)
