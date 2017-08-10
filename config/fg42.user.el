@@ -1,3 +1,5 @@
+;; Uncomment this for debugging purposes
+;;(setq debug-on-error t)
 ;; THEME
 ;; =====
 ;; Load the default theme

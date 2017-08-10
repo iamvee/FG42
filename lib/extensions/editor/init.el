@@ -1,4 +1,4 @@
-; Customizations --------------------------------------------
+;; Customizations --------------------------------------------
 (defcustom fg42-todo-file "~/.TODO.org"
   "Path to your TODO file. You can use a tramp address here as well."
   :type 'string
@@ -31,8 +31,8 @@
   (require 'extensions/editor/utils)
 
   ;; Font Configuration -----------------------------------
-  (add-to-list 'default-frame-alist '(font . "Fira Mono" ))
-  (set-face-attribute 'default t :font "Fira Mono" )
+  (add-to-list 'default-frame-alist '(font . "Fira Mono"))
+  (set-face-attribute 'default t :font "Fira Mono")
   ;; ------------------------------------------------------
 
   (cheatsheet-add :group '--HELP--
@@ -64,7 +64,31 @@
            "A really cool mode line alternative which borrowed from awesome spacemacs"
            (require 'spaceline-config)
            (require 'extensions/editor/spaceline-alt)
+
+           ;; TODO: Move this to somewhere propriate
+           ;; Modeline indicator for lxdrive
+           (spaceline-define-segment lxdrive
+             "lxdrive indicator on spaceline."
+             (if (and (boundp 'lxdrive-minor-mode) lxdrive-minor-mode)
+                 (all-the-icons-faicon  "arrows"  :height 0.8 :v-adjust 0.1 :face 'all-the-icons-lgreen)
+               (all-the-icons-faicon "pencil" :height 0.8 :v-adjust 0.1 :face 'all-the-icons-blue)))
+
+           (spaceline-compile
+             "ati"
+             '(
+               ((ati-modified ati-window-numbering ati-buffer-size) :face highlight-face :skip-alternate t)
+               ((ati-projectile ati-mode-icon ati-buffer-id) :face default-face)
+               ((ati-process ati-position ati-region-info) :face highlight-face :separator " | ")
+               ((ati-vc-icon ati-flycheck-status ati-(point)ackage-updates purpose) :separator " · " :face other-face)
+               ;; ((minor-modes) :face default-face)
+               )
+
+             '(((lxdrive ati-time) :separator " | " :face default-face)))
+
+
+
            (setq-default mode-line-format '("%e" (:eval (spaceline-ml-ati)))))
+
   ;;(spaceline-emacs-theme))
 
   ;; Tramp configuration -------------------------------------
@@ -179,8 +203,7 @@
 
                 (flx-ido-mode 1)
                 (setq ido-use-faces nil)
-		(setq ido-use-filename-at-point nil)
-
+                (setq ido-use-filename-at-point nil)
                 (setq ido-enable-flex-matching t)
                 (ido-vertical-mode 1))
 
@@ -227,8 +250,8 @@
 
   ;; Session Management ---------------------------------------
   (ability desktop-mode ()
-	   "Save your current working buffers and restore later"
-	   (desktop-save-mode 1))
+           "Save your current working buffers and restore later"
+           (desktop-save-mode 1))
 
   ;; Backup files ---------------------------------------------
   ;; Put them in one nice place if possible
@@ -236,11 +259,11 @@
       (setq backup-directory-alist '(("." . "~/.backup")))
     (make-directory "~/.backup"))
 
-  (setq backup-by-copying t    ; Don't delink hardlinks
-	delete-old-versions t  ; Clean up the backups
-	version-control t      ; Use version numbers on backups,
-	kept-new-versions 3    ; keep some new versions
-	kept-old-versions 2)   ; and some old ones, too
+  (setq backup-by-copying t)    ; Don't delink hardlinks
+  delete-old-versions t  ; Clean up the backups
+  version-control t      ; Use version numbers on backups,
+  kept-new-versions 3    ; keep some new versions
+  kept-old-versions 2   ; and some old ones, too
 
   ;; get rid of yes-or-no questions - y or n is enough
   (defalias 'yes-or-no-p 'y-or-n-p)

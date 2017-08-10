@@ -3,18 +3,18 @@
 ;;; Code:
 
 (setq original-global-map global-map)
+(boundp 'lxdrive-minor-mode)
 
 (defun turn-off-lxdrive ()
   "Toggle lxdrive mode"
   (interactive)
-  (message "Turning lxdrive OFF")
   (lxdrive-minor-mode nil)
+  (setq lxdrive-minor-mode nil)
   (use-global-map original-global-map))
 
 (defun turn-on-lxdrive ()
   "Toggle lxdrive mode"
   (interactive)
-  (message "Turning lxdrive ON")
   (lxdrive-minor-mode t)
   (use-global-map lxdrive-mode-map))
 
@@ -76,7 +76,6 @@
 
 (define-minor-mode lxdrive-minor-mode
   "A minor mode so that my key settings override annoying major modes."
-  :init-value t
   :lighter " lx")
 
 
@@ -89,6 +88,6 @@
 ;;(lxdrive-minor-mode 1)
 (global-set-key (kbd "ESC ESC") 'turn-on-lxdrive)
 (global-set-key (kbd "M-SPC") 'turn-on-lxdrive)
-
+(spaceline-toggle-lxdrive-on)
 (provide 'extensions/editor/lxdrive-mode)
 ;;; lxdrive-mode  ends here

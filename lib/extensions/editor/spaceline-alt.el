@@ -350,26 +350,26 @@ the directions of the separator."
 (define-separator "right-1" "left" 'powerline-active2 'powerline-active1)
 (define-separator "right-2" "left" 'powerline-active1 'mode-line)
 
-(spaceline-compile
- "ati"
- '(
-   ((ati-modified ati-window-numbering ati-buffer-size) :face highlight-face :skip-alternate t)
-   ;; left-active-3
-   ati-left-1-separator
-   ((ati-projectile ati-mode-icon ati-buffer-id) :face default-face)
-   ati-left-2-separator
-   ((ati-process ati-position ati-region-info) :face highlight-face :separator " | ")
-   ati-left-3-separator
-   ati-left-inactive-separator
-   ((ati-vc-icon ati-flycheck-status ati-package-updates purpose) :separator " · " :face other-face)
-   ati-left-4-separator)
+;; (spaceline-compile
+;;  "ati"
+;;  '(
+;;    ((ati-modified ati-window-numbering ati-buffer-size) :face highlight-face :skip-alternate t)
+;;    ;; left-active-3
+;;    ati-left-1-separator
+;;    ((ati-projectile ati-mode-icon ati-buffer-id) :face default-face)
+;;    ati-left-2-separator
+;;    ((ati-process ati-position ati-region-info) :face highlight-face :separator " | ")
+;;    ati-left-3-separator
+;;    ati-left-inactive-separator
+;;    ((ati-vc-icon ati-flycheck-status ati-package-updates purpose) :separator " · " :face other-face)
+;;    ati-left-4-separator)
 
- '(ati-right-1-separator
-   ((ati-suntime ati-weather) :separator " · " :face other-face)
-   ati-right-2-separator
-   ati-right-inactive-separator
-   ((ati-battery-status ati-time) :separator " | " :face other-face)
-   ))
+;;  '(ati-right-1-separator
+;;    ((ati-suntime ati-weather) :separator " · " :face other-face)
+;;    ati-right-2-separator
+;;    ati-right-inactive-separator
+;;    ((ati-battery-status ati-time) :separator " | " :face other-face)
+;;    ))
 
 ;; (setq mode-line-format '("%e" (:eval (spaceline-ml-main))))
 
