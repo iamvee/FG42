@@ -70,20 +70,21 @@
            (spaceline-define-segment lxdrive
              "lxdrive indicator on spaceline."
              (if (and (boundp 'lxdrive-minor-mode) lxdrive-minor-mode)
-                 (all-the-icons-faicon  "arrows"  :height 0.8 :v-adjust 0.1 :face 'all-the-icons-lgreen)
-               (all-the-icons-faicon "pencil" :height 0.8 :v-adjust 0.1 :face 'all-the-icons-blue)))
+                 (all-the-icons-faicon  "arrows"  :height 0.8 :v-adjust 0.15 :face 'all-the-icons-lgreen)
+               (all-the-icons-faicon "pencil" :height 0.8 :v-adjust 0.15))
+             :tight t)
 
            (spaceline-compile
              "ati"
              '(
-               ((ati-modified ati-window-numbering ati-buffer-size) :face highlight-face :skip-alternate t)
+               ((ati-modified ati-window-numbering ati-buffer-size lxdrive) :face highlight-face :skip-alternate t)
                ((ati-projectile ati-mode-icon ati-buffer-id) :face default-face)
                ((ati-process ati-position ati-region-info) :face highlight-face :separator " | ")
                ((ati-vc-icon ati-flycheck-status ati-(point)ackage-updates purpose) :separator " · " :face other-face)
                ;; ((minor-modes) :face default-face)
                )
 
-             '(((lxdrive ati-time) :separator " | " :face default-face)))
+             '(((ati-time) :separator " | " :face default-face)))
 
 
 
