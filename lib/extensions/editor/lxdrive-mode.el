@@ -1,6 +1,7 @@
 ;;; lxdrive-mode --- A minor mode for fast cursor movement
 ;;; Commentary:
 ;;; Code:
+(require 'expand-region)
 
 (setq original-global-map global-map)
 (boundp 'lxdrive-minor-mode)
@@ -45,11 +46,14 @@
     (define-key map (kbd "n") 'backward-paragraph)
     (define-key map (kbd "m") 'forward-paragraph)
     (define-key map (kbd "TAB") 'indent-for-tab-command)
-    (define-key map (kbd "SPC") 'cua-set-mark)
+    (define-key map (kbd "`") 'cua-set-mark)
+    (define-key map (kbd "=") 'er/expand-region)
+    (define-key map (kbd "]") 'forward-page)
+    (define-key map (kbd "[") 'backward-page)
     (define-key map (kbd "e")   'move-end-of-line)
     (define-key map (kbd "a")   'move-beginning-of-line)
     (define-key map (kbd "<f2>")   'go-to-line)
-    (define-key map (kbd "'")   'other-window)
+    (define-key map (kbd "C-TAB")   'other-window)
 
     ;; Actions
     (define-key map (kbd "b")   'ivy-switch-buffer)
@@ -69,6 +73,7 @@
     (define-key map (kbd "M-x")   'turn-off-and-smex)
     (define-key map (kbd "C-x C-s") 'save-buffer)
     (define-key map (kbd "ESC ESC") 'turn-off-lxdrive)
+    (define-key map (kbd "SPC") 'turn-off-lxdrive)
     (define-key map (kbd "M-SPC") 'turn-off-lxdrive)
 
     map)
