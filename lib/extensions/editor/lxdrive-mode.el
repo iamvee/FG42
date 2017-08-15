@@ -19,20 +19,10 @@
   (lxdrive-minor-mode t)
   (use-global-map lxdrive-mode-map))
 
-(defun turn-off-and-ido-find-file ()
-  (interactive)
-  (turn-off-lxdrive)
-  (ido-find-file))
-
 (defun turn-off-and-smex ()
   (interactive)
   (turn-off-lxdrive)
   (smex))
-
-(defun turn-off-and-swiper ()
-  (interactive)
-  (turn-off-lxdrive)
-  (swiper))
 
 (defvar lxdrive-mode-map
   (let ((map (make-sparse-keymap)))
@@ -46,28 +36,26 @@
     (define-key map (kbd "n") 'backward-paragraph)
     (define-key map (kbd "m") 'forward-paragraph)
     (define-key map (kbd "TAB") 'indent-for-tab-command)
-    (define-key map (kbd "`") 'cua-set-mark)
-    (define-key map (kbd "=") 'er/expand-region)
-    (define-key map (kbd "]") 'forward-page)
-    (define-key map (kbd "[") 'backward-page)
-    (define-key map (kbd "e")   'move-end-of-line)
-    (define-key map (kbd "a")   'move-beginning-of-line)
+    (define-key map (kbd "`")      'cua-set-mark)
+    (define-key map (kbd "=")      'er/expand-region)
+    (define-key map (kbd "]")      'forward-page)
+    (define-key map (kbd "[")      'backward-page)
+    (define-key map (kbd "e")      'move-end-of-line)
+    (define-key map (kbd "a")      'move-beginning-of-line)
     (define-key map (kbd "<f2>")   'go-to-line)
-    (define-key map (kbd "C-TAB")   'other-window)
+    (define-key map (kbd "C-TAB")  'other-window)
 
     ;; Actions
-    (define-key map (kbd "b")   'ivy-switch-buffer)
     (define-key map (kbd "RET")   'newline)
-    (define-key map (kbd "d") 'delete-char)
+    (define-key map (kbd "d")     'delete-char)
     (define-key map (kbd "<backspace>") 'delete-backward-char)
     (define-key map (kbd "y")   'cua-paste)
     (define-key map (kbd "C-w")   'kill-region)
     (define-key map (kbd "M-w")   'kill-ring-save)
 
     (define-key map (kbd "h")   'kill-and-join-forward)
-    (define-key map (kbd "f") 'turn-off-and-ido-find-file)
+
     (define-key map (kbd "g") 'keyboard-quit)
-    (define-key map (kbd "s")   'turn-off-and-swiper)
     (define-key map (kbd "z")   'undo)
 
     (define-key map (kbd "M-x")   'turn-off-and-smex)
@@ -81,18 +69,13 @@
 
 (define-minor-mode lxdrive-minor-mode
   "A minor mode so that my key settings override annoying major modes."
+  :global t
   :lighter " lx")
 
-
-;; (defun my-minibuffer-setup-hook ()
-;;   (lxdrive-minor-mode 0))
-
-;; (add-hook 'minibuffer-setup-hook 'my-minibuffer-setup-hook)
-
-
-;;(lxdrive-minor-mode 1)
 (global-set-key (kbd "ESC ESC") 'turn-on-lxdrive)
 (global-set-key (kbd "M-SPC") 'turn-on-lxdrive)
+
 (spaceline-toggle-lxdrive-on)
+
 (provide 'extensions/editor/lxdrive-mode)
 ;;; lxdrive-mode  ends here

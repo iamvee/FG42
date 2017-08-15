@@ -1,3 +1,5 @@
+(require 'extensions/editor/buffers)
+
 ;; Customizations --------------------------------------------
 (defcustom fg42-todo-file "~/.TODO.org"
   "Path to your TODO file. You can use a tramp address here as well."
@@ -121,6 +123,10 @@
   (global-set-key (kbd "\C-c m") 'menu-bar-mode)
 
   (global-set-key (kbd "<f2>") 'goto-line)
+
+  (global-set-key (kbd "M-TAB") 'switch-to-previous-buffer)
+  (global-set-key (kbd "M-`") 'switch-to-favorite-buffer)
+
   ;; Don't allow tab as indent
   (setq-default indent-tabs-mode nil)
 
@@ -169,7 +175,7 @@
   (global-set-key (kbd "C-c C-SPC ") 'mc/mark-all-like-this)
 
   ;; Reload FG42
-  (define-key global-map (kbd "<f5>") 'fg42-reload)
+  (define-key global-map (kbd "C-<f5>") 'fg42-reload)
 
   ;; Key Chord ------------------------------------------------
   ;; (require 'key-chord)

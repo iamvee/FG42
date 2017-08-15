@@ -61,7 +61,7 @@
            (setq bm-in-lifo-order t)
            (setq bm-cycle-all-buffers t)
 
-           ;(setq bm-highlight-style 'bm-highlight-line-and-fringe)
+                                        ;(setq bm-highlight-style 'bm-highlight-line-and-fringe)
            (setq-default bm-buffer-persistence t)
            (setq bm-repository-file (locate-user-emacs-file "bm-repository"))
            (add-hook 'prog-mode-hook 'bm-load-and-restore)
@@ -144,7 +144,7 @@
            "Snippet configuration."
 
            (let ((snippet_home (concat (file-name-directory
-                                (locate-library "yasnippet")) "snippets"))
+                                        (locate-library "yasnippet")) "snippets"))
                  (my_snippet (concat fg42-home "/lib/snippets")))
              (setq yas-snippet-dirs (list my_snippet snippet_home)))
 
@@ -230,7 +230,7 @@
             '(shell-pop-shell-type (quote ("eshell" "*shell*" (lambda nil (eshell shell-pop-term-shell)))))
             ;;'(shell-pop-term-shell "/bin/zsh")
             '(shell-pop-term-shell "eshell")
-            '(shell-pop-universal-key "M-`")
+
             '(shell-pop-window-size 30)
             '(shell-pop-full-span t)
             '(shell-pop-window-position "full"))

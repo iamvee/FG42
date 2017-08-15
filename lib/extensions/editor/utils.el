@@ -1,5 +1,4 @@
 ;; Functions -----------------------------
-
 ;;;###autoload
 (defun comment-dwim-line (&optional arg)
   "Replacement for the comment-dwim command.
