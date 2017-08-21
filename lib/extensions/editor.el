@@ -35,7 +35,8 @@
               (depends-on 'tramp))
 
 (with-ability ivy
-              (depends-on 'ivy))
+              (depends-on 'ivy)
+              (depends-on 'counsel))
 
 (with-ability ido
               (depends-on 'ido)

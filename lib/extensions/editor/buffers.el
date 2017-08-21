@@ -11,13 +11,20 @@ Repeated invocations toggle between the two most recently open buffers."
   (switch-to-buffer (other-buffer (current-buffer) 1)))
 
 (defun buffer-match-p (buf)
+  "If BUF name match the favorite buffer regexp."
   (string-match-p *favorite-buffer* (buffer-name buf)))
+
+(defun switch-and-bury (buf)
+  "Switch to given BUF and bury it as well."
+  (interactive)
+  (bury-buffer buf)
+  (switch-to-buffer buf))
 
 (defun switch-to-buffer-by-regex ()
   "Switch to buffer which the name match the *favorite-buffer* regex."
   (interactive)
   (if *favorite-buffer*
-    (switch-to-buffer
+    (switch-and-bury
      (car (remove-if-not #'buffer-match-p (buffer-list))))
     (eshell)))
 

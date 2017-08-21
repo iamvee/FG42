@@ -79,12 +79,12 @@
            (spaceline-compile
              "ati"
              '(
-               ((ati-modified ati-window-numbering ati-buffer-size lxdrive) :face highlight-face :skip-alternate t)
-               ((ati-projectile ati-mode-icon ati-buffer-id) :face default-face)
-               ((ati-process ati-position ati-region-info) :face highlight-face :separator " | ")
-               ((ati-vc-icon ati-flycheck-status ati-(point)ackage-updates purpose) :separator " · " :face other-face)
-               ;; ((minor-modes) :face default-face)
-               )
+             ((ati-modified ati-window-numbering ati-buffer-size lxdrive) :face highlight-face :skip-alternate t)
+             ((ati-projectile ati-mode-icon ati-buffer-id) :face default-face)
+             ((ati-process ati-position ati-region-info) :face highlight-face :separator " | ")
+             ((ati-vc-icon ati-flycheck-status ati-(point)ackage-updates purpose) :separator " · " :face other-face)
+             ;; ((minor-modes) :face default-face)
+             )
 
              '(((ati-time) :separator " | " :face default-face)))
 
@@ -242,9 +242,16 @@
   (ability ivy ()
            "Completion using ivy."
            (require 'ivy)
+           (require 'counsel)
            (ivy-mode 1)
-
            (setq ivy-use-virtual-buffers t)
+           (setq enable-recursive-minibuffers t)
+           (global-set-key (kbd "M-x") 'counsel-M-x)
+           (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+           (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+           (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+           (global-set-key (kbd "<f1> l") 'counsel-find-library)
+
            (global-set-key (kbd "C-c C-r") 'ivy-resume))
 
   ;; Swiper ---------------------------------------------------
