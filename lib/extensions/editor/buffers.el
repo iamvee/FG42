@@ -1,4 +1,4 @@
-;;; Buffers Module --- All the functions related to buffer management
+;;; Buffers --- All the functions related to buffer management
 ;;; Commentary:
 ;;; Code:
 
@@ -23,16 +23,14 @@ Repeated invocations toggle between the two most recently open buffers."
   "Switch to *favorite-buffer* buffer with is variable assigned to each mode.
 
 For exampe in clojure mode it would the name of repl buffer.  The *favorite-buffer* value should be regex matching to the buffer name"
-  (interactive
-    (if *favorite-buffer*
-      (if (string-match *favorite-buffer* (buffer-name))
-          (switch-to-previous-buffer)
-          (switch-to-buffer-by-regex))
-      (if (string= (buffer-name) "*eshell*") (switch-to-previous-buffer) (eshell)))))
-
-
-
-
+  (interactive)
+  (if *favorite-buffer*
+    (if (string-match *favorite-buffer* (buffer-name))
+        (switch-to-previous-buffer)
+        (switch-to-buffer-by-regex))
+    (if (string= (buffer-name) "*eshell*")
+        (switch-to-previous-buffer)
+        (eshell))))
 
 (provide 'extensions/editor/buffers)
 ;;; buffers.el  ends here
