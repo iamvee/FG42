@@ -10,13 +10,15 @@ Repeated invocations toggle between the two most recently open buffers."
   (interactive)
   (switch-to-buffer (other-buffer (current-buffer) 1)))
 
+(defun buffer-match-p (buf)
+  (string-match-p *favorite-buffer* (buffer-name buf)))
+
 (defun switch-to-buffer-by-regex ()
   "Switch to buffer which the name match the *favorite-buffer* regex."
   (interactive)
   (if *favorite-buffer*
     (switch-to-buffer
-     (car (remove-if-not (apply-partially #'string-match-p *favorite-buffer*)
-                         (buffer-list))))
+     (car (remove-if-not #'buffer-match-p (buffer-list))))
     (eshell)))
 
 (defun switch-to-favorite-buffer ()
@@ -31,6 +33,12 @@ For exampe in clojure mode it would the name of repl buffer.  The *favorite-buff
     (if (string= (buffer-name) "*eshell*")
         (switch-to-previous-buffer)
         (eshell))))
+(defun reset-favorite-buffer-value ()
+  (message "reseting favorite buffer value...")
+  (message *favorite-buffer*)
+  (setq *favorite-buffer* nil))
+
+(add-hook 'change-major-mode-hook 'reset-favorite-buffer-value)
 
 (provide 'extensions/editor/buffers)
 ;;; buffers.el  ends here

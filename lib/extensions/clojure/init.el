@@ -1,6 +1,11 @@
 (require 'extensions/clojure/core)
 
 ;;;###autoload
+(defun set-clojure-favorite-buffer ()
+  "Set the favorite buffer to cider repl"
+  (setq *favorite-buffer*  "\*cider-repl\s.*\*"))
+
+;;;###autoload
 (defun extensions/clojure-initialize ()
   ; Clojure development initialization
   (ability clojure-editor ('flycheck)
@@ -11,6 +16,8 @@
            (add-to-list 'auto-mode-alist '("\\.cljs$" . clojurescript-mode))
 
            (add-hook 'cider-mode-hook #'eldoc-mode)
+           (add-hook 'cider-mode-hook #'set-clojure-favorite-buffer)
+
            (add-hook 'clojure-mode-hook #'paredit-mode)
 
            (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
