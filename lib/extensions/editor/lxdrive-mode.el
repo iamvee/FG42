@@ -1,28 +1,36 @@
 ;;; lxdrive-mode --- A minor mode for fast cursor movement
 ;;; Commentary:
 ;;; Code:
+
 (require 'expand-region)
 
 (setq original-global-map global-map)
 (boundp 'lxdrive-minor-mode)
 
 (defun turn-off-lxdrive ()
-  "Toggle lxdrive mode"
+  "Toggle lxdrive mode."
   (interactive)
   (lxdrive-minor-mode nil)
   (setq lxdrive-minor-mode nil)
   (use-global-map original-global-map))
 
 (defun turn-on-lxdrive ()
-  "Toggle lxdrive mode"
+  "Toggle lxdrive mode."
   (interactive)
   (lxdrive-minor-mode t)
   (use-global-map lxdrive-mode-map))
 
-(defun turn-off-and-smex ()
+(defun turn-off-and-command ()
+  "Turn off the lxdrive mode and run the counsel command."
   (interactive)
   (turn-off-lxdrive)
-  (smex))
+  (counsel-M-x))
+
+(defun switch-other ()
+  "Switch to the most recent buffer."
+  (interactive)
+  (switch-to-buffer (other-buffer)))
+
 
 (defvar lxdrive-mode-map
   (let ((map (make-sparse-keymap)))
@@ -44,6 +52,7 @@
     (define-key map (kbd "a")      'move-beginning-of-line)
     (define-key map (kbd "<f2>")   'go-to-line)
     (define-key map (kbd "C-TAB")  'other-window)
+    (define-key map (kbd "M-TAB")  'switch-other)
 
     ;; Actions
     (define-key map (kbd "RET")   'newline)
@@ -57,10 +66,11 @@
 
     (define-key map (kbd "g") 'keyboard-quit)
     (define-key map (kbd "z")   'undo)
+    (define-key map (kbd "/")   'undo)
 
-    (define-key map (kbd "M-x")   'turn-off-and-smex)
+    (define-key map (kbd "M-x")   'turn-off-and-command)
     (define-key map (kbd "C-x C-s") 'save-buffer)
-    (define-key map (kbd "ESC ESC") 'turn-off-lxdrive)
+    ;;(define-key map (kbd "ESC ESC") 'turn-off-lxdrive)
     (define-key map (kbd "SPC") 'turn-off-lxdrive)
     (define-key map (kbd "M-SPC") 'turn-off-lxdrive)
 
@@ -72,9 +82,9 @@
   :global t
   :lighter " lx")
 
-(global-set-key (kbd "ESC ESC") 'turn-on-lxdrive)
+;;(global-set-key (kbd "ESC ESC") 'turn-on-lxdrive)
 (global-set-key (kbd "M-SPC") 'turn-on-lxdrive)
-
+(global-set-key (kbd "M-TAB")  'switch-other)
 (spaceline-toggle-lxdrive-on)
 
 (provide 'extensions/editor/lxdrive-mode)

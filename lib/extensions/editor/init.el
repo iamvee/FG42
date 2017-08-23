@@ -32,6 +32,10 @@
   (require 'cheatsheet)
   (require 'extensions/editor/utils)
 
+
+  ;; Automatically removed excess backups of the file
+  (setq delete-old-versions t)
+
   ;; Font Configuration -----------------------------------
   (add-to-list 'default-frame-alist '(font . "Fira Mono"))
   (set-face-attribute 'default t :font "Fira Mono")
@@ -82,9 +86,9 @@
              ((ati-modified ati-window-numbering ati-buffer-size lxdrive) :face highlight-face :skip-alternate t)
              ((ati-projectile ati-mode-icon ati-buffer-id) :face default-face)
              ((ati-process ati-position ati-region-info) :face highlight-face :separator " | ")
-             ((ati-vc-icon ati-flycheck-status ati-(point)ackage-updates purpose) :separator " · " :face other-face)
+             ((ati-vc-icon ati-flycheck-status ati-(point)ackage-updates purpose) :separator " · " :face other-face))
              ;; ((minor-modes) :face default-face)
-             )
+
 
              '(((ati-time) :separator " | " :face default-face)))
 
