@@ -6,9 +6,9 @@
 ;; Other options are:
 ;; (theme themes/color-theme-spacemacs-monokai)
 ;; (theme themes/color-theme-spacemacs-light)
-;; (theme themes/color-theme-doom-one)
+(theme themes/color-theme-doom-one)
 ;; (theme themes/color-theme-doom-molokai)
-(theme themes/color-theme-spacemacs-dark)
+;;(theme themes/color-theme-spacemacs-dark)
 
 ;; ABILITIES
 ;; =========
@@ -25,9 +25,9 @@
                      'javascript
                      'ruby
                      'clojure
-                     ;;'php
-                     ;;'python
-                     ;;'arduino
+                     'php
+                     'python
+                     'arduino
 		     )
 
 
