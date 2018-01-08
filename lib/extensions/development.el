@@ -9,6 +9,7 @@
 (depends-on 'projectile)
 (depends-on 'yasnippet)
 (depends-on 'smart-mode-line)
+(depends-on 'dockerfile-mode)
 
 (with-ability parinfer
               (depends-on 'parinfer))
