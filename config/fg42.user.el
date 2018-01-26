@@ -27,8 +27,8 @@
                      'clojure
                      'php
                      'python
-                     'arduino
-		     )
+                     'arduino)
+
 
 
 ;; Example of things you can do in your ~/.fg42.el config file:
@@ -45,4 +45,21 @@
 ;;
 ;; Alwasy open a your TODO file as your first buffer
 ;;  (add-hook 'fg42-after-initialize-hook 'fg42-open-todo)
+
+;; If you're using tools like rbenv or nodenv or other similar tools
+;; to manage versions of your favorite language, then you need to
+;; add their shims to your path. Follow the example below:
 ;;
+;; (setenv "PATH" (concat "/home/USER/.rbenv/shims:"
+;;                        "/home/USER/.nodenv/shims:"
+;;                        "/home/USER/bin:" (getenv "PATH")))
+;;
+;; Ofcourse you need to change the USER to your username
+
+;; If you have a separate bin directory as well you can add it
+;; to the exec-path as follows:
+;;
+;; (add-to-list 'exec-path "/home/USER/bin")
+;;
+;; abilities like clojure which uses the lien tools need to find
+;; specific tools (lein in this case) in your exec-path.

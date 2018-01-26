@@ -15,27 +15,27 @@
 ;; (theme themes/color-theme-spacemacs-light)
 ;; (theme themes/color-theme-doom-one)
 ;; (theme themes/color-theme-doom-molokai)
-(theme themes/color-theme-spacemacs-dark)
+;;(theme themes/color-theme-spacemacs-dark)
 
 ;; ABILITIES
 ;; =========
 ;; Disable abilities which you don't want.
-(disable 'rbenv 'helm 'spell 'linum 'smart-mode-line)
+;; (disable 'rbenv 'helm 'spell 'linum 'smart-mode-line)
 
 ;; EXTENSIONS
 ;; ==========
 ;; Uncomment extensions that you may need.
-(activate-extensions 'editor
-                     'development
-                     'web
-                     'editor-theme
-                     ;'arduino
-                     'javascript
-                     ;'php
-                     'clojure
-                     ;'python
-                     'ruby
-		     )
+;; (activate-extensions 'editor
+;;                      'development
+;;                      'web
+;;                      'editor-theme
+;;                      ;'arduino
+;;                      'javascript
+;;                      ;'php
+;;                      'clojure
+;;                      ;'python
+;;                      'ruby
+;; 		     )
 
 ;; USER CONFIGS
 ;; ============
