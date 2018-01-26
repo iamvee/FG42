@@ -59,14 +59,21 @@
 
   (global-set-key (kbd "C-?") 'cheatsheet-show)
 
-
   ;; Remove splash screen
   (setq inhibit-splash-screen t)
 
   ;; scratch should be scratch
   (setq initial-scratch-message nil)
 
-  (ability spaceline ()
+
+  (ability flycheck ()
+           "Check syntax on the fly using flycheck."
+           (require 'flycheck)
+
+           (add-hook 'prog-mode-hook 'global-flycheck-mode)
+           (add-hook 'after-init-hook 'global-flycheck-mode))
+
+  (ability spaceline (flycheck)
            "A really cool mode line alternative which borrowed from awesome spacemacs"
            (require 'spaceline-config)
            (require 'extensions/editor/spaceline-alt)
@@ -83,10 +90,10 @@
            (spaceline-compile
              "ati"
              '(
-             ((ati-modified ati-window-numbering ati-buffer-size lxdrive) :face highlight-face :skip-alternate t)
-             ((ati-projectile ati-mode-icon ati-buffer-id) :face default-face)
-             ((ati-process ati-position ati-region-info) :face highlight-face :separator " | ")
-             ((ati-vc-icon ati-flycheck-status ati-(point)ackage-updates purpose) :separator " · " :face other-face))
+               ((ati-modified ati-window-numbering ati-buffer-size lxdrive) :face highlight-face :skip-alternate t)
+               ((ati-projectile ati-mode-icon ati-buffer-id) :face default-face)
+               ((ati-process ati-position ati-region-info) :face highlight-face :separator " | ")
+               ((ati-vc-icon ati-flycheck-status ati-(point)ackage-updates purpose) :separator " · " :face other-face))
              ;; ((minor-modes) :face default-face)
 
 
@@ -196,58 +203,36 @@
   (hs-minor-mode)
 
   ;; Guru Configuration
-  (with-ability guru
-                (require 'guru-mode)
-                (guru-global-mode +1))
+  (ability guru ()
+           (require 'guru-mode)
+           (guru-global-mode +1))
 
   ;; IDO configurations ---------------------------------------------
-  (with-ability ido
-                (require 'flx-ido)
-                (require 'ido-vertical-mode)
+  (ability ido ()
+           (require 'flx-ido)
+           (require 'ido-vertical-mode)
 
-                (ido-everywhere t)
-                (ido-ubiquitous-mode 1)
-                (ido-mode t)
+           (ido-everywhere t)
+           (ido-ubiquitous-mode 1)
+           (ido-mode t)
 
-                (smex-initialize)
-                (global-set-key (kbd "M-x") 'smex)
+           (smex-initialize)
+           (global-set-key (kbd "M-x") 'smex)
 
-                (flx-ido-mode 1)
-                (setq ido-use-faces nil)
-                (setq ido-use-filename-at-point nil)
-                (setq ido-enable-flex-matching t)
-                (ido-vertical-mode 1))
+           (flx-ido-mode 1)
+           (setq ido-use-faces nil)
+           (setq ido-use-filename-at-point nil)
+           (setq ido-enable-flex-matching t)
+           (ido-vertical-mode 1))
 
-
-  ;; Helm -----------------------------------------------------
-  (with-ability helm
-
-                (global-set-key (kbd "C-c h") 'helm-command-prefix)
-                (global-unset-key (kbd "C-x c"))
-
-                (define-key helm-map (kbd "<tab>")
-                  'helm-execute-persistent-action)
-                (define-key helm-map (kbd "C-i")
-                  'helm-execute-persistent-action)
-                (define-key helm-map (kbd "C-z")
-                  'helm-select-action)
-
-                (when (executable-find "curl")
-                  (setq helm-google-suggest-use-curl-p t))
-
-                (setq helm-split-window-in-side-p t
-                      helm-move-to-line-cycle-in-source t
-                      helm-ff-search-library-in-sexp t
-                      helm-scroll-amount 8
-                      helm-ff-file-name-history-use-recentf t)
-
-                (helm-mode 1))
 
   (ability ivy ()
            "Completion using ivy."
            (require 'ivy)
            (require 'counsel)
+
            (ivy-mode 1)
+
            (setq ivy-use-virtual-buffers t)
            (setq enable-recursive-minibuffers t)
            (global-set-key (kbd "M-x") 'counsel-M-x)
@@ -265,6 +250,40 @@
            (global-set-key "\C-r" 'swiper))
   ;; (with-ability ido
   ;;               (global-set-key (kbd "C-x b") 'ido-switch-buffer)))
+
+  ;; Helm -----------------------------------------------------
+  (message "zxczxczxczxczxczxczxczxc222222222222")
+  (ability helm ()
+           "Helm is an emacs incremental completion and selection narrowing framework"
+           (require 'helm)
+
+           (message "zxczxczxczxczxczxczxczxc")
+           (global-set-key (kbd "C-c h") 'helm-command-prefix)
+           (global-set-key (kbd "M-x") 'helm-M-x)
+
+           (global-unset-key (kbd "C-x c"))
+
+           (define-key helm-map (kbd "<tab>")
+             'helm-execute-persistent-action)
+
+           (define-key helm-map (kbd "C-i")
+             'helm-execute-persistent-action)
+
+           (define-key helm-map (kbd "C-z")
+             'helm-select-action)
+
+
+
+           (when (executable-find "curl")
+             (setq helm-google-suggest-use-curl-p t))
+
+           (setq helm-split-window-in-side-p t
+                 helm-move-to-line-cycle-in-source t
+                 helm-ff-search-library-in-sexp t
+                 helm-scroll-amount 8
+                 helm-ff-file-name-history-use-recentf t)
+
+           (helm-mode 1))
 
   ;; Session Management ---------------------------------------
   (ability desktop-mode ()

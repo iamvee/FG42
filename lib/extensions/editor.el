@@ -46,10 +46,15 @@
               (depends-on 'flx-ido))
 
 (with-ability helm
-              (depends-on 'helm))
+              (depends-on 'helm)
+	      (depends-on 'helm-ag))
 
 (with-ability swiper
               (depends-on 'swiper))
+
+(with-ability flycheck
+              (depends-on 'flycheck))
+
 
 ;; Extension -------------------------------------
 (extension editor

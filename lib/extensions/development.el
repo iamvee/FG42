@@ -3,7 +3,6 @@
 (require 'extensions/development/init)
 
 ;; Dependencies ----------------------------------
-(depends-on 'flycheck)
 (depends-on 'company)
 (depends-on 'company-statistics)
 (depends-on 'projectile)
