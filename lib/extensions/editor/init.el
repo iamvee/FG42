@@ -255,10 +255,10 @@
   (ability helm ()
            "Helm is an emacs incremental completion and selection narrowing framework"
            (require 'helm)
-
+           (require 'helm-flx)
            (global-set-key (kbd "C-c h") 'helm-command-prefix)
            (global-set-key (kbd "M-x") 'helm-M-x)
-
+           (global-set-key (kbd "C-x C-f") 'helm-find-files)
            (global-unset-key (kbd "C-x c"))
 
            (define-key helm-map (kbd "<tab>")
@@ -281,6 +281,10 @@
                  helm-scroll-amount 8
                  helm-ff-file-name-history-use-recentf t)
 
+           (setq helm-flx-for-helm-find-files t
+                 helm-flx-for-helm-locate     t)
+
+           (helm-flx-mode +1)
            (helm-mode 1))
 
   ;; Session Management ---------------------------------------
