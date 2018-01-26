@@ -252,12 +252,10 @@
   ;;               (global-set-key (kbd "C-x b") 'ido-switch-buffer)))
 
   ;; Helm -----------------------------------------------------
-  (message "zxczxczxczxczxczxczxczxc222222222222")
   (ability helm ()
            "Helm is an emacs incremental completion and selection narrowing framework"
            (require 'helm)
 
-           (message "zxczxczxczxczxczxczxczxc")
            (global-set-key (kbd "C-c h") 'helm-command-prefix)
            (global-set-key (kbd "M-x") 'helm-M-x)
 
