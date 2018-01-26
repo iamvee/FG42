@@ -1,4 +1,8 @@
-#  Future Gadgets 42 <img src="https://github.com/FG42/FG42/raw/master/share/icons/hicolor/64x64/apps/fg42.png" alt="FG42" align="right" />
+<center>
+<img src="https://github.com/FG42/FG42/raw/master/share/icons/hicolor/128x128/apps/fg42.png" alt="FG42" align="center" />
+</center>
+
+#  Future Gadgets 42 
 If you love **GNU/Emacs**, If you love to program in an editor instead of big slow IDE but still enjoy to
 have a handy code editor then **FG42** is the right choice for you.
 
@@ -72,4 +76,4 @@ with this program; if not, write to the Free Software Foundation, Inc.,
   All the documents of FG42 that locate in 'doc' directories release
 under the term of GNU FDL.
 
-Copyright (C) 2010-2015  Sameer Rahmani <lxsameer@gnu.org>
+Copyright (C) 2010-2018  Sameer Rahmani <lxsameer@gnu.org>
