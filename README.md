@@ -1,6 +1,4 @@
-<center>
-<img src="https://github.com/FG42/FG42/raw/master/share/icons/hicolor/128x128/apps/fg42.png" alt="FG42" align="center" />
-</center>
+<div align="center"><img src="https://github.com/FG42/FG42/raw/master/share/icons/hicolor/128x128/apps/fg42.png" alt="FG42" align="center" /></div>
 
 #  Future Gadgets 42 
 If you love **GNU/Emacs**, If you love to program in an editor instead of big slow IDE but still enjoy to
