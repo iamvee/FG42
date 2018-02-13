@@ -85,7 +85,8 @@
 ;;(global-set-key (kbd "ESC ESC") 'turn-on-lxdrive)
 (global-set-key (kbd "M-SPC") 'turn-on-lxdrive)
 (global-set-key (kbd "M-TAB")  'switch-other)
-(spaceline-toggle-lxdrive-on)
+(with-ability spaceline
+  (spaceline-toggle-lxdrive-on))
 
 (provide 'extensions/editor/lxdrive-mode)
 ;;; lxdrive-mode  ends here
