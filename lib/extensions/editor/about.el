@@ -1,6 +1,6 @@
 ;; Vars -------------------------------
 (defvar about_fg42_msg "
-FG42 %%VERSION%% Copyright © 2010-2015 Sameer Rahmani <lxsameer@gnu.org>
+FG42 %%VERSION%% Copyright © 2010-2018 Sameer Rahmani <lxsameer@gnu.org>
 FG42 release under the term of GPLv2.
 
 Home page:
@@ -13,6 +13,8 @@ Credits:
 \tNima Nazari (niman)
 \tKeyvan Hedayati (k1-hedayati)
 \tBehnam Khan Beigi (@yottanami)
+\tEhsan Mahmoudi
+
 "
   "About FG42")
 

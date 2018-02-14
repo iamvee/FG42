@@ -51,7 +51,7 @@
 (spaceline-define-segment
     ati-projectile "An `all-the-icons' segment for current `projectile' project"
     (concat
-     (propertize "|" 'face '(:height 1.1 :inherit))
+     (propertize "" 'face '(:height 1.1 :inherit))
      " "
      (if (and (fboundp 'projectile-project-name)
               (projectile-project-name))
@@ -134,7 +134,7 @@
   (let ((branch (mapconcat 'concat (cdr (split-string vc-mode "[:-]")) "-")))
     (concat
      (propertize (all-the-icons-alltheicon "git") 'face '(:height 1.1 :inherit) 'display '(raise 0.1))
-     (propertize " · ")
+     (propertize " ")
      (propertize (format "%s" (all-the-icons-octicon "git-branch"))
                  'face `(:family ,(all-the-icons-octicon-family) :height 1.0 :inherit)
                  'display '(raise 0.2))
@@ -145,7 +145,7 @@
   (let ((revision (cadr (split-string vc-mode "-"))))
     (concat
      (propertize (format " %s" (all-the-icons-faicon "cloud")) 'face `(:height 1.2) 'display '(raise -0.1))
-     (propertize (format " · %s" revision) 'face `(:height 0.9)))))
+     (propertize (format " %s" revision) 'face `(:height 0.9)))))
 
 
 (spaceline-define-segment
