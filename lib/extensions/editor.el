@@ -5,7 +5,6 @@
 ;; Dependencies ----------------------------------
 (depends-on 'multiple-cursors)
 (depends-on 'expand-region)
-(depends-on 'dired+)
 (depends-on 'seq)
 (depends-on 'ov)
 (depends-on 'cheatsheet)
@@ -21,6 +20,9 @@
 (depends-on 'doom-themes)
 ;; TODO: Move this to an ability
 (depends-on 'solaire-mode)
+
+(with-ability dired+
+              (depends-on 'dired+))
 
 (with-ability nlinum
               (depends-on 'nlinum))
