@@ -27,6 +27,7 @@
 (require 'fpkg)
 (require 'fg42/base)
 (require 'fg42/splash)
+(require 'fg42/race)
 
 (defvar fg42-home (getenv "FG42_HOME")
   "The pass to fg42-home")
