@@ -9,6 +9,8 @@
 (depends-on 'ov)
 (depends-on 'cheatsheet)
 (depends-on 'all-the-icons)
+;; Don't worry unless you're evil this mode won't start
+(depends-on 'evil)
 
 ;; Resize splitted windows
 (depends-on 'windresize)

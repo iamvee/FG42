@@ -32,6 +32,18 @@
   (require 'cheatsheet)
   (require 'extensions/editor/utils)
 
+  ;; Setting user preference based on the race.
+  (if (is-evil?)
+      (progn
+        (require 'evil)
+        (evil-mode 1)))
+
+  (if (is-human?)
+      (progn
+        (cua-mode 'emacs)
+        (cua-selection-mode t)
+        (setq cua-auto-tabify-rectangles nil)
+        (transient-mark-mode 1)))
 
   ;; Automatically removed excess backups of the file
   (setq delete-old-versions t)

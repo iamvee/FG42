@@ -1,7 +1,6 @@
 ;;; lxdrive-mode --- A minor mode for fast cursor movement
 ;;; Commentary:
 ;;; Code:
-
 (defvar user-race :god
   "The race of the user.")
 
