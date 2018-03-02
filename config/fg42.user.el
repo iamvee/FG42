@@ -30,6 +30,13 @@
                      'arduino)
 
 
+;; What are you ?
+(i-am-god)
+
+;; i-am-god   => Emacs user.
+;; i-am-human => A user of other boring editors.
+;; i-am-evil  => An evil user. A vim user.
+
 
 ;; Example of things you can do in your ~/.fg42.el config file:
 ;;
