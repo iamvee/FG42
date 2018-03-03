@@ -1,6 +1,6 @@
 ;;; FG42 --- a simple package manager for FG42                     -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2015  lxsameer
+;; Copyright (C) 2010-2018  lxsameer
 
 ;; Author: Sameer Rahmani <lxsameer@gnu.org>
 ;; Keywords: lisp fg42 IDE package manager
@@ -24,11 +24,6 @@
 ;; An Editor/IDE bundle base on Lovely Gnu/Emacs to make your life easier
 
 ;;; Code:
-(require 'fpkg)
-(require 'fg42/base)
-(require 'fg42/splash)
-(require 'fg42/race)
-
 (defvar fg42-home (getenv "FG42_HOME")
   "The pass to fg42-home")
 
@@ -37,6 +32,12 @@
 
 (defvar fg42-after-initialize-hook nil
   "This hook will be called after FG42 initilization process.")
+
+
+(require 'fpkg)
+(require 'fg42/base)
+(require 'fg42/splash)
+(require 'fg42/race)
 
 (defun fg42-initialize ()
   "Initialize FG42 editor."

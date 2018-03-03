@@ -1,4 +1,4 @@
-;;; lxdrive-mode --- A minor mode for fast cursor movement
+;;; Race --- A utitlity to tweak shortkeys based on user preference
 ;;; Commentary:
 ;;; Code:
 (defvar user-race :god

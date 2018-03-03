@@ -3,6 +3,7 @@
 (require 'extensions/editor/init)
 
 ;; Dependencies ----------------------------------
+(depends-on 'adoc-mode)
 (depends-on 'multiple-cursors)
 (depends-on 'expand-region)
 (depends-on 'seq)

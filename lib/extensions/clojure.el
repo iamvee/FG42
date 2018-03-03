@@ -17,9 +17,12 @@
 (depends-on 'yesql-ghosts)
 (depends-on 'rainbow-delimiters)
 
+(defun clojure-doc ()
+  "something fun")
 ;; Extension -------------------------------------
 (extension clojure
 	   :version "2.32"
-	   :on-initialize extensions/clojure-initialize)
+	   :on-initialize extensions/clojure-initialize
+           :docs "lib/extensions/clojure/readme.org")
 
 (provide 'extensions/clojure)
