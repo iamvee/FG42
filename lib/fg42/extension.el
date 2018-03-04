@@ -61,10 +61,14 @@ to them.
 (defun describe-extension (extension)
   "Show the doc-string of the EXTENSION."
   (interactive)
-  (let ((doc-file (fg42-extension-docs (symbol-value extension))))
-    (find-file (concat fg42-home "/" doc-file))
-    (rename-buffer (concat "*" extension " docs*"))
-    (read-only-mode t)))
+  (let ((doc-file (fg42-extension-docs (symbol-value extension)))
+        (b (get-buffer-create (concat "*" (symbol-name extension) " docs*"))))
+    (set-buffer b)
+    (insert-file-contents (concat fg42-home "/" doc-file))
+    (read-only-mode t)
+    (switch-to-buffer b)
+    (org-mode)))
+
 
 (provide 'fg42/extension)
 ;;; extension ends here
