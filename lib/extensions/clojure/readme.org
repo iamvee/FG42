@@ -1,0 +1,6 @@
+* Clojure Extension
+
+This extension provides an integrated environment for developing clojure applications
+using FG42 on top of cider.
+
+** Usage
