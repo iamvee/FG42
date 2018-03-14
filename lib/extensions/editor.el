@@ -67,6 +67,9 @@
 (with-ability flycheck
               (depends-on 'flycheck))
 
+(with-ability emoji
+              (depends-on 'emojify))
+
 
 ;; Extension -------------------------------------
 (extension editor

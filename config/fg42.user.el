@@ -13,7 +13,8 @@
 ;; ABILITIES
 ;; =========
 ;; Disable abilities which you don't want.
-(disable 'rbenv 'helm 'spell 'linum 'smart-mode-line 'desktop-mode 'dired+ 'guru)
+(disable 'rbenv 'helm 'spell 'linum 'smart-mode-line 'desktop-mode 'dired+ 'guru 'emoji)
+
 
 ;; EXTENSIONS
 ;; ==========

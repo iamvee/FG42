@@ -77,7 +77,6 @@
   ;; scratch should be scratch
   (setq initial-scratch-message nil)
 
-
   (ability flycheck ()
            "Check syntax on the fly using flycheck."
            (require 'flycheck)
@@ -303,6 +302,13 @@
   (ability desktop-mode ()
            "Save your current working buffers and restore later"
            (desktop-save-mode 1))
+
+  (ability emoji ()
+           "Adds support for emoji support in FG42. (github style)"
+           (require 'emojify)
+           (add-hook 'after-init-hook #'global-emojify-mode)
+           (message "mmmmmmmmmmmmmmmmmmmmmmm"))
+
 
   ;; Backup files ---------------------------------------------
   ;; Put them in one nice place if possible
