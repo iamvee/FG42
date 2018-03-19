@@ -39,6 +39,10 @@
   "Development plugin initialization."
   (message "Initializing 'development' extension.")
 
+  (ability project-config ()
+           "Makes projects configurable."
+           (require 'extensions/development/project-configuration))
+
   (ability bookmarks ()
            (require 'bm)
 
