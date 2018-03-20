@@ -3,9 +3,6 @@
 ;;; Code:
 (require 'seq)
 
-(defvar open-project-configurations (make-hash-table)
-  "This hashmap is responsible for storing project configurations.")
-
 (defvar project-config-dir "~/.fg42/project-config/"
   "This variable contains the path to the projects global configurations.")
 
@@ -33,9 +30,10 @@
       global-proj-config)))
 
 
-(defun load-config-file (config)
-  "Load the given CONFIG file."
+(defun load-config-file (project-name config)
+  "Load the given CONFIG file with the given PROJECT-NAME."
   (require 'extensions/development/project-dsl)
+  (setq __project-name__ project-name)
   (load config))
 
 
@@ -45,7 +43,7 @@
   (let* ((project (cdr (project-current)))
          (config  (config-path project)))
     (if (not (equal nil config))
-        (load-config-file config)
+        (load-config-file project config)
       (message "No configuration has been found for current project."))))
 
 
