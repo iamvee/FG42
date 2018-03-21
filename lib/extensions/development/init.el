@@ -41,7 +41,7 @@
 
   (ability project-config ()
            "Makes projects configurable."
-           (require 'extensions/development/project-configuration))
+           (require 'projects/configuration))
 
   (ability bookmarks ()
            (require 'bm)

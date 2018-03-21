@@ -1,23 +1,24 @@
-;;; project-dsl --- A dsl to be used with project configurations.
+;;; dsl --- A dsl to be used with project configurations.
 ;;; Commentary:
 ;;; Code:
 (defvar open-project-configurations (make-hash-table :test 'equal)
   "This hashmap is responsible for storing project configurations.")
 
-(defmacro on-run (body)
-  "It's going to run the given BODY when user wanted to run the project."
+;; DSL -----------------------------------------------------
+(defmacro deftask (name body)
+  "Create a new task for the project with the given NAME and BODY."
   `(let ((pmap (gethash __project-name__
                         open-project-configurations
                         (make-hash-table :test 'equal))))
 
-     (puthash :run (lambda (buffer) ,body) pmap)
+     (puthash ,(symbol-name name) (lambda (buffer) ,body) pmap)
      (puthash __project-name__ pmap open-project-configurations)))
 
 (defmacro run-shell-command (command)
   "Run the given shell COMMAND on the run buffer."
   `(async-shell-command ,command buffer))
 
-;; TASK RUNNERS ---------------------------------------
+;; TASK RUNNERS --------------------------------------------
 (defun with-buffer (name action)
   "Create a buffer with the given NAME for the given ACTION."
   (get-buffer-create (format "*%s %s*" name action)))
@@ -39,7 +40,7 @@
   "Execute the :run task for the current project."
   (interactive)
   (let ((project (cdr (project-current))))
-    (execute-task project :run)))
+    (execute-task project "run")))
 
-(provide 'extensions/development/project-dsl)
-;;; project-dsl  ends here
+(provide 'projects/dsl)
+;;; dsl  ends here

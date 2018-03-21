@@ -1,10 +1,13 @@
-;;; project-configurations --- A small library to load project specific configurations.
+;;; configurations --- A small library to load project specific configurations.
 ;;; Commentary:
 ;;; Code:
 (require 'seq)
 
 (defvar project-config-dir "~/.fg42/project-config/"
   "This variable contains the path to the projects global configurations.")
+
+(defvar __project-name__ nil
+  "It's an internal variable to holds the current project name.")
 
 (defun project-name (project)
   "Return the project name of the given PROJECT."
@@ -32,7 +35,7 @@
 
 (defun load-config-file (project-name config)
   "Load the given CONFIG file with the given PROJECT-NAME."
-  (require 'extensions/development/project-dsl)
+  (require 'projects/dsl)
   (setq __project-name__ project-name)
   (load config))
 
@@ -47,5 +50,5 @@
       (message "No configuration has been found for current project."))))
 
 
-(provide 'extensions/development/project-configuration)
-;;; project-configuration.el ends here
+(provide 'projects/configuration)
+;;; configuration.el ends here
