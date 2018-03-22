@@ -306,9 +306,7 @@
   (ability emoji ()
            "Adds support for emoji support in FG42. (github style)"
            (require 'emojify)
-           (add-hook 'after-init-hook #'global-emojify-mode)
-           (message "mmmmmmmmmmmmmmmmmmmmmmm"))
-
+           (add-hook 'after-init-hook #'global-emojify-mode))
 
   ;; Backup files ---------------------------------------------
   ;; Put them in one nice place if possible

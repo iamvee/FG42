@@ -3,7 +3,7 @@
 ;;; Code:
 (require 'seq)
 
-(defvar project-config-dir "~/.fg42/project-config/"
+(defvar project-config-dir "~/.fg42/project-config"
   "This variable contains the path to the projects global configurations.")
 
 (defvar __project-name__ nil
