@@ -5,13 +5,13 @@
   "This hashmap is responsible for storing project configurations.")
 
 ;; DSL -----------------------------------------------------
-(defmacro deftask (name body)
+(defmacro deftask (name &rest body)
   "Create a new task for the project with the given NAME and BODY."
   `(let ((pmap (gethash __project-name__
                         open-project-configurations
                         (make-hash-table :test 'equal))))
 
-     (puthash ,(symbol-name name) (lambda (buffer) ,body) pmap)
+     (puthash ,(symbol-name name) (lambda (project-path buffer) ,@body) pmap)
      (puthash __project-name__ pmap open-project-configurations)))
 
 (defmacro run-shell-command (command)
@@ -34,7 +34,7 @@
   (let* ((project-hash (gethash project open-project-configurations))
          (task         (gethash task-name project-hash))
          (buf          (with-buffer project task-name)))
-    (funcall task buf)))
+    (funcall task project buf)))
 
 (defun execute-run-task ()
   "Execute the :run task for the current project."
