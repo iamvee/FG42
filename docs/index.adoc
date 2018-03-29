@@ -1,0 +1,70 @@
+= FG42 Editor
+:Revision:  1.0.0-alpha3
+:Author:    Sameer Rahmani (@lxsameer)
+:Email:     <lxsameer@gnu.org>
+:homepage: http://fg42.lxsameer.com
+:icons: font
+:iconsfont:   font-awesome
+:sectanchors: true
+:description: The ultimate Editor for true believers.
+:toc: macro
+:toc: left
+:toclevels: 3
+:toc-title: FG42 Documentation
+:doctype: book
+:sectnumlevels: 3
+:keywords: Emacs, Bundle, Editor, IDE, GNU, Programming
+:docinfo: shared
+:type: reference
+:source-highlighter: coderay
+:imagesdir: ./images/
+
+ifdef::backend-html5[]
+image::https://github.com/FG42/FG42/raw/master/share/icons/hicolor/128x128/apps/fg42.png[FG42,align="center"]
+++++
+<div class="center-aligned download-btns">
+<a href="//github.com/FG42/FG42" class="lxbtn btn-success">
+   <i class="fa fa-github"></i>
+   Github
+</a>
+
+<a href="/guides/hellhound.epub" class="lxbtn btn-success">
+   <i class="fa fa-download"></i>
+   Download
+</a>
+</div>
+++++
+endif::[]
+
+---
+:sectnums:
+
+== What is FG42
+
+=== Goals
+The ultimate goal of *HellHound* is to create a set of libraries for creating well orginized, simple, easy to test, easy to
+to scale and distribute applications using Clojure and Clojurescipt around streams and data pipelines.
+
+Another goal of this project is to create a tool which allows developers to focus on their business logic as much as possible
+while *HellHound* takes care of different aspects of their distributed and scalable software in an opinionated way. We want
+to achieve this using different component which provides these kind of tasks.
+
+
+// Getting Started
+include::getting_started/index.adoc[leveloffset=+1]
+
+// Appendix 1
+include::appendix/contribute.adoc[leveloffset=+1]
+
+// Appendix 2
+include::appendix/code_of_conduct.adoc[leveloffset=+1]
+
+
+[colophon]
+= Colophon
+
+The FG42 User Manual
+
+(C) 2010-2018 by Sameer Rahmani <lxsameer@gnu.org>
+
+Created in Asciidoctor, Debian Unstable and FG42 Editor.

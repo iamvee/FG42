@@ -1,0 +1,15 @@
+source 'https://rubygems.org'
+
+gem 'guard'
+gem 'guard-shell'
+gem 'asciidoctor'
+gem 'webrick'
+gem 'rake'
+gem 'coderay'
+gem 'prawn'
+gem 'addressable'
+gem 'prawn-svg'
+gem 'prawn-templates'
+gem 'asciidoctor-pdf'
+
+gem 'asciidoctor-epub3'

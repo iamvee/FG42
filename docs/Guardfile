@@ -1,0 +1,18 @@
+Bundler.require :default
+
+guard 'shell' do
+  watch(/[^\.].*\.adoc$/) do |m|
+    Asciidoctor .convert_file(
+      'index.adoc', to_dir: '_build/', mkdirs: true, safe: :safe,
+      backend: :html5, header_footer: true, sourcemap: true,
+      stylesdir: 'stylesheets',
+      base_dir: './',
+      attributes: {
+        'stylesdir' => 'styles',
+        'imagesdir' => './images',
+        'nofooter' => true,
+        'allow-uri-read' => true,
+        'stylesheet' => 'style.css'
+      })
+  end
+end
