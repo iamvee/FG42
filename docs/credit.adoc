@@ -1,0 +1,12 @@
+[appendix]
+= Credits
+I really like to give my special thank to these kind people who helped me with FG42:
+
+* Amir Houghangi (link:https://twitter.com/amirhoshangi[@amirhoshangi])
+* Behnam Khan Beigi (link:https://twitter.com/yottanami[@yottanami])
+* Danial Parsi (link:https://twitter.com/intuxticated[@intuxticated])
+* Delaram Sobhani (link:https://twitter.com/DelaRam90[@DelaRam90])
+* Ehsan Mahmoudi (link:https://twitter.com/jeyem90[@jeyem90])
+* Keyvan Hedayati (link:https://twitter.com/k1-hedayati[@k1-hedayati])
+* Mary Salehi (link:https://twitter.com/maryian66[@maryian66])
+* Nima Nazari (link:https://twitter.com/mandrivan[@mandrivan])

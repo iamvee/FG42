@@ -40,23 +40,25 @@ endif::[]
 :sectnums:
 
 == What is FG42
+*FG42* is a free editor which has built on top of link:https://www.gnu.org/software/emacs/[mighty GNU/Emacs] editor. I you're
+an Emacs user you're going to find FG42 the ultimate editor for an Emacs guru. But if you're not a user of Emacs afraid no more,
+Your going to enjoy FG42 as well.
 
 === Goals
-The ultimate goal of *HellHound* is to create a set of libraries for creating well orginized, simple, easy to test, easy to
-to scale and distribute applications using Clojure and Clojurescipt around streams and data pipelines.
-
-Another goal of this project is to create a tool which allows developers to focus on their business logic as much as possible
-while *HellHound* takes care of different aspects of their distributed and scalable software in an opinionated way. We want
-to achieve this using different component which provides these kind of tasks.
-
+I started FG42 out of my personal need and it grew since then. I refactored the whole thing once and came up with a better
+API for developing it. So my first goal is to share my own tool with other people who showed lots of interest over these
+years and my second goal is to make in available for people who are not necessarily Emacs users as well.
 
 // Getting Started
 include::getting_started/index.adoc[leveloffset=+1]
 
-// Appendix 1
-include::appendix/contribute.adoc[leveloffset=+1]
+// Credit - Appendix 1
+include::credit.adoc[leveloffset=+1]
 
 // Appendix 2
+include::appendix/contribute.adoc[leveloffset=+1]
+
+// Appendix 3
 include::appendix/code_of_conduct.adoc[leveloffset=+1]
 
 
