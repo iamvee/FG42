@@ -1,2 +1,26 @@
 == Getting Started
-asdasda
+In this section i'm going to walk you through the installation process of *FG42* and some basic usage. Also
+If you already know how to use Emacs you just need the installation subsection of this section.
+
+=== Installation
+In order to run *FG42* you need *GNU Emacs >= 25*. FG42 uses several extensions internally
+which each of the has different external dependencies. To gain more information about external
+dependencies ( If we failed to tell you inside the **FG42** ) just run the `describe-extension`
+command. Also I have plans in near future to create some packages for popular gnu/linux distros
+and MacOS as well, but untill then you have to take care of the external dependencies by yourself.
+
+In order to install **FG42**, issue the following commands:
+
+[source,bash,linum]
+----
+# clonse the FG42 repository in ~/.fg42 directory
+git clone git://github.com/FG42/FG42.git ~/.fg42/
+# You can clone it where ever your want
+cd ~/.fg42/
+# You need to be sudoer, the install script will ask for your password.
+make install
+----
+
+Since the installer script uses `sudo`, during the installation process,
+you'll have to enter your password. Make sure that you're user account has
+a `sudo` access.
