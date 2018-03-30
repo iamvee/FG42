@@ -26,7 +26,7 @@ Credits:
     (setq msg (replace-regexp-in-string "%%VERSION%%"
 					FG42-VERSION about_fg42_msg))))
 
-(defun about-fg42-f ()
+(defun about-fg42 ()
   "Show an small about note"
   (interactive)
   (let (buf msg)
