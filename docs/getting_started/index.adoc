@@ -24,3 +24,8 @@ make install
 Since the installer script uses `sudo`, during the installation process,
 you'll have to enter your password. Make sure that you're user account has
 a `sudo` access.
+
+=== Execution
+If you installed FG42 using git your installation does not contain any elisp package. So, when for the
+first time you executes FG42 it detects the missing libraries and download them from Melpa. It might
+take a while depends on your internet connection.
