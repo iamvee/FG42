@@ -44,7 +44,7 @@
 
 (with-ability ido
               (depends-on 'ido)
-              (depends-on 'ido-ubiquitous)
+              (depends-on 'ido-completing-read+)
               (depends-on 'smex)
               (depends-on 'ido-vertical-mode)
               (depends-on 'flx-ido))

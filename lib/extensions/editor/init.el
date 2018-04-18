@@ -220,11 +220,15 @@
 
   ;; IDO configurations ---------------------------------------------
   (ability ido ()
+           (require 'ido)
            (require 'flx-ido)
            (require 'ido-vertical-mode)
 
            (ido-everywhere t)
+
+           (require 'ido-completing-read+)
            (ido-ubiquitous-mode 1)
+
            (ido-mode t)
 
            (smex-initialize)
