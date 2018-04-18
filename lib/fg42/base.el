@@ -16,7 +16,7 @@ local should be 't' if theme is on FG42 it self"
 ;; Functions ------------------------------
 (defun load-default-theme ()
   "Load the given theme name"
-
+  (make-directory (file-name-as-directory (expand-file-name "themes" (file-name-directory (locate-library "color-theme")))) t)
   (require default-theme)
   (eval-after-load "color-theme"
     '(progn

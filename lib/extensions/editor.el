@@ -23,9 +23,6 @@
 ;; TODO: Move this to an ability
 (depends-on 'solaire-mode)
 
-(with-ability dired+
-              (depends-on 'dired+))
-
 (with-ability nlinum
               (depends-on 'nlinum))
 
