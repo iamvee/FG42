@@ -1,6 +1,13 @@
 (require 'doom-themes)
 (require 'solaire-mode)
 
+(defun themes/color-theme-doom-one-spaceline-faces (face active)
+  (cond
+     ((eq 'face1 face) (if active 'minibuffer-prompt 'powerline-inactive1))
+     ((eq 'face2 face) (if active 'success 'mode-line-inactive))
+     ((eq 'line face) (if active 'shadow 'shadow))
+     ((eq 'highlight face) (if active 'match 'shadow))))
+
 (defun themes/color-theme-doom-one ()
   (interactive)
 
