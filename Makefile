@@ -1,3 +1,6 @@
+update:
+	@git remote set-url origin git://github.com/FG42/FG42.git
+	@git pull origin master
 install:
 	@echo "Downloading and installing fonts..."
 	@mkdir -p ~/.fonts
