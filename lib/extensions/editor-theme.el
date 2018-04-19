@@ -2,8 +2,6 @@
 (require 'fg42/extension)
 
 ;; Dependencies ----------------------------------
-(depends-on 'color-theme)
-
 (defun extensions/editor-theme-initialize ()
   "Initialize 'editor-theme' extension."
   (message "Initializing 'editor-theme' extension.")

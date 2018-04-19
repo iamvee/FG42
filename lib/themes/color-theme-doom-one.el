@@ -9,7 +9,7 @@
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
 
   (load-theme 'doom-one t)
-
+  (enable-theme 'doom-one)
   ;; brighten buffers (that represent real files)
   (add-hook 'after-change-major-mode-hook #'turn-on-solaire-mode)
 

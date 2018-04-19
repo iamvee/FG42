@@ -16,13 +16,10 @@ local should be 't' if theme is on FG42 it self"
 ;; Functions ------------------------------
 (defun load-default-theme ()
   "Load the given theme name"
-  (make-directory (file-name-as-directory (expand-file-name "themes" (file-name-directory (locate-library "color-theme")))) t)
   (require default-theme)
-  (eval-after-load "color-theme"
-    '(progn
-       (color-theme-initialize)
-       (funcall (symbol-function default-theme))))
-  (require 'color-theme))
+  ;;(load-theme default-theme)
+  ;;(enable-theme default-theme))
+  (funcall (symbol-function default-theme)))
 
 (defun load--extension (extension)
   "Load a single extension and call its :on-initialize function"
