@@ -174,6 +174,12 @@
            ;; TODO: use autopair mode if electric pair was not as good as autopair
            (electric-pair-mode))
 
+  (ability yaml ()
+           "YAML editor."
+           (require 'yaml-mode)
+           (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+           (add-to-list 'auto-mode-alist '("\\.sls\\'" . yaml-mode)))
+
   (ability code-browser ()
            "Adds the code browser to FG42."
            (require 'neotree)

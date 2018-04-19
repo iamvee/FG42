@@ -13,6 +13,8 @@
 (with-ability parinfer
               (depends-on 'parinfer))
 
+(with-ability yaml
+              (depends-on 'yaml-mode))
 ;; (with-ability hl
 ;;               (depends-on 'hl-sexp))
 
