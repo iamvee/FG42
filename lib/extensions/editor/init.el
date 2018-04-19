@@ -32,6 +32,9 @@
   (require 'cheatsheet)
   (require 'extensions/editor/utils)
 
+  (add-to-list 'custom-theme-load-path
+               (concat fg42-home "/lib/themes/custom_themes"))
+
   ;; Setting user preference based on the race.
   (if (is-evil?)
       (progn

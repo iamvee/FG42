@@ -17,8 +17,16 @@ local should be 't' if theme is on FG42 it self"
 (defun load-default-theme ()
   "Load the given theme name"
   (require default-theme)
-  ;;(load-theme default-theme)
-  ;;(enable-theme default-theme))
+
+  ;; Setup the face look up function for spaceline
+  (with-ability spaceline
+                (let ((other-face (intern (concat (symbol-name default-theme)
+                                                  "-spaceline-faces"))))
+                  (if (functionp other-face)
+                    (setq spaceline-face-func other-face))))
+
+  ;; Call the function name with same name as the them which should
+  ;; be responsible for loading the actual "custom-theme"
   (funcall (symbol-function default-theme)))
 
 (defun load--extension (extension)
