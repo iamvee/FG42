@@ -30,6 +30,14 @@ Since the installer script uses `sudo`, during the installation process,
 you'll have to enter your password. Make sure that you're user account has
 a `sudo` access.
 
+You can also download the tarball from release section and extract the tarball
+in your `$HOME` directory. So you're going to end up with `.fg42` directory in
+your `$HOME` and all you have to do is to install it using `make install` command.
+
+**NOTE**: please note that the tarball releases are still experimental and might have
+some issues since they contain the elisp packages as well. In case of any problem
+please report the issue.
+
 Enjoy using **FG42** ;)
 
 ## Configuration
