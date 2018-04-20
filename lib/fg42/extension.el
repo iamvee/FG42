@@ -12,6 +12,8 @@
 (defvar disabled-abilities (make-hash-table)
   "A hash of all the disabled abilities.")
 
+;; TODO: add a function to extension structure to support for
+;; external dependenies list
 ;; Structures -----------------------------
 (cl-defstruct fg42-extension
   "Each FG42 extension should implement a copy of this structure."
