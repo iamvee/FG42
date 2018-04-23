@@ -199,6 +199,11 @@
            (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
            (add-to-list 'auto-mode-alist '("\\.sls\\'" . yaml-mode)))
 
+  (ability terraform ()
+           "Terraform editor."
+           (require 'terraform-mode)
+           (add-to-list 'auto-mode-alist '("\\.tf\\'" . terraform-mode)))
+
   (ability code-browser ()
            "Adds the code browser to FG42."
            (require 'neotree)

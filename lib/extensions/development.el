@@ -13,6 +13,9 @@
 (with-ability parinfer
               (depends-on 'parinfer))
 
+(with-ability terraform
+              (depends-on 'terraform-mode))
+
 (with-ability yaml
               (depends-on 'yaml-mode))
 ;; (with-ability hl
