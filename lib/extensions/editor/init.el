@@ -103,17 +103,15 @@
 
            (spaceline-compile
              "ati"
-             '(((ati-projectile ati-mode-icon ati-buffer-id) :face default-face)
-               ((ati-modified ati-window-numbering ati-buffer-size lxdrive) :face highlight-face :skip-alternate t)
-
-               ((ati-process ati-position ati-region-info) :face highlight-face :separator " | ")
+             '(((lxdrive) :face highlight-face :skip-alternate t)
+               ((ati-projectile ati-mode-icon ati-buffer-id) :face default-face)
+               ((ati-process ati-region-info) :face highlight-face :separator " | ")
+               ((ati-modified ati-window-numbering ati-buffer-size ati-position) :face highlight-face :skip-alternate t)
                ((ati-flycheck-status ati-(point)ackage-updates purpose) :separator " | " :face other-face))
              ;; ((minor-modes) :face default-face)
 
 
              '(((ati-vc-icon " ") :face default-face :skip-alternate t :tight t)))
-
-
 
            (setq-default mode-line-format '("%e" (:eval (spaceline-ml-ati)))))
 
@@ -340,6 +338,5 @@
   (require 'extensions/editor/session-management)
   (require 'extensions/editor/lxdrive-mode)
   (require 'extensions/editor/lxmodeline))
-
 
 (provide 'extensions/editor/init)

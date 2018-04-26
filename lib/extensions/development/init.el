@@ -83,14 +83,14 @@
                            :description "Toggle IMenu list which shows the symbol definitions based on major mode.")
 
            (cheatsheet-add :group '--Development--
-                           :key   "C-."
+                           :key   "C-<2>"
                            :description "Search for the definition of the symbol you want anywhere.")
 
            ;; (imenu-list-minor-mode)
            (setq imenu-list-focus-after-activation t)
            (setq imenu-list-auto-resize t)
            (global-set-key (kbd "C-'") #'imenu-list-smart-toggle)
-           (global-set-key (kbd "C-.") #'imenu-anywhere))
+           (global-set-key (kbd "C-<f2>") #'imenu-anywhere))
 
   (ability parinfer ()
            (add-hook 'emacs-lisp-mode-hook #'parinfer-mode))
