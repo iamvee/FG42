@@ -48,6 +48,11 @@
               (depends-on 'eshell-prompt-extras)
               (depends-on 'shell-pop))
 
+(with-ability imenu
+              (depends-on 'imenu)
+              (depends-on 'imenu-list)
+              (depends-on 'imenu-anywhere))
+
 ;; TODO: Add flycheck-color-modebar
 ;; TODO  Add flycheck-tip
 

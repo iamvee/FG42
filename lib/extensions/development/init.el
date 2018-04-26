@@ -73,6 +73,25 @@
                                          (bm-buffer-save-all)
                                          (bm-repository-save))))
 
+  (ability imenu ()
+           "IMenu integration for FG42"
+           (require 'imenu)
+           (require 'imenu-list)
+
+           (cheatsheet-add :group '--Development--
+                           :key   "C-'"
+                           :description "Toggle IMenu list which shows the symbol definitions based on major mode.")
+
+           (cheatsheet-add :group '--Development--
+                           :key   "C-."
+                           :description "Search for the definition of the symbol you want anywhere.")
+
+           ;; (imenu-list-minor-mode)
+           (setq imenu-list-focus-after-activation t)
+           (setq imenu-list-auto-resize t)
+           (global-set-key (kbd "C-'") #'imenu-list-smart-toggle)
+           (global-set-key (kbd "C-.") #'imenu-anywhere))
+
   (ability parinfer ()
            (add-hook 'emacs-lisp-mode-hook #'parinfer-mode))
 
@@ -92,7 +111,7 @@
                            :description "Jump to definition in another window using an external tool")
 
            (require 'dumb-jump)
-	   (dumb-jump-mode t)
+           (dumb-jump-mode t)
            (define-key dumb-jump-mode-map (kbd "M-g o") 'dumb-jump-go-other-window)
            (define-key dumb-jump-mode-map (kbd "M-g j") 'dumb-jump-go)
            (define-key dumb-jump-mode-map (kbd "C-u y") 'dumb-jump-go)
@@ -139,7 +158,7 @@
            (add-hook 'after-init-hook 'company-statistics-mode)
            (define-key company-active-map "\t" 'company-yasnippet-or-completion)
 
-	   (setq dabbrev-case-fold-search t)
+           (setq dabbrev-case-fold-search t)
 
            (add-to-list 'company-backends 'company-dabbrev)
            (add-to-list 'company-backends 'company-dabbrev-code))
