@@ -5,6 +5,7 @@
 ;; Dependencies ----------------------------------
 (depends-on 'coffee-mode)
 (depends-on 'js2-mode)
+(depends-on 'rjsx-mode)
 (depends-on 'js2-refactor)
 (depends-on 'smart-forward)
 (depends-on 'ac-js2)
