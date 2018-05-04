@@ -33,7 +33,7 @@
              (interactive)
              (require 'indium))
            (add-hook 'js2-mode-hook #'init-indium)
-           ;(add-hook 'js2-mode-hook #'jade-interaction-mode)
+                                        ;(add-hook 'js2-mode-hook #'jade-interaction-mode)
 	   )
 
   (ability js-complition ()
@@ -44,10 +44,10 @@
            "Gives FG42 the ability to edit javascript."
 
            (autoload 'js2-mode "js2-mode" "Javascript mode")
-           ;(autoload 'tern-mode "tern.el" nil t)
+                                        ;(autoload 'tern-mode "tern.el" nil t)
 
-           (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-           ;(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-mode))
+           (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
+                                        ;(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-mode))
            (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
 
            (add-hook 'js2-mode-hook 'javascript-callback)
