@@ -21,3 +21,6 @@ install:
 	@echo "------------------------------------------------------------------------------------"
 	@echo "Make sure to install external dependencies of FG42. For more info checkout README.md"
 	@echo "Enjoy the bless of GNU/Emacs and FG42 :)"
+install-fonts:
+	@mkdir -p ~/.fonts/
+	@cp -rv ./share/fonts/vazir/* ~/.fonts/
