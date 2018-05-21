@@ -70,8 +70,10 @@
 
     (define-key map (kbd "M-x")   'turn-off-and-command)
     (define-key map (kbd "C-x C-s") 'save-buffer)
+    (define-key map (kbd "SPC") 'self-insert-command)
+
     ;;(define-key map (kbd "ESC ESC") 'turn-off-lxdrive)
-    (define-key map (kbd "SPC") 'turn-off-lxdrive)
+    (define-key map (kbd "q") 'turn-off-lxdrive)
     (define-key map (kbd "M-SPC") 'turn-off-lxdrive)
 
     map)
