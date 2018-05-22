@@ -16,6 +16,12 @@
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
 
   (load-theme 'doom-one t)
+
+  (custom-theme-set-faces
+   'doom-one
+   '(font-lock-comment-face ((t (:foreground "#8B9298"))))
+   '(font-lock-comment-delimiter-face ((t (:foreground "#5B6268")))))
+
   (enable-theme 'doom-one)
   ;; brighten buffers (that represent real files)
   (add-hook 'after-change-major-mode-hook #'turn-on-solaire-mode)
