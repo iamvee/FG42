@@ -80,6 +80,10 @@
   ;; scratch should be scratch
   (setq initial-scratch-message nil)
 
+  (ability highligh-current-line ()
+           "Highlights the current line."
+           (global-hl-line-mode t))
+
   (ability flycheck ()
            "Check syntax on the fly using flycheck."
            (require 'flycheck)
