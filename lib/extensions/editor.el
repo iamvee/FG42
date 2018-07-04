@@ -9,6 +9,10 @@
 (depends-on 'ov)
 (depends-on 'cheatsheet)
 (depends-on 'all-the-icons)
+
+;; Moving between windows
+(depends-on 'ace-window)
+
 ;; Don't worry unless you're evil this mode won't start
 (depends-on 'evil)
 

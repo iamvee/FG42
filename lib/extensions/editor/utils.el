@@ -37,7 +37,6 @@ it inserts comment at the end of the line."
 (defun setup-utils ()
   "Setup several utitlies for FG42"
   (global-set-key (kbd "C-k") 'kill-and-join-forward)
-  (global-set-key (kbd "C-<tab>") 'other-window)
   (global-set-key (kbd "M-;") 'comment-dwim-line)
   (global-set-key (kbd "M-j") (lambda ()
                                 (interactive) (join-line -1))))

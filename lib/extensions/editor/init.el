@@ -121,6 +121,11 @@
 
   ;;(spaceline-emacs-theme))
 
+  ;; ACE Window
+
+  (global-set-key (kbd "C-<tab>") 'ace-window)
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+
   ;; Tramp configuration -------------------------------------
   (ability tramp ()
            (setq tramp-default-method "ssh")
