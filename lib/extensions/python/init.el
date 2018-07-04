@@ -74,7 +74,7 @@
                                         ;(require 'eldoc-mode)
 
   (subword-mode +1)
-  ;(anaconda-mode 1)
+                                        ;(anaconda-mode 1)
   (eldoc-mode 1)
 
   (setup-keybindings)
@@ -92,17 +92,23 @@
                 #'python-imenu-create-flat-index))
   (add-hook 'post-self-insert-hook
             #'electric-layout-post-self-insert-function nil 'local)
-  ;(add-hook 'after-save-hook 'python-mode-set-encoding nil 'local))
-)
+                                        ;(add-hook 'after-save-hook 'python-mode-set-encoding nil 'local))
+  )
 ;;;###autoload
 (defun extensions/python-initialize ()
   (message "Initializing 'python' extension.")
 
+  (ability venv ()
+           "Virtualenv support"
+           (require 'virtualenvwrapper)
+           (venv-initialize-interactive-shells)
+           (venv-initialize-eshell)
+           )
   (ability python-editor ()
            "Gives FG42 the ability to edit pytho codes."
 
            (add-hook 'python-mode-hook 'python-mode-defaults)
-
+           (add-hook 'after-init-hook #'global-flycheck-mode)
            (when (fboundp 'exec-path-from-shell-copy-env)
              (exec-path-from-shell-copy-env "PYTHONPATH"))
 
@@ -122,7 +128,7 @@
   (ability python-code-completion ('code-completion)
            "Gives FG42 the ability to complete python codes."
 
-           ;(when (boundp 'company-backends)
+                                        ;(when (boundp 'company-backends)
                                         ;  (add-to-list 'company-backends 'company-anaconda))))
            ))
 

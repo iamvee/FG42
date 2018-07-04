@@ -5,6 +5,8 @@
 ;; Dependencies ----------------------------------
 (depends-on 'anaconda-mode)
 (depends-on 'company-anaconda)
+(depends-on 'virtualenvwrapper)
+(depends-on 'flycheck)
 (depends-on 'pyvenv)
 
 (with-ability kivy-editor
