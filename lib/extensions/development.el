@@ -7,6 +7,7 @@
 (depends-on 'company-statistics)
 (depends-on 'projectile)
 (depends-on 'yasnippet)
+(depends-on 'yasnippet-snippets)
 (depends-on 'smart-mode-line)
 (depends-on 'dockerfile-mode)
 

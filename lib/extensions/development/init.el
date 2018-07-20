@@ -91,6 +91,8 @@
            (setq imenu-list-auto-resize t)
            (global-set-key (kbd "C-'") #'imenu-list-smart-toggle)
            (global-set-key (kbd "C-<f2>") #'imenu-anywhere))
+           (global-set-key (kbd "<f13>") #'imenu-anywhere)
+
 
   (ability parinfer ()
            (add-hook 'emacs-lisp-mode-hook #'parinfer-mode))
