@@ -3,12 +3,17 @@
 (require 'extensions/python/init)
 
 ;; Dependencies ----------------------------------
-(depends-on 'anaconda-mode)
-(depends-on 'company-anaconda)
 (depends-on 'virtualenvwrapper)
 (depends-on 'flycheck)
 (depends-on 'pyvenv)
 (depends-on 'py-autopep8)
+
+(with-ability anaconda
+              (depends-on 'anaconda-mode)
+              (depends-on 'company-anaconda))
+
+(with-ability jedi
+              (depends-on 'company-jedi))
 
 (with-ability elpy
               (depends-on 'ein)

@@ -65,6 +65,8 @@
     (insert "from IPython import embed; embed()")
     (move-end-of-line 1)))
 
+(defun jedi-python-mode-hook ()
+  (add-to-list 'company-backends 'company-jedi))
 
 ;;;###autoload
 (defun python-mode-defaults ()
@@ -97,6 +99,10 @@
 ;;;###autoload
 (defun extensions/python-initialize ()
   (message "Initializing 'python' extension.")
+
+  (ability jedi ()
+           "Python autocompletion based on Jedi"
+           (add-hook 'python-mode-hook 'jedi-python-mode-hook))
 
   (ability elpy ()
            "Full feature python IDE. (A little bit heavy)"
