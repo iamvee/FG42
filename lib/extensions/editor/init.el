@@ -191,7 +191,9 @@
            (global-linum-mode)
            (setq linum-format " %3d "))
 
-  (menu-bar-mode -1)
+  (ability hide-menu ()
+           "Hides the emacs menu completely."
+           (menu-bar-mode -1))
   (show-paren-mode t)
   (cua-selection-mode t)
 
