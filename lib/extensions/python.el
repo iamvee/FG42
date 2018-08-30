@@ -8,6 +8,11 @@
 (depends-on 'virtualenvwrapper)
 (depends-on 'flycheck)
 (depends-on 'pyvenv)
+(depends-on 'py-autopep8)
+
+(with-ability elpy
+              (depends-on 'ein)
+              (depends-on 'elpy))
 
 (with-ability kivy-editor
               (depends-on 'kivy-mode))

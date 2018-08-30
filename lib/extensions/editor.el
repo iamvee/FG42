@@ -71,6 +71,9 @@
               (depends-on 'emojify))
 
 
+(if (eq system-type 'darwin)
+    (depends-on 'exec-path-from-shell))
+
 ;; Extension -------------------------------------
 (extension editor
 	   :version "2.31"

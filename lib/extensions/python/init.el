@@ -98,6 +98,24 @@
 (defun extensions/python-initialize ()
   (message "Initializing 'python' extension.")
 
+  (ability elpy ()
+           "Full feature python IDE. (A little bit heavy)"
+
+           (require 'py-autopep8)
+
+           (elpy-enable)
+
+           (setq python-shell-interpreter "ipython"
+                 python-shell-interpreter-args "-i --simple-prompt")
+
+           ;; enable autopep8 formatting on save
+           (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+
+           ;; use flycheck not flymake with elpy
+           (when (require 'flycheck nil t)
+             (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+             (add-hook 'elpy-mode-hook 'flycheck-mode)))
+
   (ability venv ()
            "Virtualenv support"
            (require 'virtualenvwrapper)

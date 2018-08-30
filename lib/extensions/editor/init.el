@@ -28,6 +28,11 @@
   "Base plugin initialization."
   (message "Initializing 'editor' extension.")
 
+  (if (eq system-type 'darwin)
+      (progn
+        (message "Running on the stupid macOS X.")
+        (exec-path-from-shell-initialize)))
+
   (require 'all-the-icons)
   (require 'cheatsheet)
   (require 'extensions/editor/utils)

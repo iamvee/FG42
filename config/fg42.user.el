@@ -12,7 +12,7 @@
 ;; ABILITIES
 ;; =========
 ;; Disable abilities which you don't want.
-(disable 'rbenv 'helm 'spell 'linum 'smart-mode-line 'desktop-mode 'dired+ 'guru 'emoji)
+(disable 'rbenv 'helm 'spell 'linum 'smart-mode-line 'desktop-mode 'dired+ 'guru 'emoji 'elpy)
 
 
 ;; EXTENSIONS
