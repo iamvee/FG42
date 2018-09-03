@@ -194,6 +194,7 @@
   (ability hide-menu ()
            "Hides the emacs menu completely."
            (menu-bar-mode -1))
+
   (show-paren-mode t)
   (cua-selection-mode t)
 

@@ -110,6 +110,10 @@ your experience:
 I'm a huge fan of [Steins Gate](https://en.wikipedia.org/wiki/Steins;Gate) anime and I follow its
 naming convensions on **Future Gadgets 42**.
 
+## Why we moved from Github ?
+We're not happy with Microsoft buying Github and we don't trust a company like Microsoft because of their history and
+their strategies (For more information take a look at ([Halloween documents](https://en.wikipedia.org/wiki/Halloween_documents)).
+So we decided to move to Gitlab as an alternative and we are happy here so far.
 
 # License
 
