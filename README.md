@@ -1,4 +1,4 @@
-<div align="center"><img src="https://github.com/FG42/FG42/raw/master/share/icons/hicolor/128x128/apps/fg42.png" alt="FG42" align="center" /></div>
+<div align="center"><img src="https://assets.gitlab-static.net/uploads/-/system/project/avatar/8205594/fg42.png?width=70" alt="FG42" align="center" /></div>
 
 <br/><br/>
 
