@@ -79,6 +79,13 @@
 
   (global-set-key (kbd "C-?") 'cheatsheet-show)
 
+  ;; Fast Move in the buffer
+  (global-set-key (kbd "M-1") 'avy-goto-word-or-subword-1)
+  (cheatsheet-add :group '--Navigation--
+                  :key   "M-1"
+                  :description "Jump to the a word or subword in the buffer")
+
+
   ;; Remove splash screen
   (setq inhibit-splash-screen t)
 

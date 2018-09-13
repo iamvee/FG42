@@ -1,0 +1,11 @@
+{:source-paths ["src"]
+ :dependencies [[cljs-http "0.1.45"]
+                [cider/cider-nrepl "0.18.0-SNAPSHOT"]]
+
+ :nrepl {:port 8282}
+ :builds
+ {:app
+  {:target    :node-script
+   :output-to "target/main.js"
+   :main      john-titor.core/main
+   :devtools  {:after-load server.main/reload!}}}}

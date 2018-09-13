@@ -10,6 +10,9 @@
 (depends-on 'cheatsheet)
 (depends-on 'all-the-icons)
 
+;; Fast move in the buffer
+(depends-on 'avy)
+
 ;; Moving between windows
 (depends-on 'ace-window)
 

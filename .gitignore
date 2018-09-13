@@ -12,3 +12,9 @@ fg42
 project-config/
 docs/_build
 ./fonts/
+node_modules
+.\#.*
+yarn-error.log
+.node-version
+.shadow-cljs
+.nrepl-port
