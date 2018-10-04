@@ -91,7 +91,7 @@
            (setq imenu-list-auto-resize t)
            (global-set-key (kbd "C-'") #'imenu-list-smart-toggle)
            (global-set-key (kbd "C-<f2>") #'imenu-anywhere))
-           (global-set-key (kbd "<f13>") #'imenu-anywhere)
+  (global-set-key (kbd "<f13>") #'imenu-anywhere)
 
 
   (ability parinfer ()
@@ -123,13 +123,16 @@
 
   (ability git ()
            "A wonderful git interface for FG42"
-           (require 'magithub)
-           (magithub-feature-autoinject t)
 
            (cheatsheet-add :group '--Development--
                            :key   "C-x g"
                            :description "Rise up MAGIT. Git interface for FG42")
            (global-set-key (kbd "C-x g") 'magit-status))
+
+  (ability github ()
+           "Github support"
+           (require 'magithub)
+           (magithub-feature-autoinject t))
 
   ;; (ability hl ()
   ;;          "Highligh the current block of code. This ability may slows you down."
