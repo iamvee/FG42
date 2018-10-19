@@ -44,6 +44,7 @@
            (require 'projects/configuration))
 
   (ability bookmarks ()
+
            (require 'bm)
 
            (cheatsheet-add :group '--Development--
@@ -62,13 +63,27 @@
            (global-set-key (kbd "M-]") 'bm-next)
            (global-set-key (kbd "M-[") 'bm-previous)
 
+           (setq bm-restore-repository-on-load t)
            (setq bm-in-lifo-order t)
            (setq bm-cycle-all-buffers t)
-
-                                        ;(setq bm-highlight-style 'bm-highlight-line-and-fringe)
            (setq-default bm-buffer-persistence t)
+
            (setq bm-repository-file (locate-user-emacs-file "bm-repository"))
-           (add-hook 'prog-mode-hook 'bm-load-and-restore)
+           (add-hook' after-init-hook 'bm-repository-load)
+           (add-hook 'kill-buffer-hook #'bm-buffer-save)
+           ;; Restoring bookmarks
+           (add-hook 'find-file-hooks   #'bm-buffer-restore)
+           (add-hook 'after-revert-hook #'bm-buffer-restore)
+
+           ;; The `after-revert-hook' is not necessary to use to achieve persistence,
+           ;; but it makes the bookmark data in repository more in sync with the file
+           ;; state. This hook might cause trouble when using packages
+           ;; that automatically reverts the buffer (like vc after a check-in).
+           ;; This can easily be avoided if the package provides a hook that is
+           ;; called before the buffer is reverted (like `vc-before-checkin-hook').
+           ;; Then new bookmarks can be saved before the buffer is reverted.
+           ;; Make sure bookmarks is saved before check-in (and revert-buffer)
+           (add-hook 'vc-before-checkin-hook #'bm-buffer-save)
            (add-hook 'kill-emacs-hook '(lambda nil
                                          (bm-buffer-save-all)
                                          (bm-repository-save))))
