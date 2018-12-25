@@ -17,8 +17,8 @@
 
            (add-hook 'cider-mode-hook #'eldoc-mode)
            (add-hook 'cider-mode-hook #'set-clojure-favorite-buffer)
-
            (add-hook 'clojure-mode-hook #'paredit-mode)
+           (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
 
            (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
 
@@ -26,7 +26,8 @@
            (setq tmp-directory (concat (getenv "HOME") "/.tmp")))
 
   (with-ability parinfer ()
-           (add-hook 'clojure-mode-hook #'parinfer-mode))
+                (add-hook 'clojure-mode-hook #'parinfer-mode))
+
 
   (ability clojure-completion ('code-completion)
            ;; company mode for completion
