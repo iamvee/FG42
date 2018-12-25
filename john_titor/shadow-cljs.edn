@@ -8,4 +8,4 @@
   {:target    :node-script
    :output-to "target/main.js"
    :main      john-titor.core/main
-   :devtools  {:after-load server.main/reload!}}}}
+   :devtools  {}}}}
