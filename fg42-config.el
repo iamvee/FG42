@@ -1,5 +1,4 @@
 (add-to-list 'load-path (concat (getenv "FG42_HOME") "/lib"))
-
 ;; DEBUG
 ;; =====
 ;; Uncomment the below code to trigger stacktraces in case of any errors
