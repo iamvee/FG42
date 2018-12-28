@@ -105,6 +105,60 @@ your experience:
 
 
 
+## How to implement your own extension:
+
+In this part we will explore the extensibility features of the FG42. As an example
+we will add LaTeX autocompletion and other useful features to our emacs based on AUCTeX
+and company-auctex [company-auctex](https://github.com/alexeyr/company-auctex).
+We can install the required package manually by ``` install M-x package-install RET company-auctex RET ``` or the FG42
+would do this for us based on its configurations.
+Assume that our extension is called latex, to this end we are needed to create a file and a directory in the following 
+directories:
+
+```bash
+   yourfg42home/lib/extensions/latex.el
+   yourfg42home/lib/extensions/latex/init.el
+```
+   
+First we are going to explore the latex.el. your file needs to include these parts:
+```lisp
+(require 'fpkg)
+(require 'fg42/extension)
+(require 'extensions/latex/init)
+```
+
+extensions/latex/init says to FG42 that the corresponding init file is in the latex directory and in the init.el file.
+after that, you must add the MELPA dependencies you wish to install and use, in our case:
+```lisp
+(depends-on 'company-auctex)
+```
+There are other doc and extension functions you may like to implement for your versioning and documentation stuff.
+finally you have to provide your extension using:
+```lisp
+(provide 'extensions/latex)
+```
+At this point our latex.el is done and we have to implement the init.el file. extension customization, key-binding, and hooks on the
+major modes, etc. are configured in init.el. The only protocol you have to recall is that name of your init function should 
+follow this pattern: lisp extensions/latex-initialize() and you have to provide it at the end.
+
+for example:
+```lisp
+(defun extensions/latex-initialize ()
+  ;LaTeX development initialization
+(require 'company-auctex)
+(add-hook 'latex-mode #'company-auctex-init))
+
+(provide 'extensions/latex/init)
+```
+
+FG42 will add your package to its classpath and would load it on the related major mode.
+Finally you have to enable this extension in the yourfg42home/fg42-confilg.el file.
+```lisp
+(activate-extensions 'latex etc)
+```
+
+you are done. enjoy using your extension!
+
 ## what's with the name?
 
 I'm a huge fan of [Steins Gate](https://en.wikipedia.org/wiki/Steins;Gate) anime and I follow its
