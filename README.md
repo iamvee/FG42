@@ -112,14 +112,14 @@ we will add LaTeX autocompletion and other useful features to our emacs based on
 and company-auctex [company-auctex](https://github.com/alexeyr/company-auctex).
 We can install the required package manually by ``` install M-x package-install RET company-auctex RET ``` or the FG42
 would do this for us based on its configurations.
-Assume that our extension is called latex, to this end we are needed to create a file and a directory in the following 
+Assume that our extension is called latex, to this end we are needed to create a file and a directory in the following
 directories:
 
 ```bash
    yourfg42home/lib/extensions/latex.el
    yourfg42home/lib/extensions/latex/init.el
 ```
-   
+
 First we are going to explore the latex.el. your file needs to include these parts:
 ```lisp
 (require 'fpkg)
@@ -138,7 +138,7 @@ finally you have to provide your extension using:
 (provide 'extensions/latex)
 ```
 At this point our latex.el is done and we have to implement the init.el file. extension customization, key-binding, and hooks on the
-major modes, etc. are configured in init.el. The only protocol you have to recall is that name of your init function should 
+major modes, etc. are configured in init.el. The only protocol you have to recall is that name of your init function should
 follow this pattern: lisp extensions/latex-initialize() and you have to provide it at the end.
 
 for example:
@@ -159,8 +159,12 @@ Finally you have to enable this extension in the yourfg42home/fg42-confilg.el fi
 
 you are done. enjoy using your extension!
 
-## what's with the name?
+## Debugging
+If you ran into an issue and want to debug FG42, the best and easiest way is to turn on
+debugging by uncommenting `(setq debug-on-error t)` in your configuration (`~/.fg42.el`)
+and restarting FG42. After that you'll get a traceback for any exception in FG42.
 
+## what's with the name?
 I'm a huge fan of [Steins Gate](https://en.wikipedia.org/wiki/Steins;Gate) anime and I follow its
 naming convensions on **Future Gadgets 42**.
 

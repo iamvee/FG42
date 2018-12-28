@@ -9,6 +9,7 @@
 (depends-on 'ov)
 (depends-on 'cheatsheet)
 (depends-on 'all-the-icons)
+(depends-on 'markdown-mode)
 
 ;; Fast move in the buffer
 (depends-on 'avy)
