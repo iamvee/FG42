@@ -27,7 +27,8 @@
                      'clojure
                      'php
                      'python
-                     'arduino)
+                     'arduino
+                     'latex)
 
 
 ;; What are you ?
