@@ -1,5 +1,5 @@
 <div align="center"><img src="https://assets.gitlab-static.net/uploads/-/system/project/avatar/8205594/fg42.png?width=70" alt="FG42" align="center" /></div>
-[![Gitter](https://badges.gitter.im/FG42/FG42.svg)](https://gitter.im/FG42/FG42?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+<a href="https://gitter.im/FG42/FG42?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge"><img src="https://badges.gitter.im/FG42/FG42.svg" /></a>
 <br/><br/>
 
 #  Future Gadgets 42
