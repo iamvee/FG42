@@ -10,6 +10,7 @@
 (depends-on 'yasnippet-snippets)
 (depends-on 'smart-mode-line)
 (depends-on 'dockerfile-mode)
+(depends-on 'quickrun)
 
 (with-ability parinfer
               (depends-on 'parinfer))
