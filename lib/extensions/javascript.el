@@ -10,6 +10,9 @@
 (depends-on 'smart-forward)
 (depends-on 'ac-js2)
 
+(with-ability prettierjs
+	      (depends-on 'prettier-js))
+
 ;;(depends-on 'tern)
 (with-ability indium
               (depends-on 'indium))
