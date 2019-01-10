@@ -28,6 +28,7 @@
                      'php
                      'python
                      'arduino
+                     'irc
                      'latex)
 
 
@@ -71,3 +72,27 @@
 ;;
 ;; abilities like clojure which uses the lien tools need to find
 ;; specific tools (lein in this case) in your exec-path.
+
+
+;; IRC Extension configuration
+;; Setup all the servers and channels you need
+;; (setq irc-servers
+;;   '(("irc.freenode.net"
+;;      :port 6697
+;;      :encryption tls
+;;      :channels ("#5hit" "#emacs"))))
+
+;; Set you nickname
+;; (setq irc-nickname "awesome-fg42-user")
+
+;; You can use password manager for storing you IRC credentials.
+;; NOTE: you need to have a pair of GPG keys for this.
+;;
+;; Add the following to your ~/.authinfo.gpg :
+;;
+;; machine freenode login <username> port nickserv password <password>
+;;
+;; Or if you don't want to use the password manager your can directly
+;; set it up like this:
+;; (setq irc-auth '(("freenode" nickserv "some_user" "p455w0rd")
+;;                  ("freenode" chanserv "some_user" "#channel" "passwd99"))

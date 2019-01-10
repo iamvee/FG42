@@ -56,7 +56,7 @@ It returns nil if no password is available."
 
   ;; Turn on debugging if the global debuging was enabled
   (setq rcirc-debug-flag debug-on-error)
-  ;;(setq rcirc-server-alist irc-servers)
+  (setq rcirc-server-alist irc-servers)
   (setq rcirc-authinfo (or (irc/extract-secrets-from-auth-source)
                            irc-auth))
   (setq rcirc-default-nick irc-nickname)
