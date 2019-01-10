@@ -74,7 +74,7 @@
 ;; specific tools (lein in this case) in your exec-path.
 
 
-;; IRC Extension configuration
+;; IRC Extension configuration ------------------------------------------------
 ;; Setup all the servers and channels you need
 ;; (setq irc-servers
 ;;   '(("irc.freenode.net"

@@ -64,9 +64,6 @@ It returns nil if no password is available."
   (rcirc-track-minor-mode 1)
   (rcirc nil))
 
-
-
-
 ;;;###autoload
 (defun extensions/irc-initialize ()
   "Initialize the irc extention."
