@@ -61,6 +61,7 @@ It returns nil if no password is available."
                            irc-auth))
   (setq rcirc-default-nick irc-nickname)
   (rcirc-notify-add-hooks)
+  (rcirc-track-minor-mode 1)
   (rcirc nil))
 
 
