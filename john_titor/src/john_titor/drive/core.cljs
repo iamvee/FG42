@@ -19,7 +19,7 @@
      (when token
        (.setCredentials oauth token))
      oauth)))
-p
+
 (defn upload-file
   [oauth])
 

@@ -30,11 +30,12 @@ Return a list of credential pairs."
 ARGS should be ignored."
   (interactive "P\nsHost: ")
   (dolist (pair (auth/find-credential host))
-    (message (concat "User: " (utils/bold (car pair))
-                     " Passowrd: " (utils/bold(car (cdr pair)))))))
+    (let* ((user (car pair))
+           (pass (car (cdr pair)))
+           (msg (concat "User: " (utils/bold user)
+                        " Passowrd: " (utils/bold pass))))
+      (message msg))))
 
-(auth/credential-for nil "freenode")
-(auth/find-credential "freenode")
 
 (defun extensions/irc-initialize ()
   "Initialize the Auth extension."

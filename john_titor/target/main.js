@@ -8,7 +8,11 @@ try {require('source-map-support').install();} catch (e) {console.warn('no "sour
 
 global.CLOSURE_NO_DEPS = true;
 
+<<<<<<< Updated upstream
 global.CLOSURE_DEFINES = {"shadow.cljs.devtools.client.env.repl_pprint":false,"shadow.cljs.devtools.client.env.devtools_url":"","shadow.cljs.devtools.client.env.autoload":false,"shadow.cljs.devtools.client.env.proc_id":"e01e0e97-fd19-4247-a69e-568995e2aeb7","goog.ENABLE_DEBUG_LOADER":false,"shadow.cljs.devtools.client.env.server_port":9630,"shadow.cljs.devtools.client.env.use_document_host":true,"shadow.cljs.devtools.client.env.module_format":"goog","goog.LOCALE":"en","shadow.cljs.devtools.client.env.build_id":"app","shadow.cljs.devtools.client.env.ignore_warnings":false,"goog.DEBUG":true,"cljs.core._STAR_target_STAR_":"nodejs","shadow.cljs.devtools.client.env.ssl":false,"shadow.cljs.devtools.client.env.enabled":true,"shadow.cljs.devtools.client.env.server_host":"localhost","goog.TRANSPILE":"never"};
+=======
+global.CLOSURE_DEFINES = {"shadow.cljs.devtools.client.env.repl_pprint":false,"shadow.cljs.devtools.client.env.devtools_url":"","shadow.cljs.devtools.client.env.autoload":false,"shadow.cljs.devtools.client.env.proc_id":"06073e1c-1014-4dc0-a8ca-c2d800ea57c5","goog.ENABLE_DEBUG_LOADER":false,"shadow.cljs.devtools.client.env.server_port":9630,"shadow.cljs.devtools.client.env.use_document_host":true,"shadow.cljs.devtools.client.env.module_format":"goog","goog.LOCALE":"en","shadow.cljs.devtools.client.env.build_id":"app","shadow.cljs.devtools.client.env.ignore_warnings":false,"goog.DEBUG":true,"cljs.core._STAR_target_STAR_":"nodejs","shadow.cljs.devtools.client.env.ssl":false,"shadow.cljs.devtools.client.env.enabled":true,"shadow.cljs.devtools.client.env.server_host":"localhost","goog.TRANSPILE":"never"};
+>>>>>>> Stashed changes
 
 var goog = global.goog = {};
 
