@@ -1,7 +1,7 @@
 (ns john-titor.utils
   (:require
-   [clojure.core.async :refer [take!]]))
+   [clojure.core.async :refer [take! <!!]]))
 
-(defn wait-for
+(defn on-value
   [ch]
-  (take! ch))
+  (<!! ch))

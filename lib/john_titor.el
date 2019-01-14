@@ -9,7 +9,9 @@
 (defun john_titor/connect ()
   "Connect to john titor via RPC."
   (setq epc-connection
-        (epc:start-epc "node" '("../../../john_titor/target/main.js"))))
+        (if debug-on-error
+            (epc:start-epc "node" '("../../../john_titor/target/main.js"))
+          (epc:start-epc "node" '("../../../john_titor/app.js")))))
 
 (defun john_titor/call-sync (command args)
   "Call the given COMMAND with the given ARGS via john titor epc."

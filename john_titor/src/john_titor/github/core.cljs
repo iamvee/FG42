@@ -41,14 +41,16 @@
   ([]
    (notifications {}))
   ([opts]
-   (api-get "/notifications" {})))
+   (api-get "/notifications" {})
+   (go `(message "hello"))))
 
-
-(process-response (fn [res]
-                    (println (doseq [x (:body res)]
-                               (println (str (:name (:repository x))
-                                             " "
-                                             ;;(:title (:subject x))
-                                             " "
-                                             (:reason x))))))
-                  (notifications))
+(comment
+  (notifications)
+  (process-response (fn [res]
+                      (println (doseq [x (:body res)]
+                                 (println (str (:name (:repository x))
+                                               " "
+                                               ;;(:title (:subject x))
+                                               " "
+                                               (:reason x))))))
+                    (notifications)))
