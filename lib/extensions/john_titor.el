@@ -15,7 +15,7 @@
 ;; Extension -------------------------------------
 (extension john_titor
      :version "2.32"
-     :on-initialize extensions/john_titor-initialize
+     :on-initialize extensions/john-titor-initialize
      :docs "lib/extensions/john_titor/readme.org")
 
 (provide 'extensions/john_titor)
