@@ -2,13 +2,13 @@
 (function(){
 
 var SHADOW_IMPORT_PATH = __dirname + '/../.shadow-cljs/builds/app/dev/out/cljs-runtime';
-if (__dirname == '.') { SHADOW_IMPORT_PATH = "/home/lxsameer/.fg42/john_titor/.shadow-cljs/builds/app/dev/out/cljs-runtime"; }
+if (__dirname == '.') { SHADOW_IMPORT_PATH = "/Users/sameer.rahmani/.fg42/john_titor/.shadow-cljs/builds/app/dev/out/cljs-runtime"; }
 global.$CLJS = global;
 try {require('source-map-support').install();} catch (e) {console.warn('no "source-map-support" (run "npm install source-map-support --save-dev" to get it)');}
 
 global.CLOSURE_NO_DEPS = true;
 
-global.CLOSURE_DEFINES = {"shadow.cljs.devtools.client.env.repl_pprint":false,"shadow.cljs.devtools.client.env.devtools_url":"","shadow.cljs.devtools.client.env.autoload":false,"shadow.cljs.devtools.client.env.proc_id":"0f38fe63-c013-429e-93ab-1c6a32c04ef0","goog.ENABLE_DEBUG_LOADER":false,"shadow.cljs.devtools.client.env.server_port":9630,"shadow.cljs.devtools.client.env.use_document_host":true,"shadow.cljs.devtools.client.env.module_format":"goog","goog.LOCALE":"en","shadow.cljs.devtools.client.env.build_id":"app","shadow.cljs.devtools.client.env.ignore_warnings":false,"goog.DEBUG":true,"cljs.core._STAR_target_STAR_":"nodejs","shadow.cljs.devtools.client.env.ssl":false,"shadow.cljs.devtools.client.env.enabled":true,"shadow.cljs.devtools.client.env.server_host":"localhost","goog.TRANSPILE":"never"};
+global.CLOSURE_DEFINES = {"shadow.cljs.devtools.client.env.repl_pprint":false,"shadow.cljs.devtools.client.env.devtools_url":"","shadow.cljs.devtools.client.env.autoload":false,"shadow.cljs.devtools.client.env.proc_id":"e01e0e97-fd19-4247-a69e-568995e2aeb7","goog.ENABLE_DEBUG_LOADER":false,"shadow.cljs.devtools.client.env.server_port":9630,"shadow.cljs.devtools.client.env.use_document_host":true,"shadow.cljs.devtools.client.env.module_format":"goog","goog.LOCALE":"en","shadow.cljs.devtools.client.env.build_id":"app","shadow.cljs.devtools.client.env.ignore_warnings":false,"goog.DEBUG":true,"cljs.core._STAR_target_STAR_":"nodejs","shadow.cljs.devtools.client.env.ssl":false,"shadow.cljs.devtools.client.env.enabled":true,"shadow.cljs.devtools.client.env.server_host":"localhost","goog.TRANSPILE":"never"};
 
 var goog = global.goog = {};
 
@@ -3040,97 +3040,10 @@ SHADOW_IMPORT("cljs.tools.reader.edn.js");
 SHADOW_IMPORT("cljs.reader.js");
 SHADOW_IMPORT("shadow.cljs.devtools.client.node.js");
 SHADOW_IMPORT("shadow.js.shim.module$xhr2.js");
-SHADOW_IMPORT("goog.net.eventtype.js");
-SHADOW_IMPORT("goog.net.errorcode.js");
-SHADOW_IMPORT("goog.promise.thenable.js");
-SHADOW_IMPORT("goog.async.freelist.js");
-SHADOW_IMPORT("goog.async.workqueue.js");
-SHADOW_IMPORT("goog.debug.entrypointregistry.js");
-SHADOW_IMPORT("goog.dom.htmlelement.js");
-SHADOW_IMPORT("goog.dom.tagname.js");
-SHADOW_IMPORT("goog.labs.useragent.util.js");
-SHADOW_IMPORT("goog.labs.useragent.browser.js");
-SHADOW_IMPORT("goog.labs.useragent.engine.js");
-SHADOW_IMPORT("goog.async.nexttick.js");
-SHADOW_IMPORT("goog.async.run.js");
-SHADOW_IMPORT("goog.promise.resolver.js");
-SHADOW_IMPORT("goog.promise.promise.js");
-SHADOW_IMPORT("goog.disposable.idisposable.js");
-SHADOW_IMPORT("goog.disposable.disposable.js");
-SHADOW_IMPORT("goog.labs.useragent.platform.js");
-SHADOW_IMPORT("goog.useragent.useragent.js");
-SHADOW_IMPORT("goog.events.browserfeature.js");
-SHADOW_IMPORT("goog.events.eventid.js");
-SHADOW_IMPORT("goog.events.event.js");
-SHADOW_IMPORT("goog.events.eventtype.js");
-SHADOW_IMPORT("goog.events.browserevent.js");
-SHADOW_IMPORT("goog.events.listenable.js");
-SHADOW_IMPORT("goog.events.listener.js");
-SHADOW_IMPORT("goog.events.listenermap.js");
-SHADOW_IMPORT("goog.events.events.js");
-SHADOW_IMPORT("goog.events.eventtarget.js");
-SHADOW_IMPORT("goog.timer.timer.js");
-SHADOW_IMPORT("goog.json.json.js");
-SHADOW_IMPORT("goog.json.hybrid.js");
-SHADOW_IMPORT("goog.debug.errorcontext.js");
-SHADOW_IMPORT("goog.debug.debug.js");
-SHADOW_IMPORT("goog.debug.logrecord.js");
-SHADOW_IMPORT("goog.debug.logbuffer.js");
-SHADOW_IMPORT("goog.debug.logger.js");
-SHADOW_IMPORT("goog.log.log.js");
-SHADOW_IMPORT("goog.net.httpstatus.js");
-SHADOW_IMPORT("goog.net.xhrlike.js");
-SHADOW_IMPORT("goog.net.xmlhttpfactory.js");
-SHADOW_IMPORT("goog.net.wrapperxmlhttpfactory.js");
-SHADOW_IMPORT("goog.net.xmlhttp.js");
-SHADOW_IMPORT("goog.net.xhrio.js");
-SHADOW_IMPORT("goog.dom.tags.js");
-SHADOW_IMPORT("goog.string.typedstring.js");
-SHADOW_IMPORT("goog.string.const.js");
-SHADOW_IMPORT("goog.html.safescript.js");
-SHADOW_IMPORT("goog.fs.url.js");
-SHADOW_IMPORT("goog.i18n.bidi.js");
-SHADOW_IMPORT("goog.html.trustedresourceurl.js");
-SHADOW_IMPORT("goog.html.safeurl.js");
-SHADOW_IMPORT("goog.html.safestyle.js");
-SHADOW_IMPORT("goog.html.safestylesheet.js");
-SHADOW_IMPORT("goog.html.safehtml.js");
-SHADOW_IMPORT("goog.html.legacyconversions.js");
-SHADOW_IMPORT("goog.mochikit.async.deferred.js");
-SHADOW_IMPORT("goog.dom.browserfeature.js");
-SHADOW_IMPORT("goog.dom.asserts.js");
-SHADOW_IMPORT("goog.dom.safe.js");
-SHADOW_IMPORT("goog.html.uncheckedconversions.js");
-SHADOW_IMPORT("goog.math.coordinate.js");
-SHADOW_IMPORT("goog.math.size.js");
-SHADOW_IMPORT("goog.dom.dom.js");
-SHADOW_IMPORT("goog.net.jsloader.js");
-SHADOW_IMPORT("goog.net.jsonp.js");
-SHADOW_IMPORT("com.cognitect.transit.util.js");
-SHADOW_IMPORT("com.cognitect.transit.delimiters.js");
-SHADOW_IMPORT("com.cognitect.transit.caching.js");
-SHADOW_IMPORT("com.cognitect.transit.eq.js");
-SHADOW_IMPORT("com.cognitect.transit.types.js");
-SHADOW_IMPORT("com.cognitect.transit.impl.decoder.js");
-SHADOW_IMPORT("com.cognitect.transit.impl.reader.js");
-SHADOW_IMPORT("com.cognitect.transit.handlers.js");
-SHADOW_IMPORT("com.cognitect.transit.impl.writer.js");
-SHADOW_IMPORT("com.cognitect.transit.js");
-SHADOW_IMPORT("cognitect.transit.js");
-SHADOW_IMPORT("goog.crypt.crypt.js");
-SHADOW_IMPORT("goog.useragent.product.js");
-SHADOW_IMPORT("goog.crypt.base64.js");
-SHADOW_IMPORT("no.en.core.js");
-SHADOW_IMPORT("cljs_http.util.js");
-SHADOW_IMPORT("cljs.core.async.impl.protocols.js");
-SHADOW_IMPORT("cljs.core.async.impl.buffers.js");
-SHADOW_IMPORT("cljs.core.async.impl.dispatch.js");
-SHADOW_IMPORT("cljs.core.async.impl.channels.js");
-SHADOW_IMPORT("cljs.core.async.impl.timers.js");
-SHADOW_IMPORT("cljs.core.async.impl.ioc_helpers.js");
-SHADOW_IMPORT("cljs.core.async.js");
-SHADOW_IMPORT("cljs_http.core.js");
-SHADOW_IMPORT("cljs_http.client.js");
+SHADOW_IMPORT("shadow.js.shim.module$elrpc.js");
+SHADOW_IMPORT("john_titor.commands.protocols.js");
+SHADOW_IMPORT("john_titor.commands.echo.js");
+SHADOW_IMPORT("john_titor.commands.js");
 SHADOW_IMPORT("john_titor.core.js");
 SHADOW_IMPORT("shadow.module.main.append.js");
 
