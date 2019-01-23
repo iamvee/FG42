@@ -4,8 +4,8 @@
 ;; Dependencies ----------------------------------
 (defun extensions/editor-theme-initialize ()
   "Initialize 'editor-theme' extension."
-  (message "Initializing 'editor-theme' extension.")
-  (load-default-theme))
+  (load-default-theme)
+  (message "'editor-theme' extension has been initizlied."))
 
 ;; Extension -------------------------------------
 (extension editor-theme

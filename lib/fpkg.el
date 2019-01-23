@@ -28,8 +28,6 @@
 (require 'subr-x)
 (require 'fpkg/installers)
 
-(message "Initializing FPKG")
-
 ;; Variables ---------------------------------
 (cl-defstruct fpkg-dependency
   "Package structure for FG42."
@@ -94,5 +92,5 @@
   (let ((pkg (apply 'make-fpkg-dependency :name pkgname args)))
     (puthash pkgname pkg  required-packages)))
 
-
+(message "FPKG has been initialized.")
 (provide 'fpkg)

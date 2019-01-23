@@ -52,7 +52,6 @@
 ;;;###autoload
 (defun extensions/arduino-initialize ()
   "Arduino development plugin initialization."
-  (message "Initializing 'arduino' extension.")
 
   (ability arduino-editor ('flycheck)
            "Gives FG42 the ability to edit arduino related contents."
@@ -61,7 +60,8 @@
 
            (global-set-key (kbd "C-c c") 'arduino/compile)
            (global-set-key (kbd "C-c u") 'arduino/upload)
-           (autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t)))
+           (autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t))
+  (message "'arduino' extension has been initialized."))
 
 
 (provide 'extensions/arduino/init)

@@ -37,8 +37,6 @@
 ;;;###autoload
 (defun extension/development-initialize ()
   "Development plugin initialization."
-  (message "Initializing 'development' extension.")
-
   (ability project-config ()
            "Makes projects configurable."
            (require 'projects/configuration))
@@ -325,6 +323,7 @@
            "Smarter modeline for FG42"
            (setq sml/no-confirm-load-theme t)
            (setq sml/theme 'respectful)
-           (sml/setup)))
+           (sml/setup))
+  (message "'development' extension has been initialized."))
 
 (provide 'extensions/development/init)

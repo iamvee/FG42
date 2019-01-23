@@ -26,7 +26,6 @@
 ;;;###autoload
 (defun extensions/editor-initialize ()
   "Base plugin initialization."
-  (message "Initializing 'editor' extension.")
 
   (if (eq system-type 'darwin)
       (progn
@@ -381,5 +380,6 @@
   (require 'extensions/editor/session-management)
   (require 'extensions/editor/lxdrive-mode)
   (require 'extensions/editor/lxmodeline))
+  (message "'editor' extension has been initialized.")
 
 (provide 'extensions/editor/init)

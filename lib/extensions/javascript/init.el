@@ -25,8 +25,6 @@
 ;;;###autoload
 (defun extensions/javascript-initialize ()
   "Javascript development plugin initialization."
-  (message "Initializing 'javascript' extension.")
-
 
   (ability indium ()
            (defun init-indium ()
@@ -62,6 +60,7 @@
 
   (ability coffee-editor ()
            "Gives FG42 ability to edit coffee script files."
-           (custom-set-variables '(coffee-tab-width 2))))
+           (custom-set-variables '(coffee-tab-width 2)))
+  (message "'javascript' extension has been initialized."))
 
 (provide 'extensions/javascript/init)

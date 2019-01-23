@@ -98,8 +98,6 @@
   )
 ;;;###autoload
 (defun extensions/python-initialize ()
-  (message "Initializing 'python' extension.")
-
   (ability jedi ()
            "Python autocompletion based on Jedi"
            (add-hook 'python-mode-hook 'jedi-python-mode-hook))
@@ -154,6 +152,7 @@
 
                                         ;(when (boundp 'company-backends)
                                         ;  (add-to-list 'company-backends 'company-anaconda))))
-           ))
+           )
+  (message "'python' extension has been initialized."))
 
 (provide 'extensions/python/init)

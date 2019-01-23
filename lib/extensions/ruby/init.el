@@ -21,7 +21,6 @@
 ;;;###autoload
 (defun extensions/ruby-initialize ()
   "Web development plugin initialization."
-  (message "Initializing 'ruby' extension.")
 
   (require 'enh-ruby-mode)
   (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
@@ -99,7 +98,8 @@
 
   (ability rails-projects ()
            "Gives FG42 the ability to manage rails projects."
-           (add-hook 'projectile-mode-hook 'projectile-rails-on)))
+           (add-hook 'projectile-mode-hook 'projectile-rails-on))
+  (message "'ruby' extension has been initialized"))
 
 
 (provide 'extensions/ruby/init)

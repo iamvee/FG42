@@ -62,7 +62,6 @@
 ;;;###autoload
 (defun extensions/web-initialize ()
   "Web development plugin initialization."
-  (message "Initializing 'web' extension.")
 
   (ability web-editor ('flycheck)
            "Gives FG42 the ability to edit web contents."
@@ -115,7 +114,8 @@
            (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode)))
   (ability jsx-editor
            "Gives FG42 the ability to edit JSX."
-            (add-to-list 'auto-mode-alist '("\\.jsx$" . js2-jsx-mode))))
+           (add-to-list 'auto-mode-alist '("\\.jsx$" . js2-jsx-mode))))
+  (message "'web' extension has been initialized.")
 
 
 
