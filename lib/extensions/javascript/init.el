@@ -38,6 +38,14 @@
            (require 'ac-js2)
            (add-to-list 'company-backends 'ac-js2-company))
 
+  (with-ability pug-editor ()
+                "Pug template editor."
+                (setq pug-tab-width 2)
+                (add-to-list 'auto-mode-alist '("\\.pug\\'" . (lambda ()
+                                                                (require 'pug-mode)
+                                                                (pug-mode)
+                                                                (setq pug-tab-width 2)))))
+
   (ability javascript-editor ('flycheck)
            "Gives FG42 the ability to edit javascript."
 

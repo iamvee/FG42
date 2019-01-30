@@ -9,6 +9,7 @@
 (depends-on 'js2-refactor)
 (depends-on 'smart-forward)
 (depends-on 'ac-js2)
+(depends-on 'pug-mode)
 
 (with-ability prettierjs
 	      (depends-on 'prettier-js))
