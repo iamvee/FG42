@@ -31,18 +31,18 @@
   ([url]
    (api-get url {}))
   ([url opts]
-   (api-call http/get url options)))
+   (api-call http/get url opts)))
 
 (defn api-post
   [url opts]
-  (api-call http/post url options))
+  (api-call http/post url opts))
 
 (defn notifications
   ([]
    (notifications {}))
   ([opts]
    (api-get "/notifications" {})
-   (go `(message "hello"))))
+   (go {:same "asd"})))
 
 (comment
   (notifications)

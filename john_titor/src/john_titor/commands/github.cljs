@@ -9,8 +9,8 @@
   (init [_ server]
     (defcommand server
       "github-notifications"
-      #(u/on-value (github/notification-command %)))))
+      (fn [& args]
+        (u/wait-for (github/notification-command args))))))
 
 (comment
-  (u/on-value (github/notification-command [])
-              #(println %)))
+  (u/wait-for (github/notification-command [])))

@@ -1,7 +1,12 @@
 (ns john-titor.utils
   (:require
-   [clojure.core.async :refer [take! <!!]]))
+   ["bluebird" :as Promise]
+   [clojure.core.async :refer [take!]]))
 
-(defn on-value
+(defn wait-for
   [ch]
-  (<!! ch))
+  (Promise.
+   (fn [resolve]
+     ;; Handle the channel timeout here
+     (take! ch (fn [value]
+                 (resolve (clj->js value)))))))
