@@ -7,7 +7,7 @@
      ((eq 'line face) (if active 'shadow 'shadow))
      ((eq 'highlight face) (if active 'match 'shadow))))
 
-(defun themes/color-theme-doom-one ()
+(defun themes/color-theme-dracula ()
   (interactive)
 
   ;; Global settings (defaults)
@@ -38,4 +38,4 @@
   (doom-themes-neotree-config))
 
 
-(provide 'themes/color-theme-doom-one)
+(provide 'themes/color-theme-dracula)

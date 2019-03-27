@@ -290,6 +290,8 @@
   ;; (with-ability ido
   ;;               (global-set-key (kbd "C-x b") 'ido-switch-buffer)))
 
+  (ability tabbar ()
+           (tabbar-mode 1))
   ;; Helm -----------------------------------------------------
   (ability helm ()
            "Helm is an emacs incremental completion and selection narrowing framework"
@@ -337,24 +339,24 @@
            (add-hook 'after-init-hook #'global-emojify-mode))
 
   (set-fontset-font "fontset-default"
-                   (cons (decode-char 'ucs #x0627)
-                         (decode-char 'ucs #x0649))
-                   "Vazir")
+                    (cons (decode-char 'ucs #x0627)
+                          (decode-char 'ucs #x0649))
+                    "Vazir")
 
   (set-fontset-font "fontset-default"
-                  (cons (decode-char 'ucs #xFE8D)
-                        (decode-char 'ucs #xFEF0))
-                  "Vazir")
+                    (cons (decode-char 'ucs #xFE8D)
+                          (decode-char 'ucs #xFEF0))
+                    "Vazir")
 
   (set-fontset-font "fontset-default"
-                  (cons (decode-char 'ucs #x064e)
-                        (decode-char 'ucs #x06a9))
-                  "Vazir")
+                    (cons (decode-char 'ucs #x064e)
+                          (decode-char 'ucs #x06a9))
+                    "Vazir")
 
   (set-fontset-font "fontset-default"
-                  (cons (decode-char 'ucs #x06F0)
-                        (decode-char 'ucs #x00A0))
-                  "Vazir")
+                    (cons (decode-char 'ucs #x06F0)
+                          (decode-char 'ucs #x00A0))
+                    "Vazir")
   ;; Backup files ---------------------------------------------
   ;; Put them in one nice place if possible
   (if (file-directory-p "~/.backup")
