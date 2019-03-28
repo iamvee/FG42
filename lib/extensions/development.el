@@ -60,6 +60,11 @@
               (depends-on 'imenu-list)
               (depends-on 'imenu-anywhere))
 
+(with-ability lsp
+              (depends-on 'lsp-mode)
+              (depends-on 'lsp-ui)
+              (depends-on 'company-lsp))
+
 ;; TODO: Add flycheck-color-modebar
 ;; TODO  Add flycheck-tip
 

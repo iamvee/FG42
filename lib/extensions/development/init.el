@@ -1,3 +1,7 @@
+;;; development-extension --- A general extension for general development
+;;; Commentary:
+;;; Code:
+
 ;; Functions -------------------------------------------------
 ;;;###autoload
 (defun disable-projectile ()
@@ -40,6 +44,12 @@
   (ability project-config ()
            "Makes projects configurable."
            (require 'projects/configuration))
+
+
+  (ability lsp
+          (require 'lsp-mode)
+          (add-hook 'prog-mode-hook #'lsp)
+          (setq lsp-prefer-flymake nil))
 
   (ability bookmarks ()
            (setq bm-restore-repository-on-load t)
