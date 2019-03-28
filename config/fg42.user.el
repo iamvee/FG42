@@ -6,6 +6,7 @@
 ;; Other options are:
 ;; (theme themes/color-theme-spacemacs-light)
 ;; (theme themes/color-theme-spacemacs-dark)
+;; (theme themes/color-theme-doom-dracula)
 (theme themes/color-theme-doom-one)
 ;; (theme themes/color-theme-doom-molokai)
 
