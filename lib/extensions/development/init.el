@@ -294,13 +294,14 @@
 
             '(shell-pop-window-size 30)
             '(shell-pop-full-span t)
-            '(shell-pop-window-position "full"))
+            '(shell-pop-window-position "full")))
 
-           (require 'eshell-prompt-extras)
-           (with-eval-after-load "esh-opt"
-             (autoload 'epe-theme-lambda "eshell-prompt-extras")
-             (setq eshell-highlight-prompt nil
-                   eshell-prompt-function 'epe-theme-lambda)))
+           ;; (require 'eshell-prompt-extras)
+           ;; (with-eval-after-load "esh-opt"
+           ;;   (autoload 'epe-theme-lambda "eshell-prompt-extras")
+           ;;   (setq eshell-highlight-prompt nil
+           ;;         eshell-prompt-function 'epe-theme-lambda))
+
 
   (ability focus ()
            "Provides means for focusing on code review."
