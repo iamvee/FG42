@@ -45,6 +45,9 @@
            "Makes projects configurable."
            (require 'projects/configuration))
 
+  (ability pretty-symbols ()
+           "Replace some symbols with icons"
+           (global-prettify-symbols-mode 1))
 
   (ability lsp
           (require 'lsp-mode)

@@ -6,6 +6,16 @@
   (setq *favorite-buffer*  "\*cider-repl\s.*\*"))
 
 ;;;###autoload
+(defun clojure-pretty-symbol ()
+  (interactive)
+  (setq prettify-symbols-alist
+        '(
+          ("fn" . 955) ; λ
+          ("->" . 8594))))    ; →
+              ; ⇒
+
+
+;;;###autoload
 (defun extensions/clojure-initialize ()
   ; Clojure development initialization
   (ability clojure-editor ('flycheck)
@@ -27,6 +37,9 @@
 
   (with-ability parinfer ()
                 (add-hook 'clojure-mode-hook #'parinfer-mode))
+
+  (ability pretty-symbols ()
+           (add-hook 'clojure-mode-hook 'clojure-pretty-symbol))
 
 
   (ability clojure-completion ('code-completion)
