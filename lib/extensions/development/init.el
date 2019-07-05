@@ -49,10 +49,16 @@
            "Replace some symbols with icons"
            (global-prettify-symbols-mode 1))
 
-  (ability lsp
-          (require 'lsp-mode)
-          (add-hook 'prog-mode-hook #'lsp)
-          (setq lsp-prefer-flymake nil))
+
+  (ability lsp ()
+           "LSP integration for FG42"
+           (require 'lsp-mode)
+           (require 'lsp-ui-imenu)
+           (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
+           (setq lsp-ui-sideline-ignore-duplicate t)
+           (setq lsp-prefer-flymake nil)
+           (add-hook 'lsp-mode-hook 'lsp-ui-mode))
+
 
   (ability bookmarks ()
            (setq bm-restore-repository-on-load t)

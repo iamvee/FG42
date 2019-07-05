@@ -93,9 +93,9 @@
     (setq-local imenu-create-index-function
                 #'python-imenu-create-flat-index))
   (add-hook 'post-self-insert-hook
-            #'electric-layout-post-self-insert-function nil 'local)
+            #'electric-layout-post-self-insert-function nil 'local))
                                         ;(add-hook 'after-save-hook 'python-mode-set-encoding nil 'local))
-  )
+
 ;;;###autoload
 (defun extensions/python-initialize ()
   (ability jedi ()
@@ -106,26 +106,23 @@
            "Full feature python IDE. (A little bit heavy)"
 
            (require 'py-autopep8)
-
-           (elpy-enable)
+           (advice-add 'python-mode :before 'elpy-enable)
 
            (setq python-shell-interpreter "ipython"
                  python-shell-interpreter-args "-i --simple-prompt")
 
            ;; enable autopep8 formatting on save
-           (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+           (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save))
 
-           ;; use flycheck not flymake with elpy
-           (when (require 'flycheck nil t)
-             (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-             (add-hook 'elpy-mode-hook 'flycheck-mode)))
+
+
 
   (ability venv ()
            "Virtualenv support"
            (require 'virtualenvwrapper)
            (venv-initialize-interactive-shells)
-           (venv-initialize-eshell)
-           )
+           (venv-initialize-eshell))
+
   (ability python-editor ()
            "Gives FG42 the ability to edit pytho codes."
 
@@ -144,15 +141,27 @@
                          (add-to-list 'auto-mode-alist
                                       '("\\.pyi\\'" . cython-mode))
                          (add-to-list 'auto-mode-alist
-                                      '("\\.pyx\\'" . cython-mode))))
+                                      '("\\.pyx\\'" . cython-mode)))
+           (with-ability lsp
+                         ;; Instruct LSP to use pyls
+
+                         (lsp-register-client
+                          (make-lsp-client :new-connection (lsp-stdio-connection "pyls")
+                                           :major-modes '(python-mode)
+                                           :server-id 'pyls))
+                         ;; Setup LSP for python mode
+                         (add-hook 'python-mode-hook
+                                   (lambda ()
+                                     (push 'company-lsp company-backends)
+                                     (lsp)))))
 
 
   (ability python-code-completion ('code-completion)
-           "Gives FG42 the ability to complete python codes."
+           "Gives FG42 the ability to complete python codes.")
 
                                         ;(when (boundp 'company-backends)
                                         ;  (add-to-list 'company-backends 'company-anaconda))))
-           )
+
   (message "'python' extension has been initialized."))
 
 (provide 'extensions/python/init)
