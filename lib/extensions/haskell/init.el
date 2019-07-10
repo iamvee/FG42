@@ -6,5 +6,6 @@
 (defun extensions/haskell-initialize ())
 
 
+
 (provide 'extensions/haskell/init)
 ;; init.el ends here
