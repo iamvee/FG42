@@ -38,9 +38,16 @@
   (define-key projectile-mode-map (kbd "C-c p s r") 'pt-regexp))
 
 
+(defun load-necessary-modes-and-keybindings ()
+  "Load the modes and keybindings which at necessary and are not part ofcourse an ability."
+  (which-function-mode))
+
+
 ;;;###autoload
 (defun extension/development-initialize ()
   "Development plugin initialization."
+  (load-necessary-modes-and-keybindings)
+
   (ability project-config ()
            "Makes projects configurable."
            (require 'projects/configuration))
@@ -126,8 +133,8 @@
            (setq imenu-list-focus-after-activation t)
            (setq imenu-list-auto-resize t)
            (global-set-key (kbd "C-'") #'imenu-list-smart-toggle)
-           (global-set-key (kbd "C-<f2>") #'imenu-anywhere))
-  (global-set-key (kbd "<f13>") #'imenu-anywhere)
+           (global-set-key (kbd "C-<f2>") #'imenu-anywhere)
+           (global-set-key (kbd "<f13>") #'imenu-anywhere))
 
 
   (ability parinfer ()

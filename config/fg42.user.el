@@ -28,6 +28,7 @@
                      'javascript
                      'ruby
                      'clojure
+                     'haskell
                      'php
                      'python
                      'arduino
