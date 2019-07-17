@@ -22,20 +22,21 @@
   (version nil)
   ;; Callbacks
   (on-initialize nil)
-  (on-load))
-
+  (on-load)
+  (print-debugger nil))
 
 
 ;; Functions ------------------------------
-
 (defun active-ability? (name)
   "Return t if ability with the given NAME was not in disabled-abilities."
   (if (gethash name disabled-abilities) nil t))
+
 
 (defun disable (&rest abilities)
   "Add the given ABILITIES to disabled-abilities hash."
   (dolist (abl abilities)
     (puthash abl t disabled-abilities)))
+
 
 ;; Macros ---------------------------------
 (defmacro ability (name deps &rest body)
@@ -50,15 +51,18 @@ to them.
        (when (null (delq t (mapcar 'active-ability? (quote ,deps))))
          ,@body)))
 
+
 (defmacro extension (name &rest args)
   "A simple DSL to define new fg42 extension by given NAME and ARGS."
   ;(declare (doc-string 1) (indent 1))
   `(setq ,name (apply 'make-fg42-extension :name ,(symbol-name name) (quote ,args))))
 
+
 (defmacro with-ability (name &rest body)
   "If the ability with the given NAME is not disabled, Run the BODY."
   `(when (active-ability? (intern ,(symbol-name name)))
      ,@body))
+
 
 (defun describe-extension (extension)
   "Show the doc-string of the EXTENSION."

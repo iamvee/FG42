@@ -80,6 +80,7 @@
 
   ;; Fast Move in the buffer
   (global-set-key (kbd "M-1") 'avy-goto-word-or-subword-1)
+
   (cheatsheet-add :group '--Navigation--
                   :key   "M-1"
                   :description "Jump to the a word or subword in the buffer")
