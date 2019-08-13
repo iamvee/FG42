@@ -37,6 +37,9 @@
 (with-ability spaceline
               (depends-on 'spaceline))
 
+(with-ability doom-modeline
+              (depends-on 'doom-modeline))
+
 (with-ability guru
               (depends-on 'guru-mode))
 

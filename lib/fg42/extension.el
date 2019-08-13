@@ -20,9 +20,13 @@
   name
   docs
   (version nil)
+  ;; Describes
+  (major-modes nil)
   ;; Callbacks
   (on-initialize nil)
   (on-load)
+  ;; An associated array of major modes to their
+  ;; debugger function
   (print-debugger nil))
 
 
