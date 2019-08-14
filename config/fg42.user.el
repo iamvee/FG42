@@ -30,6 +30,7 @@
                      'clojure
                      'haskell
                      'php
+                     'common-lisp
                      'python
                      'arduino
                      'irc
