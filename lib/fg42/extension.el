@@ -1,4 +1,4 @@
-;;; Extebtuib --- Extension library of FG42
+;;; extension --- Extension library of FG42
 ;;; Commentary:
 ;;; Code:
 
