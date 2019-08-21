@@ -25,7 +25,7 @@
 
 ;;; Code:
 (defvar fg42-home (getenv "FG42_HOME")
-  "The pass to fg42-home")
+  "The pass to fg42-home.")
 
 (defvar fg42-before-initialize-hook nil
   "This hook will be called before FG42 initilization process.")
@@ -48,3 +48,4 @@
   (run-hooks 'fg42-after-initialize-hook))
 
 (provide 'fg42)
+;; fg42.el ends here

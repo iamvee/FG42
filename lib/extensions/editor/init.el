@@ -359,16 +359,16 @@
                           (decode-char 'ucs #x00A0))
                     "Vazir")
   ;; Backup files ---------------------------------------------
-  ;; Put them in one nice place if possible
-  (if (file-directory-p "~/.backup")
-      (setq backup-directory-alist '(("." . "~/.backup")))
-    (make-directory "~/.backup"))
-
-  (setq backup-by-copying t)    ; Don't delink hardlinks
-  delete-old-versions t  ; Clean up the backups
-  version-control t      ; Use version numbers on backups,
-  kept-new-versions 3    ; keep some new versions
-  kept-old-versions 2   ; and some old ones, too
+  (ability backup-files ()
+           ;; Put them in one nice place if possible
+           (if (file-directory-p "~/.backup")
+               (setq backup-directory-alist '(("~/.backup")))
+             (make-directory "~/.backup"))
+           (setq backup-by-copying t)
+           (setq delete-old-versions t)
+           (setq version-control t)
+           (setq kept-new-versions 3)
+           (setq kept-old-versions 2))
 
   ;; get rid of yes-or-no questions - y or n is enough
   (defalias 'yes-or-no-p 'y-or-n-p)

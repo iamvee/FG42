@@ -11,6 +11,7 @@
 (depends-on 'smart-mode-line)
 (depends-on 'dockerfile-mode)
 (depends-on 'quickrun)
+(depends-on 'dash)
 
 (with-ability parinfer
               (depends-on 'parinfer))
