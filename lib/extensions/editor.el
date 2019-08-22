@@ -10,7 +10,7 @@
 (depends-on 'cheatsheet)
 (depends-on 'all-the-icons)
 (depends-on 'markdown-mode)
-
+(depends-on 'json-mode)
 ;; Fast move in the buffer
 (depends-on 'avy)
 

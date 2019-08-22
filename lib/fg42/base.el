@@ -5,8 +5,8 @@
 (require 'cl-lib)
 (require 'fg42/extension)
 
-;; Vars -----------------------------------
-(defvar default-theme nil "Default FG42 theme.")
+(require 'fg42/vars)
+
 
 ;; Macros ---------------------------------
 (defmacro theme (name &optional local)
