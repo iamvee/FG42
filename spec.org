@@ -1,0 +1,41 @@
+* FG42 Spec
+In the past 9 years, we added lots of features based on our needs. Some of them were good
+some of the sucked. We're missing some key featuers which can be critical. After all these
+years we have a much better understanding of our environment and user base. It is the time
+for a major refactor and development process to push *FG42* to the next stage.
+
+** Goals
+Let's start by revisitng our goals. Our goals shifted a lot during these years and we
+iterated lots of different goals. here is a list of goals that i think are consistently
+desirable for us (in order of importance):
+ - *Stable foundation for development*:
+   As we know, elisp is an old implementation of a lisp which didn't evolve that much
+   and is missing lots of modern features. Working with elisp can be hard and people
+   usually have a hard time with it even those Emacs users who are using emacs for a long
+   time might have a little understanding of elisp. So it is easy to create an emacs
+   configuration that gradually turns into a pit (we've been there). Adding a new feature
+   to your editor can be tough and after a while you won't care any more.
+
+   After creating a base platform for extending emacs in *FG42*, everything became much
+   simpler and easier to understand. We picked up a faster pace in developing new features
+   and debugging the old code. At the moment the platform is really basic but our main
+   goal should be to make the platform much more powerful. Therefor people can develop
+   more extensions and add more functionlities to their editor even those who know a little
+   about elisp.
+ - *Stability and compatibility*:
+ - *Integrated development platform*:
+ - *Help new users to start using emacs*:
+
+** Key Features
+*** Documentation
+While there are tons of tutorials and reading materials in wild to learn *Emacs*, we still need
+to have robust documentation system to help the users to pick FG42 and start using it in no time.
+
+**** What we can do to solve this issue ?
+In order to fix this problem we need several different pieces to work together.
+
+- A documentation UI
+- API to collect documents for different entities in the system such as abilities, extensions,
+key bindings and so on.
+- An interactive tutorial for new users
+- A kitchen sink for different features as a show case for each of them.
