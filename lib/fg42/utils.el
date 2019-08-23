@@ -3,25 +3,9 @@
 ;;; Code:
 
 (require 'cl)
-(require 'json)
 
 (require 'fg42/vars)
-
-
-;;; JSON ----------------------------------------------------------------------
-(defun ->json (data)
-  "Convert the given DATA to json."
-  (let ((json-array-type 'list)
-        (json-object-type 'plist))
-    (json-encode data)))
-
-
-(defun <-json (data)
-  "Convert the given json DATA to elisp data structure."
-  (let ((json-array-type 'list)
-        (json-object-type 'plist))
-    (json-read-from-string data)))
-
+(require 'fg42/utils/json)
 
 ;;; Buffer helpers ------------------------------------------------------------
 (defun buffer-mode (buffer-or-string)
@@ -67,10 +51,13 @@ with is the buffer."
   `(pp-display-expression ,@body (get-buffer-create fg42/inspect-buffer)))
 
 (defun inspect-data-append (data)
-  (->buffer fg42/inspect-buffer
-            "START ========================================================\n")
-  (->buffer fg42/inspect-buffer (pp-to-string data))
-  (->buffer fg42/inspect-buffer "END.\n"))
+  "Append the given DATA to the inspection buffer with padding."
+  (->buffer
+   fg42/inspect-buffer
+   (format
+     "\n;; START ======================================================\n%s%s"
+     (pp-to-string data)
+     ";; END.\n")))
 
 
 (provide 'fg42/utils)

@@ -30,7 +30,6 @@
 
 
 (require 'url)
-(require 'json)
 (require 'dash)
 (require 'websocket)
 
@@ -57,20 +56,6 @@
   "List of JavaScript files available for live editing.")
 
 ;;; Functions -----------------------------------------------------------------
-(defun fg42/devtools-encode (data)
-  "Convert the given DATA to json."
-  (let ((json-array-type 'list)
-        (json-object-type 'plist))
-    (json-encode data)))
-
-
-(defun fg42/devtools-decode (data)
-  "Convert the given json DATA to elisp data structure."
-  (let ((json-array-type 'list)
-        (json-object-type 'plist))
-    (json-read-from-string data)))
-
-
 (defun fg42/devtools-next-rpc-id ()
   "Retun the next RPC call id to be used."
   (setq fg42/devtools-rpc-id (+ 1 fg42/devtools-rpc-id)))
@@ -80,7 +65,6 @@
   "Register the given FN function with the given ID as rpc Callback."
   (let ((hook (intern (number-to-string id) fg42/devtools-rpc-callbacks)))
     (add-hook hook fn t)))
-
 
 (defun fg42/devtools-dispatch-callback (id data)
   "Execute the callback registered by the given ID with the given DATA."
@@ -130,7 +114,7 @@
 
 (defun fg42/devtools-on-message (socket data)
   "The on message callback that gets the incoming DATA from the SOCKET."
-  (let* ((data (fg42/devtools-decode (websocket-frame-payload data)))
+  (let* ((data (<-json (websocket-frame-payload data)))
          (method (plist-get data :method))
          (params (plist-get data :params)))
     (inspect-data-append data)
@@ -155,9 +139,9 @@
       (fg42/devtools-register-callback id callback))
     (websocket-send-text
      fg42/devtools-socket
-     (fg42/devtools-encode (list :id id
-                                 :method method
-                                 :params params)))))
+     (->json (list :id id
+                   :method method
+                   :params params)))))
 
 
 (defun fg42/devtools-open-socket (url)
