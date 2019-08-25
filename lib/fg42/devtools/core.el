@@ -33,27 +33,9 @@
 (require 'dash)
 (require 'websocket)
 
+(require 'fg42/utils/json)
 (require 'fg42/utils)
-
-;;; Customs & Vars ------------------------------------------------------------
-(defcustom fg42/devtools-remote-host "127.0.0.1"
-  "Default host for connection to WebKit remote debugging API."
-  :group 'fg42/devtools)
-
-
-(defcustom fg42/devtools-remote-port 9222
-  "Default port for connection to WebKit remote debugging API."
-  :group 'fg42/devtools)
-
-
-(defvar fg42/devtools-socket nil
-  "Websocket connection to WebKit remote debugging API.")
-
-
-(defvar fg42/devtools-rpc-id 0)
-(defvar fg42/devtools-rpc-callbacks nil)
-(defvar fg42/devtools-rpc-scripts nil
-  "List of JavaScript files available for live editing.")
+(require 'fg42/devtools/vars)
 
 ;;; Functions -----------------------------------------------------------------
 (defun fg42/devtools-next-rpc-id ()
@@ -65,6 +47,7 @@
   "Register the given FN function with the given ID as rpc Callback."
   (let ((hook (intern (number-to-string id) fg42/devtools-rpc-callbacks)))
     (add-hook hook fn t)))
+
 
 (defun fg42/devtools-dispatch-callback (id data)
   "Execute the callback registered by the given ID with the given DATA."
@@ -91,9 +74,12 @@
     (when (and (eq extension? :json-false) (not (string-equal "" url)))
       (add-to-list 'fg42/devtools-rpc-scripts (list :id id :url url)))))
 
+(defun fg42/devtools->inspect-buffer (data)
+  (inspect-data-append (list "ERRRR" data)))
 
 (defun fg42/devtools-on-script-failed-to-parse (data)
-  (fg42/devtools-console-append (format "%s" data)))
+  ;; (fg42/devtools-console-append (format "%s" data))
+  (fg42/devtools->inspect-buffer data))
 
 
 (defun fg42/devtools-on-message-added (data)
@@ -105,11 +91,16 @@
          (level (plist-get message :level))
          (text (plist-get message :text)))
     ;; TODO: add colors based on level
-    (fg42/devtools-console-append
-     (propertize
-      (format "%s: %s\t%s (line: %s column: %s)"
-              level text url line column)
-      'font-lock-face (intern (format "fg42/devtools-log-%s" level))))))
+    ;;(fg42/devtools-console-append
+    (fg42/devtools->inspect-buffer data)))
+    ;; (fg42/devtools->inspect-buffer
+    ;;  (propertize
+    ;;   (format "%s: %s\t%s (line: %s column: %s)"
+    ;;           level text url line column)
+    ;;   'font-lock-face (intern (format "fg42/devtools-log-%s" level))))))
+
+(defun fg42/devtools-log-added (data)
+  (fg42/devtools-append-to-console-buffer data))
 
 
 (defun fg42/devtools-on-message (socket data)
@@ -122,12 +113,13 @@
       ("Debugger.scriptParsed" (fg42/devtools-on-script-parsed params))
       ;; we are getting an error in Console.messageAdded
       ;; ("Debugger.scriptFailedToParse" (fg42/devtools-on-script-failed-to-parse params))
-      ("Console.messageAdded" (fg42/devtools-on-message-added params))
+      ("Log.entryAdded" (fg42/devtools-log-added params))
+      ;; ("Console.messageAdded" (fg42/devtools-on-message-added params))
       ;; ;; TODO: do something usefull here, possibly great for REPL
       ("Console.messageRepeatCountUpdated")
       ;; nil -> These are return messages from RPC calls, not notification
       (_ (if method
-             (inspect-data-append data)
+             (message "FG42: Got a method - %s" method)
            (fg42/devtools-dispatch-callback (plist-get data :id)
                                             (plist-get data :result)))))))
 
@@ -143,12 +135,16 @@
                    :method method
                    :params params)))))
 
+(defun fg42/devtools-on-error (socket where error)
+  (message "FG42: Got and error in %s" where)
+  (message error))
 
 (defun fg42/devtools-open-socket (url)
   "Connect to the given URL and return a socket."
   (websocket-open url
                   :on-open #'fg42/devtools-on-open
                   :on-message #'fg42/devtools-on-message
+                  :on-error #'fg42/devtools-on-error
                   :on-close #'fg42/devtools-on-close))
 
 
@@ -203,8 +199,10 @@
     (message (format "FG42: Connecting to %s" socket-url))
     (setq fg42/devtools-socket (fg42/devtools-open-socket socket-url))
     (message "Sending initial RPC calls...")
-    (fg42/devtools-call-rpc "Console.enable")
+    ;; (fg42/devtools-call-rpc "Console.enable")
+    (fg42/devtools-call-rpc "Log.enable")
     (fg42/devtools-call-rpc "Debugger.enable")
+    (fg42/devtools-call-rpc "Runtime.enable")
     (fg42/devtools-call-rpc "Network.setCacheDisabled" '(:cacheDisabled t))))
 
 
@@ -309,7 +307,7 @@
   (fg42/devtools-connect))
 
 ;; (fg42/devtools-debug-restart)
+;; (fg42/devtools-disconnect)
 
-
-(provide 'fg42/devtools)
-;;; devtools.el ends here
+(provide 'fg42/devtools/core)
+;;; core.el ends here

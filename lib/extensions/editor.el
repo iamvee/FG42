@@ -80,7 +80,6 @@
 (with-ability tabbar
               (depends-on 'tabbar))
 
-
 (if (eq system-type 'darwin)
     (depends-on 'exec-path-from-shell))
 

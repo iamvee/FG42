@@ -12,6 +12,7 @@
 (depends-on 'dockerfile-mode)
 (depends-on 'quickrun)
 (depends-on 'dash)
+(depends-on 'websocket)
 
 (with-ability parinfer
               (depends-on 'parinfer))

@@ -23,7 +23,8 @@ with is the buffer."
   (let ((buf (get-buffer-create buffer-name)))
     (with-current-buffer buf
       (insert data)
-      (funcall fn buf))))
+      (when fn
+        (funcall fn buf)))))
 
 
 (defun inspect-as-json-and-switch (data)
@@ -58,6 +59,11 @@ with is the buffer."
      "\n;; START ======================================================\n%s%s"
      (pp-to-string data)
      ";; END.\n")))
+
+
+(defun apply-face (face-symbol text)
+  "Apply the given FACE-SYMBOL to the given TEXT."
+  (put-text-property 0 (length text) 'face face-symbol text))
 
 
 (provide 'fg42/utils)

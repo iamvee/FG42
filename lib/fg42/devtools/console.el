@@ -85,6 +85,7 @@
 (defvar fg42/devtools-console-input)
 
 
+(defun fg42/devtools-append-to-console-buffer)
 (define-derived-mode fg42/devtools-console-mode comint-mode "fg42/devtools-console"
   "Provide a REPL into the visiting browser."
   :group 'fg42/devtools
@@ -106,12 +107,29 @@
     (comint-output-filter (fg42/devtools-console-process) fg42/devtools-console-prompt)
     (set-process-filter (fg42/devtools-console-process) 'comint-output-filter)))
 
+(defun fg42/devtools-append-to-console-buffer (log-entry)
+  (let* ((message (plist-get data :message))
+         (url (plist-get message :url))
+         (column (plist-get message :column))
+         (line (plist-get message :line))
+         (type (plist-get message :type))
+         (level (plist-get message :level))
+         (text (plist-get message :text)))
+    (->buffer
+     fg42/devtools-console-buffer-name
+     (format "[%s:%s:%s]<%s>: %s"
+             (apply-face 'error url)
+             line
+             column
+             level
+             message))))
 
-(defun fg42/devtools-console-append (data)
-  (let ((buffer (get-buffer "*fg42/devtools-console*")))
-    (when buffer
-      (with-current-buffer buffer
-        (comint-output-filter (fg42/devtools-console-process) (concat data "\n"))))))
+
+;; (defun fg42/devtools-console-append (data)
+;;   (let ((buffer (get-buffer-create fg42/devtools-console-buffer-name)))
+;;     (when buffer
+;;       (with-current-buffer buffer
+;;         (comint-output-filter (fg42/devtools-console-process) (concat data "\n"))))))
 
 
 (defun fg42/devtools-console-process ()
