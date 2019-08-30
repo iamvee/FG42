@@ -39,3 +39,7 @@ In order to fix this problem we need several different pieces to work together.
 key bindings and so on.
 - An interactive tutorial for new users
 - A kitchen sink for different features as a show case for each of them.
+
+*** Sidebar Integrations
+
+****
