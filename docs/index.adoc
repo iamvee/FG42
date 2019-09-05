@@ -20,10 +20,10 @@
 :imagesdir: ./images/
 
 ifdef::backend-html5[]
-image::https://github.com/FG42/FG42/raw/master/share/icons/hicolor/128x128/apps/fg42.png[FG42,align="center"]
+image::https://gitlab.com/FG42/FG42/raw/master/share/icons/hicolor/128x128/apps/fg42.png[FG42,align="center"]
 ++++
 <div class="center-aligned download-btns">
-<a href="//github.com/FG42/FG42" class="lxbtn btn-success">
+<a href="//gitlab.com/FG42/FG42" class="lxbtn btn-success">
    <i class="fa fa-github"></i>
    Github
 </a>
