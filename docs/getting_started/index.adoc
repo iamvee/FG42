@@ -14,7 +14,7 @@ In order to install **FG42**, issue the following commands:
 [source,bash,linum]
 ----
 # clonse the FG42 repository in ~/.fg42 directory
-git clone git://github.com/FG42/FG42.git ~/.fg42/
+git clone git://gitlab.com/FG42/FG42.git ~/.fg42/
 # You can clone it where ever your want
 cd ~/.fg42/
 # You need to be sudoer, the install script will ask for your password.
