@@ -116,6 +116,10 @@
                                          (bm-buffer-save-all)
                                          (bm-repository-save))))
 
+  (ability livemd ()
+           "Live markdown preview."
+           (require 'fg42/extensions/development/livemd))
+
   (ability imenu ()
            "IMenu integration for FG42"
            (require 'imenu)
