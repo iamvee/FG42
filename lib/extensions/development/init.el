@@ -118,7 +118,7 @@
 
   (ability livemd ()
            "Live markdown preview."
-           (require 'fg42/extensions/development/livemd))
+           (require 'extensions/development/livemd))
 
   (ability imenu ()
            "IMenu integration for FG42"

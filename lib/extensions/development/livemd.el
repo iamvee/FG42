@@ -82,5 +82,5 @@
 (add-hook 'kill-emacs-query-functions (lambda () (livemd-kill t)))
 
 
-(provide 'fg42/extensions/development/livemd)
+(provide 'extensions/development/livemd)
 ;;; livemd.el ends here
