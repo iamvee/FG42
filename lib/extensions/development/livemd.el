@@ -14,7 +14,6 @@
 ;;; Commentary:
 ;; Realtime Markdown previews for Emacs.
 ;;; Code:
-
 (defgroup livemd nil
   "Realtime Markdown previews"
   :group 'livemd
@@ -49,15 +48,7 @@
 (defun livemd-preview ()
   "Preview the current file in livemd."
   (interactive)
-
   (call-process-shell-command (format "livedown stop --port %s &" livemd-port))
-
-  (message (format "%s start %s --port %s %s %s "
-                   livedown-path
-                   buffer-file-name
-                   livemd-port
-                   (if livemd-browser (concat "--browser " livemd-browser) "")
-                   (if livemd-open "--open" "")))
   (start-process-shell-command
    "livedown"
    "*fg42-livemd-buffer*"
@@ -66,20 +57,17 @@
            buffer-file-name
            livemd-port
            (if livemd-browser (concat "--browser " livemd-browser) "")
-           (if livemd-open "--open" ""))))
+           (if livemd-open "--open" "")))
 
-;;  (print (format "%s rendered @ %s" buffer-file-name livemd-port) (get-buffer "emacs-livemd-buffer")))
+  (add-hook 'kill-emacs-query-functions (lambda () (livemd-kill t)))
+  (print (format "%s rendered @ %s" buffer-file-name livemd-port) (get-buffer "emacs-livemd-buffer")))
+
 ;;;###autoload
 (defun livemd-kill (&optional async)
   "Stop the livemd process ASYNC or otherwise."
   (interactive)
   (let ((stop-livemd (if async 'async-shell-command 'call-process-shell-command)))
     (funcall stop-livemd (format "%s stop --port %s &" livedown-path livemd-port))))
-
-(if livemd-autostart
-  (eval-after-load 'markdown-mode '(livemd-preview)))
-
-(add-hook 'kill-emacs-query-functions (lambda () (livemd-kill t)))
 
 
 (provide 'extensions/development/livemd)

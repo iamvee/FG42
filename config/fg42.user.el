@@ -33,6 +33,7 @@
                      'common-lisp
                      'python
                      'arduino
+                     'racket
                      'irc
                      'latex)
 
