@@ -23,13 +23,38 @@
 ;;; Commentary:
 ;;; Code:
 
-(defmacro defkey (docstring map key-map fn)
+(require 'fg42/race)
+
+(defun -defkey-god (map key fn)
+  "Set the given KEY on key map MAP to FN."
+  (define-key map (kbd key) fn))
+
+
+(defun -defkey-human (map key fn)
+  "Set the given KEY on key map MAP to FN."
+  (define-key map (kbd key) fn))
+
+
+(defun -defkey-evil (map key fn)
+  "Set the given KEY on key map MAP to FN."
+  (define-key map (kbd key) fn))
+
+
+(defmacro defkey (map keys fn)
   "Defines a key binding for FG42 for different types.
-Defines a keybinding in the given MAP for the given KEY-MAP that maps
+Defines a keybinding in the given MAP for the given KEYS that maps
 to the given FN with the given DOCSTRING.
 
-KEY-MAP should be a plist in the following format:
-\(:god <keyma> :human <keymap> :evil <keymap)")
+KEYS should be a plist in the following format:
+\(:god <keyma> :human <keymap> :evil <keymap)"
+  (let ((god-key (plist-get keys :god))
+        (human-key (plist-get keys :human))
+        (evil-key  (plist-get keys :evil)))
+    (cond
+     ((is-god?) `(-defkey-god ,map ,god-key ,fn))
+     ((is-human?) `(-defkey-human ,map ,human-key ,fn))
+     ((is-evil? `(-defkey-evil ,map ,evil-key ,fn))))
+    (error "Wrong 'race' has been selected, Checkout `fg42-user-race'")))
 
 (provide 'fg42/key-bindings)
 ;;; key-bindings.el ends here
