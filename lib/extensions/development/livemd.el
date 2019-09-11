@@ -12,7 +12,10 @@
 ;; Kudos to Hrvoje Simic for his great work.
 
 ;;; Commentary:
-;; Realtime Markdown previews for Emacs.
+;; Realtime Markdown previews for Emacs.  install `livedown' package
+;; using npm like: `npm install -g livedown' and then use `livemd-preview'
+;; function to start the dev server.
+
 ;;; Code:
 (defgroup livemd nil
   "Realtime Markdown previews"
