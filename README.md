@@ -25,6 +25,8 @@ $ git clone git://gitlab.com:FG42/FG42.git ~/.fg42/
 # You can clone it where ever your want
 $ cd ~/.fg42/
 $ make install
+# Run fg42, It will download and build some lisp dependencies on the first execution.
+$ fg42
 ```
 Since the installer script uses `sudo`, during the installation process,
 you'll have to enter your password. Make sure that you're user account has
