@@ -6,6 +6,7 @@
 (depends-on 'clojure-mode)
 (depends-on 'cider)
 (depends-on 'paredit)
+(depends-on 'parinfer)
 (depends-on 'flycheck)
 (depends-on 'flycheck-clojure)
 (depends-on 'clj-refactor)

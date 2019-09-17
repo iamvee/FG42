@@ -4,7 +4,7 @@
 (defvar default-lisp-platform "sbcl"
   "The default Lisp compiler/interpreter to be used with common-lisp extension.")
 
-(defvar ql-slime-helper-path "~/.quicklisp/slime-helper.el"
+(defvar ql-slime-helper-path "~/quicklisp/slime-helper.el"
   "Default path for the slime-helper installed using quicklisp.")
 
 
@@ -15,6 +15,7 @@
 
   (setq inferior-lisp-program default-lisp-platform)
   (setq slime-contribs '(slime-fancy))
+  (slime-setup '(slime-company))
 
   (add-hook 'slime-load-hook
             (lambda ()
