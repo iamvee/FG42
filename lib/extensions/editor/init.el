@@ -364,7 +364,9 @@
            (if (file-directory-p "~/.backup")
                (setq backup-directory-alist '(("~/.backup")))
              (make-directory "~/.backup"))
-           (setq backup-by-copying t)
+           (setq backup-by-copying t))
+
+  (ability versioned-backup ('backup-files)
            (setq delete-old-versions t)
            (setq version-control t)
            (setq kept-new-versions 3)

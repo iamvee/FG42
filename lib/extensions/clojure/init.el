@@ -20,7 +20,7 @@
   ; Clojure development initialization
   (ability clojure-editor ('flycheck)
            (require 'clojure-mode)
-
+           (require 'flycheck-clj-kondo)
            (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
            (add-to-list 'auto-mode-alist '("\\.cljc$" . clojurec-mode))
            (add-to-list 'auto-mode-alist '("\\.cljs$" . clojurescript-mode))

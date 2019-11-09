@@ -1,16 +1,23 @@
-;;; IRCExtension --- Enables irc client on FG42
+;;; Godot --- Enables Godot game engine integration with FG42
 ;;; Commentary:
 ;;; Code:
 
+;; (defun setup-gdscript()
+;;   (setq-default indent-tabs-mode nil)
+;;   (setq tab-width 2)
+;;   (setq gdscript-tabs-mode t)
+;;   (setq gdscript-tab-width 2))
+
 (defun setup-gdscript()
-  (setq-default indent-tabs-mode nil)
-  (setq tab-width 4)
-  (setq gdscript-tabs-mode t)
-  (setq gdscript-tab-width 4))
+  (interactive)
+  (setq tab-width 2))
 
 ;;;###autoload
 (defun extensions/godot-initialize ()
-  (add-hook 'gdscript-mode-hook 'setup-gdscript)
+
+  (require 'extensions/godot/godot-gdscript)
+  (add-to-list 'auto-mode-alist '("\\.gd$" . godot-gdscript-mode))
+  (add-hook 'godot-gdscript-mode-hook 'setup-gdscript)
   (message "Godot Engine extension has been loaded."))
 
 (provide 'extensions/godot/init)

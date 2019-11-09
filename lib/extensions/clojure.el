@@ -12,7 +12,7 @@
 (depends-on 'clj-refactor)
 (depends-on 'let-alist)
 (depends-on 'clojure-mode-extra-font-locking)
-
+(depends-on 'flycheck-clj-kondo)
 ;(depends-on 'core-async-mode)
 (depends-on 'yesql-ghosts)
 (depends-on 'rainbow-delimiters)

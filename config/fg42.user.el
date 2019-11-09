@@ -15,7 +15,8 @@
 ;; Disable abilities which you don't want.
 (disable 'rbenv 'helm 'spell 'linum 'tabbar
          'smart-mode-line 'desktop-mode 'lsp
-         'dired+ 'guru 'emoji 'elpy 'github)
+         'dired+ 'guru 'emoji 'elpy 'github
+         'versioned-backup)
 
 
 ;; EXTENSIONS

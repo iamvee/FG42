@@ -38,6 +38,7 @@
 (require 'fg42/base)
 (require 'fg42/splash)
 (require 'fg42/race)
+(require 'fg42/utils)
 
 (defun fg42-initialize ()
   "Initialize FG42 editor."

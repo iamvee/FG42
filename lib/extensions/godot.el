@@ -6,7 +6,7 @@
 (require 'extensions/godot/init)
 
 ;; Dependencies ----------------------------------
-(depends-on 'gdscript-mode)
+;; (depends-on 'gdscript-mode)
 
 
 (defun godot-doc ()
