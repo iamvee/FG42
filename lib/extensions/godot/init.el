@@ -10,7 +10,8 @@
 
 (defun setup-gdscript()
   (interactive)
-  (setq tab-width 2))
+  (setq tab-width 2)
+  (setq indent-tab-mode nil))
 
 ;;;###autoload
 (defun extensions/godot-initialize ()
