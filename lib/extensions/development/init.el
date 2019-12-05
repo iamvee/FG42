@@ -61,6 +61,9 @@
            "LSP integration for FG42"
            (require 'lsp-mode)
            (require 'lsp-ui-imenu)
+
+           ;; Disabling inline actions. Accessable via lsp-execute-code-action
+           (setq lsp-ui-sideline-show-code-actions nil)
            (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
            (setq lsp-ui-sideline-ignore-duplicate t)
            (setq lsp-prefer-flymake nil)

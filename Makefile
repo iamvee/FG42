@@ -24,3 +24,8 @@ install:
 install-fonts:
 	@mkdir -p ~/.fonts/
 	@cp -rv ./share/fonts/vazir/* ~/.fonts/
+build-image:
+	docker build . -t fg42:1 --build-arg emacs_version=26.3
+
+clean-image:
+	docker rmi fg42:1
