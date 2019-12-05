@@ -68,6 +68,9 @@
               (depends-on 'lsp-ui)
               (depends-on 'company-lsp))
 
+(with-ability dap
+              (depends-on 'dap-mode))
+
 ;; TODO: Add flycheck-color-modebar
 ;; TODO  Add flycheck-tip
 

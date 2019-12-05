@@ -66,6 +66,9 @@
            (setq lsp-prefer-flymake nil)
            (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
+  (ability dap ('lsp)
+           (dap-mode 1)
+           (dap-ui-mode 1))
 
   (ability bookmarks ()
            (setq bm-restore-repository-on-load t)

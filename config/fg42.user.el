@@ -14,7 +14,7 @@
 ;; =========
 ;; Disable abilities which you don't want.
 (disable 'rbenv 'helm 'spell 'linum 'tabbar
-         'smart-mode-line 'desktop-mode 'lsp
+         'smart-mode-line 'desktop-mode
          'dired+ 'guru 'emoji 'elpy 'github
          'versioned-backup)
 
@@ -34,6 +34,7 @@
                      'common-lisp
                      'python
                      'arduino
+                     'java
                      'racket
                      'irc
                      'latex)
