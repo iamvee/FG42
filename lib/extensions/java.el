@@ -9,6 +9,9 @@
 ;; Dependencies ----------------------------------
 
 (depends-on 'gradle-mode)
+(depends-on 'flycheck-gradle)
+
+(depends-on 'groovy-mode)
 
 (with-ability lsp-java
               (depends-on 'lsp-java))

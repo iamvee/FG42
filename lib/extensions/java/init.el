@@ -6,6 +6,9 @@
 (defun extensions/java-initialize ()
   "Initialize the common Lisp extension."
 
+  (add-to-list 'auto-mode-alist
+               '("\\.gradle\\'" . groovy-mode))
+
   (require 'gradle-mode)
   (add-hook 'java-mode-hook
             '(lambda()
