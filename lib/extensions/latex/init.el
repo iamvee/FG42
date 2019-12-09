@@ -1,12 +1,12 @@
 ;;;###autoload
 (defun extensions/latex-initialize ()
-  ;;LaTeX development initialization
-  (ability lsp-latex ('lsp)
-           "Latex autocompletion support."
-	   (setq lsp-latex-texlab-executable "/usr/bin/texlab")
-           (require 'extensions/latex/lsp-latex)
-	   (add-hook 'tex-mode-hook 'lsp)
-	   (add-hook 'latex-mode-hook 'lsp)))
-
+"Latex autocompletion support."
+	   (require 'extensions/latex/lsp-latex)
+	   (with-eval-after-load "tex-mode"
+	     (add-hook 'latex-mode-hook 'latex-mode-hook
+		       '(lambda()
+			  (ability lsp-latex ('lsp)
+				   (setq lsp-latex-texlab-executable "/usr/bin/texlab")
+				   (lsp))))))
 
 (provide 'extensions/latex/init)
