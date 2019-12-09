@@ -142,18 +142,20 @@
                                       '("\\.pyi\\'" . cython-mode))
                          (add-to-list 'auto-mode-alist
                                       '("\\.pyx\\'" . cython-mode)))
-           (with-ability lsp
-                         ;; Instruct LSP to use pyls
+           (ability lsp-python ()
+                    ;; Instruct LSP to use pyls
+                    (require 'lsp-python-ms)
+                    ;; (lsp-register-client
+                    ;;  (make-lsp-client :new-connection (lsp-stdio-connection "pyls")
+                    ;;                   :major-modes '(python-mode)
+                    ;;                   :server-id 'pyls))
+                    ;; Setup LSP for python mode
+                    (add-hook 'python-mode-hook
+                              (lambda ()
+                                (push 'company-lsp company-backends)
+                                (lsp)
+                                (setq lsp-ui-sideline-show-code-actions nil)))))
 
-                         (lsp-register-client
-                          (make-lsp-client :new-connection (lsp-stdio-connection "pyls")
-                                           :major-modes '(python-mode)
-                                           :server-id 'pyls))
-                         ;; Setup LSP for python mode
-                         (add-hook 'python-mode-hook
-                                   (lambda ()
-                                     (push 'company-lsp company-backends)
-                                     (lsp)))))
 
 
   (ability python-code-completion ('code-completion)

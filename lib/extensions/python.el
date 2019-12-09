@@ -25,6 +25,9 @@
 (with-ability cython-editor
               (depends-on 'cython-mode))
 
+(with-ability lsp-python
+              (depends-on 'lsp-python-ms))
+
 ;; Extension -------------------------------------
 (extension python
 	   :version "2.31"
