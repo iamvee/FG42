@@ -3,7 +3,7 @@
   ;;LaTeX development initialization
   (ability lsp-latex ('lsp)
            "Latex autocompletion support."
-	   (setq lsp-latex-texlab-executable "/home/velorin/texlab-x86_64-linux/texlab")
+	   (setq lsp-latex-texlab-executable "/usr/bin/texlab")
            (require 'extensions/latex/lsp-latex)
 	   (add-hook 'tex-mode-hook 'lsp)
 	   (add-hook 'latex-mode-hook 'lsp)))
