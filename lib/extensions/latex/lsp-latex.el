@@ -130,5 +130,5 @@ PARAMS progress report notification data."
                      ("window/progress"
                       'lsp-latex-window-progress))))
 
-(provide 'lsp-latex)
+(provide 'extensions/latex/lsp-latex)
 ;;; lsp-latex.el ends here
