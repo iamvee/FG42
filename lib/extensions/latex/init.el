@@ -1,12 +1,13 @@
+(defun latex-run-lsp ()
+  (require 'extensions/latex/lsp-latex)
+  (setq lsp-latex-texlab-executable "texlab")
+  (lsp))
+
+
 ;;;###autoload
 (defun extensions/latex-initialize ()
   "Latex autocompletion support."
   (ability lsp-latex ('lsp)
-           (with-eval-after-load "tex-mode"
-             (add-hook 'latex-mode-hook 'latex-mode-hook
-	               '(lambda()
-                          (require 'extensions/latex/lsp-latex)
-		          (setq lsp-latex-texlab-executable "/usr/bin/texlab")
-		          (lsp))))))
+           (add-hook 'tex-mode-hook 'latex-run-lsp)))
 
 (provide 'extensions/latex/init)
