@@ -5,9 +5,8 @@
            "Latex autocompletion support."
 	   (setq lsp-latex-texlab-executable "/home/velorin/texlab-x86_64-linux/texlab")
            (require 'extensions/latex/lsp-latex)
-	   (with-eval-after-load "tex-mode"
 	   (add-hook 'tex-mode-hook 'lsp)
-	   (add-hook 'latex-mode-hook 'lsp))))
+	   (add-hook 'latex-mode-hook 'lsp)))
 
 
 (provide 'extensions/latex/init)
