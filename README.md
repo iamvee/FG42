@@ -161,6 +161,13 @@ Finally you have to enable this extension in the yourfg42home/fg42-confilg.el fi
 
 you are done. enjoy using your extension!
 
+## Latex-lsp mode
+
+FG42 has a builtin support for LaTeX language. In the latest version Microsoft lsp-latex language server has been used for this purpose. You need to download the [texlab](https://github.com/latex-lsp/texlab/releases) binary for your operating system and put it in your class path (e.g /usr/bin/texlab). If FG42 didn't load the server automatically, you can run the server with the following command:
+```
+M-x latex-run-lsp
+```
+
 ## Debugging
 If you ran into an issue and want to debug FG42, the best and easiest way is to turn on
 debugging by uncommenting `(setq debug-on-error t)` in your configuration (`~/.fg42.el`)
