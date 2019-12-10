@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (defun latex-run-lsp ()
+  (interactive)
   "Run lsp-mode and set the texlab executable path."
   (require 'extensions/latex/lsp-latex)
   (setq lsp-latex-texlab-executable "texlab")
