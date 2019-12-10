@@ -1,9 +1,9 @@
+;;; latex-extension --- Latex extension for FG42
+;;; Commentary:
+;;; Code:
 (require 'fpkg)
 (require 'fg42/extension)
 (require 'extensions/latex/init)
-
-;; Dependencies ----------------------------------
-;(depends-on 'lsp-mode)
 
 ;TODO: add to MELPA and remove lsp-latex.el file beside init.el
 ;(with-ability lsp-latex (depends-on 'lsp-latex))
@@ -18,3 +18,4 @@
      :docs "lib/extensions/latex/readme.org")
 
 (provide 'extensions/latex)
+;;; latex.el ends here
