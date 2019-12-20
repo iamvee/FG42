@@ -28,6 +28,9 @@
 (with-ability lsp-python
               (depends-on 'lsp-python-ms))
 
+(with-ability python-black
+              (depends-on 'python-black))
+
 ;; Extension -------------------------------------
 (extension python
 	   :version "2.31"

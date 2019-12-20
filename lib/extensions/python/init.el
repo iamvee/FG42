@@ -114,8 +114,10 @@
            ;; enable autopep8 formatting on save
            (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save))
 
-
-
+  (ability python-black '()
+           "Add support for black syntax linter"
+           (require 'python-black)
+           (add-hook 'python-mode-hook 'python-black-on-save-mode))
 
   (ability venv ()
            "Virtualenv support"
