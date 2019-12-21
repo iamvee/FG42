@@ -21,7 +21,7 @@ In order to install **FG42**, issue the following commands:
 
 ```bash
 # clonse the FG42 repository in ~/.fg42 directory
-$ git clone git://gitlab.com:FG42/FG42.git ~/.fg42/
+$ git clone https://gitlab.com/FG42/FG42.git ~/.fg42/
 # You can clone it where ever your want
 $ cd ~/.fg42/
 $ make install
