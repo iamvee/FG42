@@ -15,6 +15,7 @@
 
 (with-ability lsp-java
               (depends-on 'lsp-java))
+              ;;(depends-on 'dap-java))
 
 
 (defun java-doc ()
