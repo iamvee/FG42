@@ -16,7 +16,6 @@
                (c-set-offset 'arglist-intro '+)
                (setq java-basic-offset 2)
                (setq c-basic-offset 2)
-               (setq c-offsets-alist '((arglist-cont-nonempty . +)))
                (ability lsp-java ('lsp)
                         (setq lsp-java-server-install-dir fg42-tmp)
                         (lsp))
