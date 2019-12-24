@@ -12,6 +12,10 @@
   (require 'gradle-mode)
   (add-hook 'java-mode-hook
             '(lambda()
+               ;; To fix the indentation of function arguments
+               (c-set-offset 'arglist-intro '+)
+               (setq java-basic-offset 2)
+               (setq c-basic-offset 2)
                (ability lsp-java ('lsp)
                         (setq lsp-java-server-install-dir fg42-tmp)
                         (lsp))
