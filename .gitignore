@@ -23,3 +23,5 @@ lib/**/*.elc
 *.elc
 tmp/
 test-runner/
+.guix/
+.store/
