@@ -25,21 +25,54 @@
 ;;; Commentary:
 
 ;;; Code:
+(require 'cl-lib)
 (require 'projectile)
 
 ;; Vars ------------------------
-(defvar fg42-default-project-file ".fg42.el"
+(defvar project-manager-default-project-file
+  ".fg42.project.el"
   "The name of default project file in projects.")
 
+(defvar project-manager-project-name-suffix
+  "-project"
+  "The string suffix to be attached to the project names.")
+
+;; Structures -----------------------------
+(cl-defstruct fg42-project
+  "Define a FG42 project properties.
+Each fg42 project file should define an instance of this data structure
+and bind a name to it that follows the
+`<projectile-project-name>-<project-manager-project-name-suffix>'
+ format."
+  (docs nil)
+  (api-version "0.1.0")
+  (dependencies '())
+  (external-dependencies '())
+
+  ;; Describes
+  (on-initialize nil)
+  (on-load)
+  ;; An associated array of major modes to their
+  ;; debugger function
+  (print-debugger nil))
+
 ;; Functions -------------------
-(defun project-manager/load-file (file-name)
+(defun project-manager-load-file (file-name)
   "Find and load the given FILE-NAME relative to the project root dir."
   (let ((root (projectile-project-root)))
     (load-file (concat (file-name-as-directory root) file-name))))
 
 
-;; (defmacro define-project ()
-;;     `(defun ,(projectile-project-name)))
+(defmacro defproject (&optional args)
+  "Define the different aspects of a project by using ARGS.
+
+Name of the project extracts from projectile.  For more information
+about the different properties of the project take a look at
+`fg42-project' structure."
+  `(setq ,(concat (projectile-project-name)
+                  (fg42-project-name-suffix))
+         (apply 'make-fg42-project (quote ,args))))
+
 
 (provide 'project-manager)
 ;;; project-manager.el ends here
