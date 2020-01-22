@@ -4,63 +4,69 @@ set -o pipefail
 
 OUTPUTDIR=$1
 
-function install_proot {
-    local -r proot_url="http://static.proot.me/proot-x86_64"
-    wget -O "$1/proot" "${proot_url}"
-    chmod u+x "$1/proot"
-}
 
-function install_guix {
-  local -r bindir="${OUTPUTDIR}/bin"
-  local -r guix_dir="${OUTPUTDIR}/mnt/guix"
-  local -r guix_version="1.0.1"
-  local -r arch="x86_64"
-  local -r os="linux"
-  local -r guix_url="https://ftp.gnu.org/gnu/guix/guix-binary-${guix_version}.${arch}-${os}.tar.xz"
-  mkdir -p "${bindir}"
-  install_proot "${bindir}"
+bindir="${OUTPUTDIR}/bin"
+guix_dir="${OUTPUTDIR}/mnt/guix"
+guix_version="1.0.1"
+arch="x86_64"
+os="linux"
+guix_url="https://ftp.gnu.org/gnu/guix/guix-binary-${guix_version}.${arch}-${os}.tar.xz"
 
-  mkdir -p "${guix_dir}"
-  pushd "${guix_dir}"
-  wget "${guix_url}"
-  tar --warning=no-timestamp -xf guix-*.xz
-  popd
+mkdir -p "${bindir}"
 
-  local -r guix_path=`find "$guix_dir/gnu/store" -iname "guix" | grep bin | head -1`
-  local -r guix_bin=$(dirname $guix_path)
+mkdir -p "${guix_dir}"
+pushd "${guix_dir}"
+wget "${guix_url}"
+tar --warning=no-timestamp -xf guix-*.xz
+popd
 
-  ROOT_DIR=$OUTPUTDIR/root
-  mkdir -p $ROOT_DIR/.config/guix/current
+# mv ${guix_dir}/gnu ${OUTPUTDIR}
+# mv ${guix_dir}/var ${OUTPUTDIR}
 
-  ln -s $guix_dir/var/guix/profiles/per-user/root/current-guix $ROOT_DIR/.config/guix/current
+pushd $guix_dir
+guix_path=`find . -iname "guix" | grep bin | head -1`
+guix_bin=$(dirname $guix_path | sed 's/^.//')
 
-  #$guix_dir/var/guix/profiles/per-user/$(whoami)/current-guix
-  #GUIX_PROFILE=$guix_dir/var/guix/profiles/per-user/$(whoami)/current-gui
+daemon_path=`find . -iname "guix-daemon" | grep bin | head -1`
+daemon_bin=$(dirname $guix_path | sed 's/^.//')
+popd
 
-  GUIX_PROFILE=$ROOT_DIR/.config/guix/current
+# local -r bash_bin=$(dirname `find "$OUTPUTDIR/gnu/store" -iname "bash" | grep bin | head -1`)
 
-  export PATH="${bindir}:${guix_bin}:${PATH}"
+# echo "###"
+# echo $bash_bin
+# local -r guix_path=`find "$OUTPUTDIR/gnu/store" -iname "guix-daemon" | grep bin | head -1`
+# local -r guix_bin=$(dirname $guix_path)
 
-  {
+# ROOT_DIR=$OUTPUTDIR/root
+# mkdir -p $ROOT_DIR/.config/guix/current
+
+# ln -sf $OUTPUTDIR/var/guix/profiles/per-user/root/current-guix $ROOT_DIR/.config/guix/current
+# ln -sf $bash_bin/bash $OUTPUTDIR/bin/bash
+#$guix_dir/var/guix/profiles/per-user/$(whoami)/current-guix
+#GUIX_PROFILE=$guix_dir/var/guix/profiles/per-user/$(whoami)/current-gui
+
+#GUIX_PROFILE=$ROOT_DIR/.config/guix/current
+
+export PATH="${bindir}:${guix_bin}:${PATH}"
+
+{
     echo "#!/usr/bin/env bash"
     echo
-    echo "proot -b \"${guix_dir}/gnu:/gnu\" -b \"${ROOT_DIR}/:/root\" -b \"${guix_dir}/var/guix:/var/guix\" --root-id \$@"
-  } > "${bindir}/runner"
-  chmod u+x "${bindir}/runner"
+    echo "proot -r ${guix_dir} -b /dev -b /proc -b /sys --root-id $guix_bin/guix \$@"
+} > "${bindir}/guix"
+chmod u+x "${bindir}/guix"
 
-  {
+{
     echo "#!/usr/bin/env bash"
     echo
-    echo "proot -b \"${guix_dir}/gnu:/gnu\" -b \"${ROOT_DIR}/:/root\" -b \"${guix_dir}/var/guix:/var/guix\" --root-id '$ROOT_DIR/.config/guix/current/bin/guix-daemon --build-users-group=\$(whoami)'"
-  } > "${bindir}/fpkg-daemon"
-  chmod u+x "${bindir}/fpkg-daemon"
+    echo "proot -R ${guix_dir} -w / -b /dev -b /proc -b /sys -b /tmp:/tmp --root-id $daemon_bin/guix-daemon --build-users-group=\$(whoami)"
+    # /root/.config/guix/current/bin/guix-daemon --build-users-group=\$(whoami)
+} > "${bindir}/guix-daemon"
+chmod u+x "${bindir}/guix-daemon"
 
-  {
+{
     echo "#!/usr/bin/env bash"
     echo
     echo "export PATH=${PATH}"
-  } > "${OUTPUTDIR}/profile"
-
-}
-
-install_guix
+} > "${OUTPUTDIR}/profile"
