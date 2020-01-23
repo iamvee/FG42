@@ -25,3 +25,4 @@ tmp/
 test-runner/
 .guix/
 .store/
+fs/

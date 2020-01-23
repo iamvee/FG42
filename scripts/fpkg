@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+set -e
+
+./fs/bin/guix-daemon &
+sleep 2
+./fs/bin/guix $@
+guix_daemon_id=$(jobs -p|grep guix-daemon |head -1|cut -d ' ' -f 4)
+kill -15 $guix_daemon_id

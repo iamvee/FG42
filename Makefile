@@ -29,3 +29,10 @@ build-image:
 
 clean-image:
 	docker rmi fg42:1
+
+new-install:
+	bash ./scripts/install_guix.sh ./fs
+	cp ./scripts/fpkg ./fs/bin/
+	cp ./scripts/acl ./fs/
+new-clean:
+	sudo rm -rf ./fs

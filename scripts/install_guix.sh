@@ -46,11 +46,13 @@ PROFILE_DIR=/root/.config/guix/current/
 #GUIX_PROFILE=$ROOT_DIR/.config/guix/current
 
 export PATH="${bindir}:${guix_bin}:${PATH}"
+proot_bin="proot -R ${guix_dir} -w / -b /etc/passwd:/etc/passwd -b /dev -b /proc -b /sys -b /tmp:/tmp -b ./fs/acl:./etc/guix/acl -0 --root-id"
 
+guix archive --authorize < /root/.guix-profile/share/guix/hydra.gnu.org.pub
 {
     echo "#!/usr/bin/env bash"
     echo
-    echo "proot -R ${guix_dir} -w / -b /dev -b /proc -b /sys -b /tmp:/tmp --root-id $PROFILE_DIR/bin/guix \$@"
+    echo "${proot_bin} $PROFILE_DIR/bin/guix \$@"
 } > "${bindir}/guix"
 chmod u+x "${bindir}/guix"
 
@@ -58,7 +60,7 @@ chmod u+x "${bindir}/guix"
     echo "#!/usr/bin/env bash"
     echo
     echo 'echo $(whoami)'
-    echo "proot -R ${guix_dir} -w / -b /dev -b /proc -b /sys -b /tmp:/tmp --root-id $PROFILE_DIR/bin/guix-daemon --build-users-group=\$(whoami) \$@"
+    echo "${proot_bin} $PROFILE_DIR/bin/guix-daemon --build-users-group=\$(whoami) \$@"
 } > "${bindir}/guix-daemon"
 chmod u+x "${bindir}/guix-daemon"
 
