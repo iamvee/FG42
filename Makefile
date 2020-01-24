@@ -12,11 +12,12 @@ install:
 	@echo "export FG42_HOME=$(shell pwd)" >> ./fg42
 	@echo 'emacs --name FG42 --no-site-file --no-site-lisp --no-splash --title FG42 -l $$FG42_HOME/fg42-config.el "$$@"' >> ./fg42
 	@chmod +x ./fg42
-	@sudo rm -f /usr/local/bin/fg42
-	@sudo ln -s `pwd`/fg42 /usr/local/bin/fg42
+	@[ `which fg42` ] && echo "\033[32;1mfg42 already exists\033[0m" ||  echo 'export PATH="$$PATH:$$HOME/fg42"' > $HOME/.profile
+	@# sudo rm -f /usr/local/bin/fg42
+	@# sudo ln -s `pwd`/fg42 /usr/local/bin/fg42
 	@echo "Copying share files..."
-	@sudo mkdir -p /usr/share/fg42/
-	@sudo cp -r ./share/* /usr/share/fg42/
+	@bash -c "[ "`whoami`" == "root" ] && mkdir -p /usr/share/fg42/ || echo not root "
+	@bash -c "[ "`whoami`" == "root" ] && cp -r ./share/* /usr/share/fg42/ || echo not root "
 	@echo " "
 	@echo "------------------------------------------------------------------------------------"
 	@echo "Make sure to install external dependencies of FG42. For more info checkout README.md"
